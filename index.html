@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Site</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --accent-color: #4fc3dc;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --dark-bg: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        header {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--secondary-color);
+        }
+        
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .intro img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .skill {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 1.5rem;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card .content {
+            padding: 1.5rem;
+        }
+        
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .project-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card .tag {
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        
+        .project-card .links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-card .links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .project-card .links a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Akniyet Tulakbayev</h1>
+            <p>Software Engineer | Python Developer | Data Automation Engineer</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="intro">
+                <img src="/api/placeholder/400/400" alt="Your Profile Picture">
+                <p>Hello! I'm a software engineer specializing in Python development and process automation. I focus on creating efficient solutions that solve complex problems and streamline business operations. This personal site showcases my projects and technical expertise.</p>
+                
+                <div class="skills">
+                    <div class="skill">Python</div>
+                    <div class="skill">PyQt5</div>
+                    <div class="skill">SQLite</div>
+                    <div class="skill">Pandas</div>
+                    <div class="skill">Git</div>
+                    <div class="skill">HTML/CSS</div>
+                    <div class="skill">Process Automation</div>
+                    <div class="skill">Database Design</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects" style="background-color: #f0f4f8;">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects">
+                <!-- Logistics Data Processor Project -->
+                <div class="project-card">
+                    <div class="content">
+                        <h3>Logistics Data Processor</h3>
+                        <p>An integrated desktop application that automates data workflows, reducing processing time by 70% and eliminating manual steps for logistics reporting.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">PyQt5</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">Pandas</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/aqniyet/LogisticsDataProcessor" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" onclick="window.location.href='#logistics-project-details'; return false;"><i class="fas fa-info-circle"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More projects will be added here as they are developed -->
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Detailed Project Section -->
+    <section id="logistics-project-details" style="background-color: white; padding-top: 6rem; margin-top: -2rem;">
+        <div class="container">
+            <h2 class="section-title">Logistics Data Processor</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="margin-bottom: 3rem;">
+                    <h3>Project Overview</h3>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem;">
+                        <div>
+                            <p><strong>Type:</strong> Desktop Application</p>
+                            <p><strong>Technologies:</strong> Python, PyQt5, SQLite, Pandas</p>
+                            <p><strong>Role:</strong> Project Lead & AI Mentor</p>
+                            <p><strong>Note:</strong> Code was written by AI under my mentorship and direction</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 3rem;">
+                    <h3>Problem & Solution</h3>
+                    <div style="background-color: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>Problem:</strong> Manual reporting process dependent on multiple tools and specialized knowledge.</p>
+                        <p><strong>Solution:</strong> Integrated desktop application automating the entire workflow.</p>
+                        <p><strong>Impact:</strong> 70% reduction in processing time, elimination of manual steps, enabling any team member to generate reports.</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 3rem;">
+                    <h3>Technical Overview</h3>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li style="margin-bottom: 1rem;">
+                            <h4>Core Features</h4>
+                            <p>File processing, data mapping, automated reporting, and expense tracking</p>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <h4>Architecture</h4>
+                            <p>Modular design with database layer, core processing engine, and user interface</p>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <h4>Database</h4>
+                            <p>SQLite for reference data management and lookup tables</p>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <h4>UI</h4>
+                            <p>PyQt5-based tabbed interface with progress tracking and detailed logging</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div style="margin-bottom: 3rem;">
+                    <h3>Implementation Highlights</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div style="background-color: #f0f4f8; padding: 1.5rem; border-radius: 8px;">
+                            <h4>Challenges & Solutions</h4>
+                            <p>Complex data transformations and validation requirements were addressed through a robust processing pipeline with comprehensive error handling.</p>
+                        </div>
+                        <div style="background-color: #f0f4f8; padding: 1.5rem; border-radius: 8px;">
+                            <h4>Skills Demonstrated</h4>
+                            <p>Process automation, database design, user interface development, business process analysis, Python development</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Future Enhancements</h3>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
+                            <h4 style="color: white;">Web Application</h4>
+                            <p>Convert to browser-based solution</p>
+                        </div>
+                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
+                            <h4 style="color: white;">API Integration</h4>
+                            <p>Enable connections with other systems</p>
+                        </div>
+                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
+                            <h4 style="color: white;">Enhanced Analytics</h4>
+                            <p>Add reporting and visualization features</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 3rem; text-align: center;">
+                    <a href="#projects" style="display: inline-block; background-color: var(--secondary-color); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none;">
+                        <i class="fas fa-arrow-left"></i> Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/aqniyet" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/akniyet-tulakbayev/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <!-- Add more social links as needed -->
+            </div>
+            <p>&copy; 2025 Akniyet Tulakbayev. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
