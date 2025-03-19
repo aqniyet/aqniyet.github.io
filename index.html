@@ -399,14 +399,18 @@
         }
         
         .phone-link {
-            text-decoration: none;
+            background-color: var(--primary-color);
             color: white;
-            transition: all 0.3s ease;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
         }
         
         .phone-link:hover {
-            color: var(--secondary-color);
-            transform: scale(1.05);
+            color: var(--secondary-color)
         }
         
         @media (max-width: 768px) {
