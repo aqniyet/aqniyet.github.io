@@ -315,6 +315,40 @@
         button:hover {
             background-color: var(--secondary-color);
         }
+        #submitButton {
+            width: 200px;
+            margin: 0 auto;
+        }
+        
+        /* OR divider styling */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .divider span {
+            padding: 0 1rem;
+            color: #777;
+            font-weight: 500;
+        }
+        
+        /* Make the buttons stack nicely on mobile */
+        @media (max-width: 500px) {
+            #submitButton,
+            .phone-link {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
         
         footer {
             background-color: var(--dark-bg);
@@ -780,12 +814,17 @@
                         <textarea id="message" name="message" required></textarea>
                     </div>
                     
-                    <!-- Updated button layout with both buttons side by side -->
-                    <div style="display: flex; gap: 1rem; justify-content: flex-start;">
-                        <button type="submit" id="submitButton">
+                    <!-- Button layout with OR divider -->
+                    <div style="text-align: center;">
+                        <button type="submit" id="submitButton" style="width: 200px;">
                             <i class="fas fa-envelope"></i> Send Message
                         </button>
-                        <a href="tel:+77018776748" class="phone-link" style="display: inline-flex; align-items: center; text-decoration: none;">
+                        
+                        <div class="divider">
+                            <span>OR</span>
+                        </div>
+                        
+                        <a href="tel:+77018776748" class="phone-link" style="width: 200px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
                             <i class="fas fa-phone"></i> Call
                         </a>
                     </div>
@@ -797,7 +836,7 @@
         </div>
         
         <!-- Notification element for form submission feedback -->
-        <div id="notification" class="notification"></div>        
+        <div id="notification" class="notification"></div>
     </section>
     
     <footer>
