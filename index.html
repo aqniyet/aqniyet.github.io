@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqniyet Tulakbayev</title>
+    <title>Aqniyet Tulakbayev | Vibe Coding Engineer</title>
     <style>
         :root {
-            --primary-color: #4a6fa5;
-            --secondary-color: #166088;
-            --accent-color: #4fc3dc;
+            --primary-color: #7B68EE; /* Medium Slate Blue */
+            --secondary-color: #483D8B; /* Dark Slate Blue */
+            --accent-color: #9370DB; /* Medium Purple */
             --text-color: #333;
             --light-bg: #f9f9f9;
-            --dark-bg: #333;
+            --dark-bg: #2c2a3a; /* Dark violet-tinted background */
         }
         
         * {
@@ -249,6 +249,64 @@
             color: var(--accent-color);
         }
         
+        /* New styles for notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 4px;
+            color: white;
+            font-weight: 500;
+            z-index: 1000;
+            transform: translateY(-100px);
+            transition: transform 0.3s ease-in-out;
+            max-width: 300px;
+        }
+        
+        .notification.success {
+            background-color: #4CAF50;
+        }
+        
+        .notification.error {
+            background-color: #f44336;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+        }
+        
+        /* AI coding section */
+        .ai-coding {
+            background-color: #f0f0ff; /* Light violet tint */
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .ai-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .ai-tool {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .ai-tool img {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
+        }
+        
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -269,14 +327,15 @@
 <body>
     <header>
         <div class="container">
-            <h1>Akniyet Tulakbayev</h1>
-            <p>Software Engineer | Python Developer | Data Automation Engineer</p>
+            <h1>Aqniyet Tulakbayev</h1>
+            <p>Vibe Coding Creator | AI-Assisted Developer | Digital Problem Solver</p>
         </div>
     </header>
     
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
+            <li><a href="#vibe-coding">Vibe Coding</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -286,23 +345,75 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="intro">
-                <img src="your-profile-photo.jpg" alt="Akniyet Tulakbayev">
-                <p>Hello! I'm a software engineer specializing in Python development and process automation. I focus on creating efficient solutions that solve complex problems and streamline business operations. This personal site showcases my projects and technical expertise.</p>
+                <img src="your-profile-photo.jpg" alt="Aqniyet Tulakbayev">
+                <p>Hello! I'm a creator who uses "Vibe Coding" - a collaborative approach with AI tools to build digital solutions. While I'm new to traditional programming, I've discovered how to create functional applications by effectively guiding AI tools like Claude and Cursor. I focus on solving real problems and automating tasks without needing years of coding experience.</p>
                 
                 <div class="skills">
                     <div class="skill">Python</div>
                     <div class="skill">PyQt5</div>
+                    <div class="skill">Flask</div>
                     <div class="skill">SQLite</div>
                     <div class="skill">Git</div>
                     <div class="skill">HTML/CSS</div>
                     <div class="skill">Process Automation</div>
-                    <div class="skill">Database Design</div>
+                    <div class="skill">AI-Assisted Development</div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section id="projects" style="background-color: #f0f4f8;">
+    <section id="vibe-coding" style="background-color: #f8f0ff;"><!-- Light violet background -->
+        <div class="container">
+            <h2 class="section-title">Vibe Coding</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                                    <p>Vibe Coding is my approach to creating digital solutions without traditional programming expertise. I collaborate with AI tools through effective prompting and guidance to build functional applications. I believe this represents a new paradigm where creativity and problem-solving skills matter more than technical coding knowledge.</p>
+                
+                <div class="ai-coding">
+                    <h3>My AI Collaboration Stack</h3>
+                    <p>I use these tools to accelerate development while maintaining high quality standards:</p>
+                    
+                    <div class="ai-tools">
+                        <div class="ai-tool">
+                            <i class="fas fa-robot" style="margin-right: 8px;"></i>
+                            <span>Claude (Anthropic)</span>
+                        </div>
+                        <div class="ai-tool">
+                            <i class="fas fa-code" style="margin-right: 8px;"></i>
+                            <span>Cursor</span>
+                        </div>
+                        <div class="ai-tool">
+                            <i class="fas fa-terminal" style="margin-right: 8px;"></i>
+                            <span>GitHub Copilot</span>
+                        </div>
+                        <div class="ai-tool">
+                            <i class="fas fa-brain" style="margin-right: 8px;"></i>
+                            <span>Custom AI Workflows</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h3>Benefits of Vibe Coding</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; text-align: left;">
+                        <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                            <h4><i class="fas fa-bolt" style="color: var(--accent-color);"></i> Accelerated Development</h4>
+                            <p>Complete projects 3-5x faster with AI assistance for boilerplate and routine tasks</p>
+                        </div>
+                        <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                            <h4><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Improved Quality</h4>
+                            <p>AI helps catch bugs, suggest optimizations, and maintain consistent code style</p>
+                        </div>
+                        <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                            <h4><i class="fas fa-lightbulb" style="color: var(--accent-color);"></i> Creative Solutions</h4>
+                            <p>AI suggests alternative approaches I might not have considered</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
         <div class="container">
             <h2 class="section-title">My Projects</h2>
             <div class="projects">
@@ -316,21 +427,40 @@
                             <span class="tag">PyQt5</span>
                             <span class="tag">SQLite</span>
                             <span class="tag">Pandas</span>
+                            <span class="tag">AI-Assisted</span>
                         </div>
                         <div class="links">
                             <a href="https://github.com/aqniyet/LogisticsDataProcessor" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="#" onclick="window.location.href='#logistics-project-details'; return false;"><i class="fas fa-info-circle"></i> Details</a>
+                            <a href="#logistics-project-details"><i class="fas fa-info-circle"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Telegram Contact Integration Project -->
+                <div class="project-card">
+                    <div class="content">
+                        <h3>Website-to-Telegram Integration</h3>
+                        <p>A Flask backend that connects this website's contact form to Telegram, enabling real-time message notifications without checking email.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">API</span>
+                            <span class="tag">Telegram</span>
+                            <span class="tag">AI-Assisted</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/aqniyet/website-telegram" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#telegram-project-details"><i class="fas fa-info-circle"></i> Details</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- More projects will be added here as they are developed -->
-                
             </div>
         </div>
     </section>
     
-    <!-- Detailed Project Section -->
+    <!-- Detailed Project Section for Logistics -->
     <section id="logistics-project-details" style="background-color: white; padding-top: 6rem; margin-top: -2rem;">
         <div class="container">
             <h2 class="section-title">Logistics Data Processor</h2>
@@ -343,7 +473,7 @@
                             <p><strong>Type:</strong> Desktop Application</p>
                             <p><strong>Technologies:</strong> Python, PyQt5, SQLite, Pandas</p>
                             <p><strong>Role:</strong> Project Lead & AI Mentor</p>
-                            <p><strong>Note:</strong> Code was written by AI under my mentorship and direction</p>
+                            <p><strong>Development Approach:</strong> Vibe Coding - AI-assisted development with personal oversight</p>
                         </div>
                     </div>
                 </div>
@@ -380,6 +510,13 @@
                 </div>
                 
                 <div style="margin-bottom: 3rem;">
+                    <h3>AI-Assisted Development</h3>
+                    <div style="background-color: #f0f4f8; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid var(--accent-color);">
+                        <p>This project demonstrates the power of Vibe Coding. I directed the overall architecture and workflow, while using Claude and Cursor to rapidly implement features and optimize code. This approach allowed me to focus on the business logic and user experience while accelerating development.</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 3rem;">
                     <h3>Implementation Highlights</h3>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
                         <div style="background-color: #f0f4f8; padding: 1.5rem; border-radius: 8px;">
@@ -388,7 +525,7 @@
                         </div>
                         <div style="background-color: #f0f4f8; padding: 1.5rem; border-radius: 8px;">
                             <h4>Skills Demonstrated</h4>
-                            <p>Process automation, database design, user interface development, business process analysis, Python development</p>
+                            <p>Process automation, database design, user interface development, business process analysis, AI-assisted development</p>
                         </div>
                     </div>
                 </div>
@@ -420,38 +557,81 @@
         </div>
     </section>
     
-    <section id="contact">
+    <!-- Detailed Project Section for Telegram Integration -->
+    <section id="telegram-project-details" style="background-color: white; padding-top: 6rem; margin-top: -2rem;">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+            <h2 class="section-title">Website-to-Telegram Integration</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="margin-bottom: 3rem;">
+                    <h3>Project Overview</h3>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem;">
+                        <div>
+                            <p><strong>Type:</strong> Backend API Service</p>
+                            <p><strong>Technologies:</strong> Python, Flask, Telegram Bot API</p>
+                            <p><strong>Development Approach:</strong> Vibe Coding with Claude & Cursor</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div style="margin-bottom: 3rem;">
+                    <h3>Problem & Solution</h3>
+                    <div style="background-color: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>Problem:</strong> Missing contact form submissions or delayed responses due to infrequent email checking.</p>
+                        <p><strong>Solution:</strong> Real-time notifications via Telegram when someone submits the contact form.</p>
+                        <p><strong>Impact:</strong> Improved response time to potential clients and collaborators, no need to constantly check email.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <div style="margin-bottom: 3rem;">
+                    <h3>Technical Implementation</h3>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li style="margin-bottom: 1rem;">
+                            <h4>Flask Backend</h4>
+                            <p>Lightweight API service to receive form submissions and forward them to Telegram</p>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <h4>Telegram Bot</h4>
+                            <p>Custom bot that sends formatted messages directly to my phone</p>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <h4>Security</h4>
+                            <p>CORS protection and environment variable configuration to protect sensitive data</p>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <h4>Deployment</h4>
+                            <p>Containerized microservice for easy deployment and scaling</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div style="margin-bottom: 3rem;">
+                    <h3>AI-Assisted Development</h3>
+                    <div style="background-color: #f0f4f8; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid var(--accent-color);">
+                        <p>This entire solution was developed using Vibe Coding principles. I defined the requirements and architecture, then used Claude to generate the initial Flask backend and JavaScript integration. After reviewing the code, I used Cursor to refine implementation details and add security features. This approach reduced development time from days to hours.</p>
                     </div>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://github.com/aqniyet" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/akniyet-tulakbayev/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <!-- Add more social links as needed -->
-            </div>
-            <p>&copy; 2025 Akniyet Tulakbayev. All Rights Reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+                </div>
+                
+                <div>
+                    <h3>Future Enhancements</h3>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
+                            <h4 style="color: white;">Message Analytics</h4>
+                            <p>Track response times and themes</p>
+                        </div>
+                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
+                            <h4 style="color: white;">Auto-Responses</h4>
+                            <p>Send immediate acknowledgements</p>
+                        </div>
+                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
+                            <h4 style="color: white;">AI Filtering</h4>
+                            <p>Categorize messages by priority</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 3rem; text-align: center;">
+                    <a href="#projects" style="display: inline-block; background-color: var(--secondary-color); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none;">
+                        <i class="fas fa-arrow-left"></i> Back to Projects
+                    </a>
+                </div>
