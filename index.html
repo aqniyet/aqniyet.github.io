@@ -1,851 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqniyet Tulaqbayev</title>
+    <title>Aqniyet.com - Проверка фактов</title>
     <style>
-        :root {
-            --primary-color: #7B68EE; /* Medium Slate Blue */
-            --secondary-color: #483D8B; /* Dark Slate Blue */
-            --accent-color: #9370DB; /* Medium Purple */
-            --text-color: #333;
-            --light-bg: #f9f9f9;
-            --dark-bg: #2c2a3a; /* Dark violet-tinted background */
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-bg);
-        }
-        
-        header {
-            background-color: var(--dark-bg);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
         
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        nav {
-            background-color: var(--secondary-color);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin: 0 1rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        section {
-            padding: 4rem 0;
-        }
-        
-        h1, h2, h3 {
-            margin-bottom: 1rem;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--secondary-color);
-        }
-        
-        .intro {
-            text-align: center;
             max-width: 800px;
             margin: 0 auto;
-        }
-        
-        .intro img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 2rem;
-        }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .skill {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background-color: white;
-            border-radius: 8px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            padding: 1.5rem;
         }
         
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .project-card .content {
-            padding: 1.5rem;
-        }
-        
-        .project-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-card p {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .project-card .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .project-card .tag {
-            background-color: #f0f0f0;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: #555;
-        }
-        
-        .project-card .links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .project-card .links a {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        
-        .project-card .links a:hover {
-            text-decoration: underline;
-        }
-        
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            min-height: 150px;
-        }
-        
-        button {
-            background-color: var(--primary-color);
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        footer {
-            background-color: var(--dark-bg);
-            color: white;
+            padding: 30px;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
         }
         
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0.1) 20px
+            );
+            animation: move 20s linear infinite;
         }
         
-        .social-links a {
+        @keyframes move {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .breaking-news {
+            background: #ff4757;
             color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            animation: pulse 2s infinite;
         }
         
-        .social-links a:hover {
-            color: var(--accent-color);
+        @keyframes pulse {
+            0% { background: #ff4757; }
+            50% { background: #ff3742; }
+            100% { background: #ff4757; }
         }
         
-        .indie-hacking {
-            background-color: #f0f0ff; /* Light violet tint */
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            border-left: 4px solid var(--accent-color);
+        .main-content {
+            padding: 40px;
         }
         
-        .tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
+        .article {
+            background: #f8f9fa;
+            border-left: 5px solid #ff6b6b;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .tool {
-            display: flex;
-            align-items: center;
-            background-color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        .article h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
         }
         
-        .tool img {
-            width: 24px;
-            height: 24px;
-            margin-right: 0.5rem;
+        .article p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
         }
         
-        /* Notification styles for contact form feedback */
-        .notification {
-            position: fixed;
+        .verdict {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 20px rgba(255,107,107,0.3);
+        }
+        
+        .expert-quote {
+            background: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stamp {
+            position: absolute;
             top: 20px;
             right: 20px;
-            padding: 15px 20px;
-            border-radius: 4px;
+            background: #ff4757;
             color: white;
-            font-weight: 500;
-            z-index: 1000;
-            transform: translateY(-100px);
-            transition: transform 0.3s ease-in-out;
-            max-width: 300px;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         }
         
-        .notification.success {
-            background-color: #4CAF50;
-        }
-        
-        .notification.error {
-            background-color: #f44336;
-        }
-        
-        .notification.show {
-            transform: translateY(0);
-        }
-        
-        /* Project button style for consistent buttons */
-        .project-button {
-            height: 42px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            min-width: 180px;
-            box-sizing: border-box;
-        }
-        
-        .project-button:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .phone-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 42px; /* Match exact button height */
-            box-sizing: border-box;
-        }
-        
-        button i, .phone-link i {
-            margin-right: 0.5rem;
-        }
-        
-        /* OR divider styling */
-        .divider {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            margin: 1.5rem 0;
-        }
-        
-        .divider::before,
-        .divider::after {
-            content: "";
-            flex: 1;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .divider span {
-            padding: 0 1rem;
-            color: #777;
-            font-weight: 500;
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-            
-            .projects {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Make the buttons stack nicely on mobile */
-        @media (max-width: 500px) {
-            .project-button {
-                width: 100%;
-                max-width: 280px;
-            }
+        .meta-info {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #7f8c8d;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Aqniyet Tulaqbayev</h1>
-            <p>Indie Hacker | AI-Powered Builder | Solo Entrepreneur</p>
+    <div class="container">
+        <div class="header">
+            <div class="stamp">ФЕЙК!</div>
+            <h1>🔍 AQNIYET.COM</h1>
+            <p>Факт-чекинг отделы | Ақиқат пен өтірікті ажырату</p>
         </div>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#indie-hacking">Indie Hacking</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="intro">
-                <img src="your-profile-photo.jpg" alt="Aqniyet Tulaqbayev">
-                <p>Hello! I'm an indie hacker who builds and ships digital products using AI-powered development. I focus on solving real problems through rapid prototyping and iterative development, leveraging AI tools to accelerate the build process. My approach combines entrepreneurial thinking with modern development practices to create solutions that matter.</p>
-                
-                <div class="skills">
-                    <div class="skill">Product Development</div>
-                    <div class="skill">AI-Powered Building</div>
-                    <div class="skill">Rapid Prototyping</div>
-                    <div class="skill">Claude</div>
-                    <div class="skill">Cursor</div>
-                    <div class="skill">Solo Entrepreneurship</div>
-                    <div class="skill">Problem Solving</div>
-                </div>
-            </div>
+        
+        <div class="breaking-news">
+            🚨 СРОЧНО: Рамазан Абдрасилов уличен в распространении фейков! Мета-фейк обнаружен!
         </div>
-    </section>
-    
-    <section id="indie-hacking" style="background-color: #f8f0ff;"><!-- Light violet background -->
-        <div class="container">
-            <h2 class="section-title">Indie Hacking</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p>As an indie hacker, I believe in building fast, shipping early, and iterating based on feedback. I leverage AI tools to accelerate development while maintaining high quality standards. This approach allows me to focus on solving problems and creating value rather than getting bogged down in technical implementation details.</p>
+        
+        <div class="main-content">
+            <div class="article">
+                <h2>📰 Проверка факта: Рамазан Абдрасилов и "достоверная информация"</h2>
                 
-                <div class="indie-hacking">
-                    <h3>My Tech Stack</h3>
-                    <p>I use these tools to build and ship products rapidly while maintaining quality:</p>
-                    
-                    <div class="tools">
-                        <div class="tool">
-                            <i class="fas fa-robot" style="margin-right: 8px;"></i>
-                            <span>Claude (AI Assistant)</span>
-                        </div>
-                        <div class="tool">
-                            <i class="fas fa-code" style="margin-right: 8px;"></i>
-                            <span>Cursor (AI IDE)</span>
-                        </div>
-                        <div class="tool">
-                            <i class="fas fa-rocket" style="margin-right: 8px;"></i>
-                            <span>Rapid Deployment</span>
-                        </div>
-                        <div class="tool">
-                            <i class="fas fa-cogs" style="margin-right: 8px;"></i>
-                            <span>Process Automation</span>
-                        </div>
-                    </div>
+                <div class="meta-info">
+                    <strong>Дата проверки:</strong> 2 июля 2025 года<br>
+                    <strong>Источник заявления:</strong> Рамазан Абдрасилов в мессенджере<br>
+                    <strong>Проверено редакцией:</strong> Aqniyet.com<br>
+                    <strong>Статус проверки:</strong> Завершена<br>
+                    <strong>Уровень фейковости:</strong> Критический ⚠️
                 </div>
                 
-                <div style="margin-top: 2rem;">
-                    <h3>Indie Hacker Principles</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; text-align: left;">
-                        <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                            <h4><i class="fas fa-shipping-fast" style="color: var(--accent-color);"></i> Ship Fast</h4>
-                            <p>Build MVPs quickly, get feedback early, and iterate based on real user needs</p>
-                        </div>
-                        <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                            <h4><i class="fas fa-target" style="color: var(--accent-color);"></i> Problem-First</h4>
-                            <p>Focus on solving real problems rather than building for the sake of building</p>
-                        </div>
-                        <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                            <h4><i class="fas fa-chart-line" style="color: var(--accent-color);"></i> Iterate & Improve</h4>
-                            <p>Continuously improve products based on user feedback and market demands</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects" style="max-width: 800px; margin: 0 auto;">
-                <!-- Logistics Data Processor Project -->
-                <div class="project-card">
-                    <div class="content">
-                        <h3>Logistics Data Processor</h3>
-                        <p>A desktop application that automates data workflows for logistics companies, reducing processing time by 70% and eliminating manual steps for reporting.</p>
-                        <div class="tags">
-                            <span class="tag">Indie Product</span>
-                            <span class="tag">AI-Built</span>
-                            <span class="tag">Data Automation</span>
-                            <span class="tag">B2B Solution</span>
-                        </div>
-                        <div class="links">
-                            <a href="https://github.com/aqniyet/LogisticsDataProcessor" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="#logistics-project-details"><i class="fas fa-info-circle"></i> Details</a>
-                        </div>
-                    </div>
+                <p><strong>Заявление для проверки:</strong> Рамазан Абдрасилов утверждает, что поделился "достоверной информацией" о ситуации с зараженным мясом в Астане и призывает "воздержаться от покупки мяса".</p>
+                
+                <p><strong>Наша проверка показала:</strong> Гражданин Абдрасилов Р. попался на классическую удочку фейковых новостей. Экспертиза контента показала все признаки недостоверной информации:</p>
+                
+                <ul style="margin: 15px 0; padding-left: 30px;">
+                    <li>Отсутствие ссылок на первоисточники ✗</li>
+                    <li>Эмоционально окрашенные формулировки ✗</li>
+                    <li>Призывы к панике ✗</li>
+                    <li>Непроверенные данные ✗</li>
+                </ul>
+                
+                <div class="expert-quote">
+                    <p>"Редакция Aqniyet.com регулярно сталкивается с подобными случаями. Гражданин Абдрасилов стал жертвой классической дезинформационной атаки. Призываем всех читателей проверять информацию перед распространением."</p>
+                    <p><strong>— Главный редактор отдела фактчекинга Aqniyet.com</strong></p>
                 </div>
                 
-                <!-- Telegram Contact Integration Project -->
-                <div class="project-card">
-                    <div class="content">
-                        <h3>Website-to-Telegram Integration</h3>
-                        <p>A lightweight solution that connects this website's contact form to Telegram, enabling real-time message notifications for better customer response times.</p>
-                        <div class="tags">
-                            <span class="tag">Micro-SaaS</span>
-                            <span class="tag">AI-Built</span>
-                            <span class="tag">Real-time</span>
-                            <span class="tag">Integration</span>
-                        </div>
-                        <div class="links">
-                            <a href="https://github.com/aqniyet/website-telegram" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="#telegram-project-details"><i class="fas fa-info-circle"></i> Details</a>
-                        </div>
-                    </div>
+                <div class="verdict">
+                    🚫 ВЕРДИКТ: ПОЛНЫЙ ФЕЙК! 🚫
                 </div>
                 
-                <!-- More projects will be added here as they are developed -->
-            </div>
-        </div>
-    </section>
-    
-    <!-- Detailed Project Section for Logistics -->
-    <section id="logistics-project-details" style="background-color: white; padding-top: 6rem; margin-top: -2rem;">
-        <div class="container">
-            <h2 class="section-title">Logistics Data Processor</h2>
-            
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="margin-bottom: 3rem;">
-                    <h3>Project Overview</h3>
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem;">
-                        <div>
-                            <p><strong>Type:</strong> B2B Desktop Application</p>
-                            <p><strong>Development Approach:</strong> AI-Powered Indie Development</p>
-                            <p><strong>Role:</strong> Solo Developer & Product Owner</p>
-                            <p><strong>Built with:</strong> Claude + Cursor for rapid development</p>
-                        </div>
-                    </div>
-                </div>
+                <p><strong>Рекомендации для Рамазана Абдрасилова:</strong></p>
+                <p>1. Срочно пройти курс "Как не попадаться на фейки 101"<br>
+                2. Установить приложение "Фейк-детектор" версии 2.0<br>
+                3. Перед репостом считать до десяти и проверять источники<br>
+                4. Подписаться на канал "Медиаграмотность для чайников"</p>
                 
-                <div style="margin-bottom: 3rem;">
-                    <h3>Problem & Solution</h3>
-                    <div style="background-color: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
-                        <p><strong>Problem:</strong> Logistics companies spending hours on manual data processing and report generation.</p>
-                        <p><strong>Solution:</strong> Automated desktop application that handles the entire workflow.</p>
-                        <p><strong>Impact:</strong> 70% reduction in processing time, elimination of human errors, democratized access to complex reporting.</p>
-                    </div>
+                <div class="expert-quote">
+                    <p>"Помните: лучший способ борьбы с фейками — это проверка источников и критическое мышление. Будьте бдительны в информационном пространстве!"</p>
+                    <p><strong>— Редакция Aqniyet.com</strong></p>
                 </div>
-                
-                <div style="margin-bottom: 3rem;">
-                    <h3>Technical Implementation</h3>
-                    <ul style="list-style-type: none; padding: 0;">
-                        <li style="margin-bottom: 1rem;">
-                            <h4>Core Features</h4>
-                            <p>Automated file processing, intelligent data mapping, real-time report generation, and expense tracking</p>
-                        </li>
-                        <li style="margin-bottom: 1rem;">
-                            <h4>Architecture</h4>
-                            <p>Modular design with database layer, processing engine, and intuitive user interface</p>
-                        </li>
-                        <li style="margin-bottom: 1rem;">
-                            <h4>Data Management</h4>
-                            <p>Local database for reference data, lookup tables, and configuration management</p>
-                        </li>
-                        <li style="margin-bottom: 1rem;">
-                            <h4>User Experience</h4>
-                            <p>Clean tabbed interface with progress tracking, detailed logging, and error handling</p>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div style="margin-bottom: 3rem;">
-                    <h3>Indie Hacker Journey</h3>
-                    <div style="background-color: #f0f0ff; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid var(--accent-color);">
-                        <p>This project exemplifies the indie hacker approach: I identified a real problem in the logistics industry, rapidly prototyped a solution using AI tools, and delivered a working product in weeks rather than months. By leveraging Claude and Cursor, I could focus on product strategy and user experience while accelerating the technical implementation.</p>
-                    </div>
-                </div>
-                
-                <div style="margin-bottom: 3rem;">
-                    <h3>Key Learnings</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                        <div style="background-color: #f8f0ff; padding: 1.5rem; border-radius: 8px;">
-                            <h4>Product-Market Fit</h4>
-                            <p>Identified a clear pain point and built a solution that directly addresses it, resulting in immediate user adoption and positive feedback.</p>
-                        </div>
-                        <div style="background-color: #f8f0ff; padding: 1.5rem; border-radius: 8px;">
-                            <h4>AI-Powered Development</h4>
-                            <p>Demonstrated how AI tools can level the playing field for indie hackers, enabling complex solutions without large development teams.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3>Roadmap</h3>
-                    <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
-                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
-                            <h4 style="color: white;">SaaS Version</h4>
-                            <p>Web-based multi-tenant solution</p>
-                        </div>
-                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
-                            <h4 style="color: white;">API Platform</h4>
-                            <p>Enable integrations with existing systems</p>
-                        </div>
-                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
-                            <h4 style="color: white;">Mobile App</h4>
-                            <p>On-the-go access for managers</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 3rem; text-align: center;">
-                    <a href="#projects" class="project-button">
-                        <i class="fas fa-arrow-left"></i> Back to Projects
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Detailed Project Section for Telegram Integration -->
-    <section id="telegram-project-details" style="background-color: white; padding-top: 6rem; margin-top: -2rem;">
-        <div class="container">
-            <h2 class="section-title">Website-to-Telegram Integration</h2>
-            
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="margin-bottom: 3rem;">
-                    <h3>Project Overview</h3>
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem;">
-                        <div>
-                            <p><strong>Type:</strong> Micro-SaaS Product</p>
-                            <p><strong>Development Approach:</strong> AI-Powered Rapid Development</p>
-                            <p><strong>Role:</strong> Solo Builder & Product Owner</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="margin-bottom: 3rem;">
-                    <h3>Problem & Solution</h3>
-                    <div style="background-color: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
-                        <p><strong>Problem:</strong> Missing important business inquiries due to email overload and delayed responses.</p>
-                        <p><strong>Solution:</strong> Instant Telegram notifications for all website contact form submissions.</p>
-                        <p><strong>Impact:</strong> Zero missed inquiries, improved response times, better customer experience.</p>
-                    </div>
-                </div>
-                
-                <div style="margin-bottom: 3rem;">
-                    <h3>Technical Stack</h3>
-                    <ul style="list-style-type: none; padding: 0;">
-                        <li style="margin-bottom: 1rem;">
-                            <h4>Backend API</h4>
-                            <p>Lightweight serverless function to handle form submissions and forward to Telegram</p>
-                        </li>
-                        <li style="margin-bottom: 1rem;">
-                            <h4>Telegram Bot</h4>
-                            <p>Custom bot with rich message formatting and instant delivery</p>
-                        </li>
-                        <li style="margin-bottom: 1rem;">
-                            <h4>Security</h4>
-                            <p>CORS protection, rate limiting, and secure configuration management</p>
-                        </li>
-                        <li style="margin-bottom: 1rem;">
-                            <h4>Deployment</h4>
-                            <p>Containerized microservice for easy scaling and maintenance</p>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div style="margin-bottom: 3rem;">
-                    <h3>Indie Hacker Mindset</h3>
-                    <div style="background-color: #f0f0ff; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid var(--accent-color);">
-                        <p>This project demonstrates the indie hacker philosophy of building solutions for personal pain points. I needed better notification management, so I built it. The entire solution was developed in a few hours using AI assistance, then refined based on real-world usage. It's now a reliable part of my business infrastructure.</p>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3>Potential Extensions</h3>
-                    <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
-                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
-                            <h4 style="color: white;">SaaS Product</h4>
-                            <p>Multi-tenant platform for other websites</p>
-                        </div>
-                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
-                            <h4 style="color: white;">AI Classification</h4>
-                            <p>Automatic message prioritization</p>
-                        </div>
-                        <div style="background-color: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
-                            <h4 style="color: white;">Analytics Dashboard</h4>
-                            <p>Contact form performance metrics</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 3rem; text-align: center;">
-                    <a href="#projects" class="project-button">
-                        <i class="fas fa-arrow-left"></i> Back to Projects
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Updated Contact Section with buttons matching Back to Projects style -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    
-                    <!-- Button layout with OR divider, matching Back to Projects button style -->
-                    <div style="text-align: center;">
-                        <button type="submit" id="submitButton" class="project-button">
-                            <i class="fas fa-envelope"></i> Send Message
-                        </button>
-                        
-                        <div class="divider">
-                            <span>OR</span>
-                        </div>
-                        
-                        <a href="tel:+77018776748" class="project-button phone-link">
-                            <i class="fas fa-phone"></i> Call
-                        </a>
-                    </div>
-                </form>
-                <div style="margin-top: 2rem; text-align: center; font-size: 0.9rem; color: #666;">
-                    <p><i class="fas fa-bolt" style="color: var(--accent-color);"></i> Your message will be sent directly to my Telegram using my custom integration.</p>
-                </div>    
             </div>
         </div>
         
-        <!-- Notification element for form submission feedback -->
-        <div id="notification" class="notification"></div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://github.com/aqniyet" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/akniyet-tulaqbayev/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <!-- Add more social links as needed -->
-            </div>
-            <p>&copy; 2025 Aqniyet Tulaqbayev. All Rights Reserved.</p>
-            <p style="margin-top: 1rem; font-size: 0.8rem;">Built by an indie hacker using AI-powered development</p>
+        <div class="footer">
+            <p>📰 Aqniyet.com — достоверные новости и проверка фактов</p>
+            <p style="font-size: 0.9em; margin-top: 5px;">www.aqniyet.com | Отдел фактчекинга</p>
+            <p style="font-size: 0.8em; margin-top: 10px;">
+                * Данный материал создан в юмористических целях для дружеского розыгрыша
+            </p>
         </div>
-    </footer>
-
-    <script>
-        // Telegram integration 
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const notification = document.getElementById('notification');
-            const submitButton = document.getElementById('submitButton');
-            
-            // Backend URL - replace with your actual deployed backend URL
-            const apiUrl = 'https://0ece5rmvi1.execute-api.eu-north-1.amazonaws.com/prod/';
-            // For local testing: const apiUrl = 'http://localhost:5000/api/send-message';
-            
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                // Disable button and show loading state
-                submitButton.disabled = true;
-                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                
-                // Get form data
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    message: document.getElementById('message').value
-                };
-                
-                try {
-                    // Send data to backend
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(formData)
-                    });
-                    
-                    const result = await response.json();
-                    
-                    if (result.success) {
-                        // Show success notification
-                        showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-                        
-                        // Reset form
-                        contactForm.reset();
-                    } else {
-                        // Show error notification
-                        showNotification('There was an error sending your message. Please try again.', 'error');
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    showNotification('Network error. Please try again later.', 'error');
-                } finally {
-                    // Reset button state
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = '<i class="fas fa-envelope"></i> Send Message';
-                }
-            });
-            
-            // Function to show notifications
-            function showNotification(message, type) {
-                notification.textContent = message;
-                notification.className = 'notification ' + type + ' show';
-                
-                // Hide notification after 5 seconds
-                setTimeout(() => {
-                    notification.className = 'notification ' + type;
-                }, 5000);
-            }
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a, a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                
-                // Only process internal links
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 70, // Adjust for fixed nav
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-    </script>
+    </div>
 </body>
 </html>
