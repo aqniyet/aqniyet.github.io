@@ -3,395 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqniyet Tulaqbayev - Process Optimizer & Developer</title>
+    <title>Aqniyet Tulaqbayev - Process Optimizer | AI-Assisted Developer</title>
     <style>
-        :root {
-            --primary-color: #7B68EE; /* Medium Slate Blue */
-            --secondary-color: #483D8B; /* Dark Slate Blue */
-            --accent-color: #9370DB; /* Medium Purple */
-            --text-color: #333;
-            --light-bg: #f9f9f9;
-            --dark-bg: #2c2a3a; /* Dark violet-tinted background */
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-bg);
+            color: #333;
+            background: #f8f9fa;
         }
-        
-        header {
-            background-color: var(--dark-bg);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 20px;
         }
-        
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
         nav {
-            background-color: var(--secondary-color);
-            padding: 1rem 0;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        
+
         nav ul {
-            display: flex;
-            justify-content: center;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin: 0 1rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        section {
-            padding: 4rem 0;
-        }
-        
-        h1, h2, h3 {
-            margin-bottom: 1rem;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--secondary-color);
-        }
-        
-        .intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .intro img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 2rem;
-        }
-        
-        .skills {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 30px;
         }
-        
-        .skill {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
         }
-        
-        .projects {
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
         }
-        
-        .project-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            padding: 1.5rem;
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
         }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+        .job-title {
+            font-weight: 600;
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 5px;
         }
-        
-        .project-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-card p {
+
+        .job-period {
             color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 15px;
         }
-        
-        .project-card .tags {
+
+        .job-description {
+            margin: 15px 0;
+        }
+
+        .job-description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .job-description li {
+            margin: 8px 0;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .project-card.featured {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-left: 4px solid #764ba2;
+            border-right: 4px solid #667eea;
+        }
+
+        .project-title {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .featured-badge {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #333;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.6em;
+            font-weight: bold;
+        }
+
+        .project-description {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        .project-features {
+            margin: 15px 0;
+        }
+
+        .project-features ul {
+            margin-left: 20px;
+        }
+
+        .project-features li {
+            margin: 8px 0;
+        }
+
+        .feature-emoji {
+            margin-right: 8px;
+        }
+
+        .project-tech {
+            margin: 15px 0;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .tech-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 10px;
+            margin: 15px 0;
         }
-        
-        .project-card .tag {
-            background-color: #f0f0f0;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: #555;
+
+        .tech-tag {
+            background: #e9ecef;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            color: #495057;
         }
-        
-        .project-card .links {
+
+        .project-scale {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        .project-impact {
+            background: #d1ecf1;
+            border: 1px solid #17a2b8;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        .project-links {
+            margin-top: 15px;
             display: flex;
-            gap: 1rem;
+            gap: 15px;
+            flex-wrap: wrap;
         }
-        
-        .project-card .links a {
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             text-decoration: none;
-            color: var(--primary-color);
+            border-radius: 5px;
+            transition: transform 0.2s, box-shadow 0.2s;
             font-weight: 500;
-            font-size: 0.9rem;
         }
-        
-        .project-card .links a:hover {
-            text-decoration: underline;
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
         }
-        
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
-        
-        .form-group label {
+
+        label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
         }
-        
-        .form-group input,
-        .form-group textarea {
+
+        input, textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s;
         }
-        
-        .form-group textarea {
-            min-height: 150px;
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
         }
-        
-        button {
-            background-color: var(--primary-color);
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
+            padding: 12px 40px;
+            border-radius: 5px;
+            font-size: 1em;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            transition: transform 0.2s;
         }
-        
-        button:hover {
-            background-color: var(--secondary-color);
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
         }
-        
-        footer {
-            background-color: var(--dark-bg);
-            color: white;
+
+        .contact-info {
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
         }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-        
-        .current-role {
-            background-color: #e8f4f8;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            border-left: 4px solid var(--accent-color);
-        }
-        
-        .tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .tool {
-            display: flex;
-            align-items: center;
-            background-color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-        
-        .tool img {
-            width: 24px;
-            height: 24px;
-            margin-right: 0.5rem;
-        }
-        
-        /* Notification styles for contact form feedback */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            border-radius: 4px;
-            color: white;
-            font-weight: 500;
-            z-index: 1000;
-            transform: translateY(-100px);
-            transition: transform 0.3s ease-in-out;
-            max-width: 300px;
-        }
-        
-        .notification.success {
-            background-color: #4CAF50;
-        }
-        
-        .notification.error {
-            background-color: #f44336;
-        }
-        
-        .notification.show {
-            transform: translateY(0);
-        }
-        
-        /* Project button style for consistent buttons */
-        .project-button {
-            height: 42px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
+
+        .contact-info a {
+            color: #667eea;
             text-decoration: none;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            min-width: 180px;
-            box-sizing: border-box;
+            font-size: 1.1em;
+            font-weight: 600;
         }
-        
-        .project-button:hover {
-            background-color: var(--primary-color);
+
+        footer {
+            background: #343a40;
             color: white;
-        }
-        
-        .phone-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 42px; /* Match exact button height */
-            box-sizing: border-box;
-        }
-        
-        button i, .phone-link i {
-            margin-right: 0.5rem;
-        }
-        
-        /* OR divider styling */
-        .divider {
-            display: flex;
-            align-items: center;
             text-align: center;
-            margin: 1.5rem 0;
+            padding: 30px 20px;
+            margin-top: 50px;
         }
-        
-        .divider::before,
-        .divider::after {
-            content: "";
-            flex: 1;
-            border-bottom: 1px solid #ddd;
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
         }
-        
-        .divider span {
-            padding: 0 1rem;
-            color: #777;
-            font-weight: 500;
-        }
-        
+
         @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
             nav ul {
                 flex-direction: column;
-                align-items: center;
+                gap: 15px;
             }
-            
-            nav ul li {
-                margin: 0.5rem 0;
+
+            section {
+                padding: 25px;
             }
-            
-            .projects {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Make the buttons stack nicely on mobile */
-        @media (max-width: 500px) {
-            .project-button {
-                width: 100%;
-                max-width: 280px;
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Aqniyet Tulaqbayev</h1>
-            <p>Process Optimizer | AI-Assisted Developer | Business Consultant</p>
-        </div>
+        <img src="your-profile-photo.jpg" alt="Aqniyet Tulaqbayev" class="profile-photo">
+        <h1>Aqniyet Tulaqbayev</h1>
+        <p class="subtitle">Process Optimizer | AI-Assisted Developer | Business Consultant</p>
     </header>
-    
+
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
@@ -400,268 +386,262 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="intro">
-                <img src="your-profile-photo.jpg" alt="Aqniyet Tulaqbayev">
-                <p>Hello! I'm a business consultant turned process optimizer, currently working in railway logistics operations at USM Logistics, one of Kazakhstan's major wagon operators. I combine analytical consulting experience with hands-on technical development skills, leveraging AI-assisted development to build practical solutions for real business problems.</p>
-                
-                <div class="skills">
-                    <div class="skill">Process Optimization</div>
-                    <div class="skill">Railway Logistics</div>
-                    <div class="skill">Business Consulting</div>
-                    <div class="skill">AI-Assisted Development</div>
-                    <div class="skill">Data Analysis</div>
-                    <div class="skill">Full-Stack Development</div>
-                    <div class="skill">Node.js</div>
-                    <div class="skill">React</div>
-                    <div class="skill">PostgreSQL</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="current-work" style="background-color: #f8f0ff;">
-        <div class="container">
-            <h2 class="section-title">Current Work</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <div class="current-role">
-                    <h3><i class="fas fa-train" style="color: var(--accent-color); margin-right: 10px;"></i>Process Optimizer at USM Logistics</h3>
-                    <p style="margin-bottom: 1rem;"><strong>July 2025 - Present</strong></p>
-                    <p>Working as a Process Optimizer at USM Logistics, a major Kazakhstani wagon operator. Focused on optimizing railway logistics workflows, analyzing operational data, and implementing data-driven improvements for wagon fleet management efficiency.</p>
-                    
-                    <div style="margin-top: 1.5rem;">
-                        <h4>Key Responsibilities:</h4>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem; text-align: left;">
-                            <div style="background-color: white; padding: 1rem; border-radius: 6px;">
-                                <i class="fas fa-chart-line" style="color: var(--accent-color);"></i> Data analysis for operational efficiency
-                            </div>
-                            <div style="background-color: white; padding: 1rem; border-radius: 6px;">
-                                <i class="fas fa-cogs" style="color: var(--accent-color);"></i> Process optimization workflows
-                            </div>
-                            <div style="background-color: white; padding: 1rem; border-radius: 6px;">
-                                <i class="fas fa-database" style="color: var(--accent-color);"></i> Logistics data management
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 2rem;">
-                    <h3>Professional Background</h3>
-                    <p>Previously worked as a business consultant at PwC Kazakhstan and other consulting firms, with experience in market research, strategic analysis, and project support across oil & gas, telecommunications, and nuclear industries. This consulting background provides valuable perspective for understanding business needs and implementing practical solutions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Technical Projects</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 2rem;">
-                <p>Since February 2025, I've been developing technical skills through AI-assisted development, building practical applications that solve real business problems. These projects demonstrate my ability to combine business understanding with technical implementation.</p>
-            </div>
-            
-            <div class="projects" style="max-width: 900px; margin: 0 auto;">
-                <!-- Logistics Data Processor Project -->
-                <div class="project-card">
-                    <h3>Logistics Data Processor</h3>
-                    <p>Desktop application that automates logistics data processing and report generation, reducing manual processing time by 70% through intelligent automation.</p>
-                    <div class="tags">
-                        <span class="tag">Desktop App</span>
-                        <span class="tag">Process Automation</span>
-                        <span class="tag">Data Processing</span>
-                        <span class="tag">Python</span>
-                    </div>
-                    <div class="links">
-                        <a href="https://github.com/aqniyet/LogisticsDataProcessor" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-                
-                <!-- Railway ERP Project -->
-                <div class="project-card">
-                    <h3>Railway Logistics ERP (RailClerk)</h3>
-                    <p>Comprehensive railway expense management system with wagon tracking, cost analysis, and role-based interfaces for different user types (Admin, Manager, Personnel).</p>
-                    <div class="tags">
-                        <span class="tag">Web Application</span>
-                        <span class="tag">Railway Industry</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">PostgreSQL</span>
-                    </div>
-                    <div class="links">
-                        <a href="https://github.com/aqniyet/RailClerk" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-                
-                <!-- Car Wash Management Project -->
-                <div class="project-card">
-                    <h3>Car Wash Management System</h3>
-                    <p>Multi-portal architecture with 4 separate frontend applications for different user roles (Owner, Admin, Personnel, Client), featuring shared backend API and comprehensive business management.</p>
-                    <div class="tags">
-                        <span class="tag">Multi-Portal</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">JWT Auth</span>
-                    </div>
-                    <div class="links">
-                        <a href="https://github.com/aqniyet/car-wash-management" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-                
-                <!-- Poker Platform Project -->
-                <div class="project-card">
-                    <h3>Real-Time Poker Platform</h3>
-                    <p>Multiplayer poker game with Socket.IO for real-time communication, featuring advanced game mechanics, tournament structure, and Docker deployment.</p>
-                    <div class="tags">
-                        <span class="tag">Real-time</span>
-                        <span class="tag">Socket.IO</span>
-                        <span class="tag">Multiplayer</span>
-                        <span class="tag">Docker</span>
-                    </div>
-                    <div class="links">
-                        <a href="https://aqniyet.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="https://github.com/aqniyet/poker_for_nfactorial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <div style="background-color: #f0f0ff; padding: 2rem; border-radius: 8px; max-width: 600px; margin: 0 auto; border-left: 4px solid var(--accent-color);">
-                    <h3>AI-Assisted Development Approach</h3>
-                    <p>These projects were built using AI-assisted development with tools like Claude and Cursor, allowing rapid prototyping and implementation while maintaining high quality standards. This approach enables me to focus on solving business problems rather than getting bogged down in technical implementation details.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    
-                    <div style="text-align: center;">
-                        <button type="submit" id="submitButton" class="project-button">
-                            <i class="fas fa-envelope"></i> Send Message
-                        </button>
-                        
-                        <div class="divider">
-                            <span>OR</span>
-                        </div>
-                        
-                        <a href="tel:+77752377700" class="project-button phone-link">
-                            <i class="fas fa-phone"></i> Call +7 775 237 77 00
-                        </a>
-                    </div>
-                </form>
-                <div style="margin-top: 2rem; text-align: center; font-size: 0.9rem; color: #666;">
-                    <p><i class="fas fa-briefcase" style="color: var(--accent-color);"></i> Currently working in railway logistics at USM Logistics, Astana, Kazakhstan</p>
-                </div>    
-            </div>
-        </div>
-        
-        <div id="notification" class="notification"></div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://github.com/aqniyet" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/akniyet-tulaqbayev/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:aqniyet@yandex.kz"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p>&copy; 2025 Aqniyet Tulaqbayev. All Rights Reserved.</p>
-            <p style="margin-top: 1rem; font-size: 0.8rem;">Process Optimizer & AI-Assisted Developer</p>
-        </div>
-    </footer>
 
-    <script>
-        // Contact form functionality (you can integrate with your existing backend)
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const notification = document.getElementById('notification');
-            const submitButton = document.getElementById('submitButton');
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p style="font-size: 1.1em; margin-bottom: 30px;">
+                Hello! I'm a business consultant turned process optimizer, currently working in railway logistics operations at 
+                <strong>USM Logistics</strong>, one of Kazakhstan's major wagon operators. I combine analytical consulting experience 
+                with hands-on technical development skills, leveraging AI-assisted development to build practical solutions for 
+                real business problems.
+            </p>
+
+            <h3>Core Competencies</h3>
+            <div class="skills-grid">
+                <div class="skill-tag">Process Optimization</div>
+                <div class="skill-tag">Railway Logistics</div>
+                <div class="skill-tag">Business Consulting</div>
+                <div class="skill-tag">AI-Assisted Development</div>
+                <div class="skill-tag">Data Analysis</div>
+                <div class="skill-tag">Full-Stack Development</div>
+                <div class="skill-tag">Node.js</div>
+                <div class="skill-tag">React</div>
+                <div class="skill-tag">PostgreSQL</div>
+                <div class="skill-tag">Express.js</div>
+                <div class="skill-tag">ERP Systems</div>
+                <div class="skill-tag">API Development</div>
+            </div>
+        </section>
+
+        <section id="current-work">
+            <h2>Current Work</h2>
             
-            // You can replace this with your actual API endpoint
-            const apiUrl = 'https://your-contact-api-endpoint.com/send-message';
+            <div class="job-title">Process Optimizer at USM Logistics</div>
+            <div class="job-period">July 2025 - Present</div>
             
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                // Disable button and show loading state
-                submitButton.disabled = true;
-                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                
-                // Get form data
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    message: document.getElementById('message').value
-                };
-                
-                try {
-                    // For now, just show success (replace with actual API call)
-                    await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
-                    
-                    showNotification('Message received! I\'ll get back to you soon.', 'success');
-                    contactForm.reset();
-                    
-                } catch (error) {
-                    console.error('Error:', error);
-                    showNotification('Error sending message. Please try calling instead.', 'error');
-                } finally {
-                    // Reset button state
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = '<i class="fas fa-envelope"></i> Send Message';
-                }
-            });
+            <div class="job-description">
+                <p>
+                    Working as a Process Optimizer at USM Logistics, a major Kazakhstani wagon operator. Focused on optimizing 
+                    railway logistics workflows, analyzing operational data, and implementing data-driven improvements for wagon 
+                    fleet management efficiency.
+                </p>
+
+                <h4 style="margin-top: 20px; margin-bottom: 10px;">Key Responsibilities:</h4>
+                <ul>
+                    <li>📊 Data analysis for operational efficiency</li>
+                    <li>⚙️ Process optimization workflows</li>
+                    <li>🗄️ Logistics data management</li>
+                    <li>💻 Development and deployment of internal ERP systems</li>
+                </ul>
+
+                <h4 style="margin-top: 20px; margin-bottom: 10px;">Key Projects:</h4>
+                <ul>
+                    <li>🚂 Developed and deployed RailClerk ERP system for wagon rental management</li>
+                    <li>💰 Implemented automated billing calculations reducing manual processing time by 80%</li>
+                    <li>📈 Built comprehensive reporting system for operational insights</li>
+                    <li>🔄 Automated logistics data processing workflows</li>
+                </ul>
+            </div>
+
+            <h3>Professional Background</h3>
+            <p>
+                Previously worked as a business consultant at <strong>PwC Kazakhstan</strong> and other consulting firms, with 
+                experience in market research, strategic analysis, and project support across oil & gas, telecommunications, and 
+                nuclear industries. This consulting background provides valuable perspective for understanding business needs and 
+                implementing practical solutions.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Technical Projects</h2>
             
-            // Function to show notifications
-            function showNotification(message, type) {
-                notification.textContent = message;
-                notification.className = 'notification ' + type + ' show';
+            <p style="margin-bottom: 30px;">
+                Since February 2025, I've been developing technical skills through AI-assisted development, building practical 
+                applications that solve real business problems. These projects demonstrate my ability to combine business 
+                understanding with technical implementation.
+            </p>
+
+            <!-- Featured Project: RailClerk -->
+            <div class="project-card featured">
+                <div class="project-title">
+                    <span>🚂 Railway Logistics ERP (RailClerk)</span>
+                    <span class="featured-badge">⭐ FLAGSHIP PROJECT</span>
+                </div>
                 
-                // Hide notification after 5 seconds
-                setTimeout(() => {
-                    notification.className = 'notification ' + type;
-                }, 5000);
-            }
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a, a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                
-                // Only process internal links
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 70, // Adjust for fixed nav
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-    </script>
+                <div class="project-description">
+                    <p>
+                        <strong>Enterprise-grade railway wagon management and billing system built for USM Logistics operations.</strong> 
+                        Comprehensive platform handling the complete wagon rental lifecycle from supplier leasing to client invoicing 
+                        with sophisticated day-counting algorithms and multi-tier reporting.
+                    </p>
+                </div>
+
+                <div class="project-impact">
+                    <strong>🎯 Real-World Impact:</strong> Production system processing 100+ wagons across multiple suppliers, 
+                    managing thousands of movements monthly, generating accurate billing reports for stakeholders. Reduced manual 
+                    billing processing time by 80% and improved billing accuracy with automated calculations.
+                </div>
+
+                <div class="project-features">
+                    <h4>Key Features & Achievements:</h4>
+                    <ul>
+                        <li><span class="feature-emoji">🏢</span><strong>Multi-Entity Management:</strong> Supplier-wagon fleet tracking, client billing, and movement chain validation</li>
+                        <li><span class="feature-emoji">📊</span><strong>Advanced Billing Engine:</strong> Intelligent day-counting algorithm with loan period filtering, repair exclusions, and cross-month calculations</li>
+                        <li><span class="feature-emoji">🚛</span><strong>Batch Intelligence:</strong> Automatic batch creation from loaded movements with preceding/subsequent empty movement linking</li>
+                        <li><span class="feature-emoji">📈</span><strong>Comprehensive Reporting:</strong> Manager, supplier, and client reports with professional Excel export (visual indicators, cell comments, UTF-8 encoding)</li>
+                        <li><span class="feature-emoji">🔐</span><strong>Enterprise Security:</strong> Role-based access control (Admin, Manager, Supplier Manager), session management, audit logging</li>
+                        <li><span class="feature-emoji">🗄️</span><strong>Database Architecture:</strong> 39 tables with comprehensive migration system, normalized schema design</li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <h4 style="margin-bottom: 10px;">🆕 Recent Major Feature (October 2025):</h4>
+                    <p>
+                        Implemented comprehensive <strong>Wagon Loan Period Management System</strong> - defining rental availability 
+                        windows with first-day exclusion/last-day inclusion business rules, visual date adjustment indicators across 
+                        all reports, and loan period filtering integrated into the core billing engine. This feature ensures accurate 
+                        billing only for days when wagons are actively on loan.
+                    </p>
+                </div>
+
+                <div class="project-tech">
+                    <strong>Tech Stack:</strong>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express.js</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">EJS</span>
+                    <span class="tech-tag">Bootstrap 5</span>
+                    <span class="tech-tag">DataTables.js</span>
+                    <span class="tech-tag">ExcelJS</span>
+                    <span class="tech-tag">JWT Auth</span>
+                </div>
+
+                <div class="project-scale">
+                    <strong>📊 Scale:</strong> 39 database tables | 6,500+ lines of code | Comprehensive migration system | 
+                    Production deployment | 100+ active wagons | Thousands of monthly movements
+                </div>
+
+                <div class="project-links">
+                    <a href="https://github.com/aqniyet/railclerk" class="btn" target="_blank">
+                        📁 View on GitHub
+                    </a>
+                    <a href="https://github.com/aqniyet/railclerk/blob/main/PROJECT_DESCRIPTION.md" class="btn btn-secondary" target="_blank">
+                        📖 Documentation
+                    </a>
+                </div>
+            </div>
+
+            <!-- Other Projects -->
+            <div class="project-card">
+                <div class="project-title">🚗 Car Wash Management System</div>
+                <div class="project-description">
+                    <p>
+                        Multi-portal architecture with 4 separate frontend applications for different user roles (Owner, Admin, 
+                        Personnel, Client), featuring shared backend API and comprehensive business management.
+                    </p>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">JWT Auth</span>
+                    <span class="tech-tag">Multi-Portal</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aqniyet/car-wash-management" class="btn">📁 GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">📊 Logistics Data Processor</div>
+                <div class="project-description">
+                    <p>
+                        Desktop application that automates logistics data processing and report generation, reducing manual 
+                        processing time by 70% through intelligent automation.
+                    </p>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Desktop App</span>
+                    <span class="tech-tag">Process Automation</span>
+                    <span class="tech-tag">Data Processing</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="btn">📁 GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">🎮 Real-Time Poker Platform</div>
+                <div class="project-description">
+                    <p>
+                        Multiplayer poker game with Socket.IO for real-time communication, featuring advanced game mechanics, 
+                        tournament structure, and Docker deployment.
+                    </p>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Socket.IO</span>
+                    <span class="tech-tag">Real-time</span>
+                    <span class="tech-tag">Multiplayer</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="btn btn-secondary">🎮 Live Demo</a>
+                    <a href="#" class="btn">📁 GitHub</a>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 40px;">
+                <h3>💡 AI-Assisted Development Approach</h3>
+                <p>
+                    These projects were built using AI-assisted development with tools like <strong>Claude</strong> and 
+                    <strong>Cursor</strong>, allowing rapid prototyping and implementation while maintaining high quality standards. 
+                    This approach enables me to focus on solving business problems rather than getting bogged down in technical 
+                    implementation details, resulting in faster time-to-production and more innovative solutions.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">📧 Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <p><strong>OR</strong></p>
+                <p style="margin: 15px 0;">
+                    📞 <a href="tel:+77752377700">Call +7 775 237 77 00</a>
+                </p>
+                <p style="color: #666;">
+                    📍 Currently working in railway logistics at USM Logistics, Astana, Kazakhstan
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Aqniyet Tulaqbayev. All Rights Reserved.</p>
+        <p style="margin-top: 10px; opacity: 0.8;">Process Optimizer & AI-Assisted Developer</p>
+    </footer>
 </body>
 </html>
+
