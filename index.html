@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqniyet Tulaqbayev - Process Optimizer | AI-Assisted Developer</title>
+    <title>Akniyet Tulakbayev - AI-Assisted Developer | Prompt Engineering Expert</title>
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #2c3e50;
             background: #f8f9fa;
         }
 
@@ -27,36 +27,51 @@
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .profile-photo {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 5px solid white;
-            margin-bottom: 20px;
+            border: 6px solid white;
+            margin-bottom: 25px;
             object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 1.4em;
+            opacity: 0.95;
             margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .highlight-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 1.1em;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         nav {
             background: white;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -67,13 +82,14 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 40px;
         }
 
         nav a {
             color: #667eea;
             text-decoration: none;
             font-weight: 600;
+            font-size: 1.05em;
             transition: color 0.3s;
         }
 
@@ -83,564 +99,788 @@
 
         section {
             background: white;
-            margin: 30px 0;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin: 40px 0;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
 
         h2 {
             color: #667eea;
-            font-size: 2em;
-            margin-bottom: 30px;
+            font-size: 2.2em;
+            margin-bottom: 35px;
             border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            font-weight: 700;
         }
 
         h3 {
-            color: #333;
-            font-size: 1.5em;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #34495e;
+            margin-bottom: 35px;
+        }
+
+        .achievement-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .achievement-box strong {
+            color: #667eea;
+            font-size: 1.1em;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
 
-        .skill-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .job-title {
-            font-weight: 600;
-            font-size: 1.3em;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .job-period {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .job-description {
-            margin: 15px 0;
-        }
-
-        .job-description ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        .job-description li {
-            margin: 8px 0;
-        }
-
-        .project-card {
+        .skill-category {
             background: #f8f9fa;
-            border-left: 4px solid #667eea;
             padding: 25px;
-            margin: 20px 0;
-            border-radius: 5px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .project-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
         }
 
-        .project-card.featured {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        .skill-category h4 {
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: white;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            color: #495057;
+            border: 1px solid #dee2e6;
+        }
+
+        .experience-item {
+            margin: 30px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
             border-left: 4px solid #764ba2;
-            border-right: 4px solid #667eea;
         }
 
-        .project-title {
+        .experience-title {
+            font-weight: 700;
             font-size: 1.4em;
-            color: #333;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: #2c3e50;
+            margin-bottom: 8px;
         }
 
-        .featured-badge {
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            color: #333;
-            padding: 3px 10px;
-            border-radius: 15px;
-            font-size: 0.6em;
-            font-weight: bold;
+        .experience-period {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 1.05em;
         }
 
-        .project-description {
+        .experience-description {
             margin: 15px 0;
             line-height: 1.8;
         }
 
-        .project-features {
-            margin: 15px 0;
+        .experience-description ul {
+            margin: 15px 0 15px 25px;
         }
 
-        .project-features ul {
-            margin-left: 20px;
+        .experience-description li {
+            margin: 12px 0;
+            line-height: 1.7;
         }
 
-        .project-features li {
-            margin: 8px 0;
+        .project-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            padding: 35px;
+            margin: 30px 0;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .feature-emoji {
-            margin-right: 8px;
+        .project-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+            border-color: #667eea;
         }
 
-        .project-tech {
-            margin: 15px 0;
-            font-weight: 600;
-            color: #666;
+        .project-card.flagship {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+            border: 3px solid #667eea;
+            position: relative;
+        }
+
+        .flagship-ribbon {
+            position: absolute;
+            top: 20px;
+            right: -5px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #2c3e50;
+            padding: 8px 20px;
+            font-weight: 700;
+            font-size: 0.9em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            letter-spacing: 0.5px;
+        }
+
+        .project-title {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .project-description {
+            margin: 20px 0;
+            line-height: 1.9;
+            font-size: 1.05em;
+            color: #34495e;
+        }
+
+        .metrics-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .metric-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .metric-label {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .tech-stack {
+            margin: 25px 0;
+        }
+
+        .tech-stack h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
         }
 
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 15px 0;
+            gap: 12px;
         }
 
         .tech-tag {
-            background: #e9ecef;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.9em;
-            color: #495057;
-        }
-
-        .project-scale {
-            background: #fff3cd;
-            border: 1px solid #ffc107;
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin: 15px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
             font-size: 0.95em;
+            font-weight: 600;
         }
 
-        .project-impact {
-            background: #d1ecf1;
-            border: 1px solid #17a2b8;
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-            font-size: 0.95em;
+        .feature-list {
+            margin: 25px 0;
         }
 
-        .project-links {
-            margin-top: 15px;
+        .feature-list ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .btn-group {
             display: flex;
             gap: 15px;
+            margin-top: 25px;
             flex-wrap: wrap;
         }
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 14px 30px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             transition: transform 0.2s, box-shadow 0.2s;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.05em;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
         }
 
         .btn-secondary {
             background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
         }
 
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+        .contact-section {
+            text-align: center;
+            padding: 60px 20px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
+        .contact-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
             border: 2px solid #e9ecef;
-            border-radius: 5px;
-            font-family: inherit;
-            transition: border-color 0.3s;
+            transition: transform 0.3s;
         }
 
-        input:focus, textarea:focus {
-            outline: none;
+        .contact-card:hover {
+            transform: translateY(-5px);
             border-color: #667eea;
         }
 
-        textarea {
-            resize: vertical;
-            min-height: 120px;
+        .contact-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
         }
 
-        .submit-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 40px;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            font-weight: 600;
-            transition: transform 0.2s;
+        .contact-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .contact-info {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 2px solid #e9ecef;
-        }
-
-        .contact-info a {
+        .contact-card a {
             color: #667eea;
             text-decoration: none;
-            font-size: 1.1em;
             font-weight: 600;
+            font-size: 1.1em;
         }
 
         footer {
-            background: #343a40;
+            background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
+            padding: 40px 20px;
+            margin-top: 60px;
         }
 
-        .highlight {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
             }
 
             section {
-                padding: 25px;
+                padding: 30px;
             }
 
             .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: 1fr;
+            }
+
+            .flagship-ribbon {
+                position: static;
+                margin-bottom: 20px;
+                display: inline-block;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="your-profile-photo.jpg" alt="Aqniyet Tulaqbayev" class="profile-photo">
-        <h1>Aqniyet Tulaqbayev</h1>
-        <p class="subtitle">Process Optimizer | AI-Assisted Developer | Business Consultant</p>
+        <img src="your-profile-photo.jpg" alt="Akniyet Tulakbayev" class="profile-photo">
+        <h1>Akniyet Tulakbayev</h1>
+        <p class="subtitle">AI-Assisted Developer | Prompt Engineering Expert</p>
+        <div class="highlight-badge">⭐ Top 1% Cursor User in Almaty</div>
     </header>
 
     <nav>
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#current-work">Current Work</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p style="font-size: 1.1em; margin-bottom: 30px;">
-                Hello! I'm a business consultant turned process optimizer, currently working in railway logistics operations at 
-                <strong>USM Logistics</strong>, one of Kazakhstan's major wagon operators. I combine analytical consulting experience 
-                with hands-on technical development skills, leveraging AI-assisted development to build practical solutions for 
-                real business problems.
+        <section id="expertise">
+            <h2>Professional Summary</h2>
+            
+            <p class="intro-text">
+                AI-Assisted Developer and Prompt Engineering specialist with 8+ months of intensive experience building 
+                production-grade systems using cutting-edge AI tools. Recognized as a <strong>top 1% Cursor user in Almaty</strong>, 
+                demonstrating expertise in AI-powered development workflows and rapid product delivery.
             </p>
+
+            <p class="intro-text">
+                Background in business consulting (PwC Kazakhstan) combined with hands-on technical development creates a 
+                unique ability to understand business requirements and translate them into scalable technical solutions. 
+                Specialized in building enterprise applications, complex data processing pipelines, and production systems 
+                that deliver measurable business impact.
+            </p>
+
+            <div class="achievement-box">
+                <strong>Key Achievement:</strong> Built and deployed enterprise-grade ERP system (6,500+ lines of code, 
+                39 database tables) that reduced manual processing time by 80% and handles thousands of transactions monthly. 
+                System currently in production serving major logistics operations.
+            </div>
 
             <h3>Core Competencies</h3>
             <div class="skills-grid">
-                <div class="skill-tag">Process Optimization</div>
-                <div class="skill-tag">Railway Logistics</div>
-                <div class="skill-tag">Business Consulting</div>
-                <div class="skill-tag">AI-Assisted Development</div>
-                <div class="skill-tag">Data Analysis</div>
-                <div class="skill-tag">Full-Stack Development</div>
-                <div class="skill-tag">Node.js</div>
-                <div class="skill-tag">React</div>
-                <div class="skill-tag">PostgreSQL</div>
-                <div class="skill-tag">Express.js</div>
-                <div class="skill-tag">ERP Systems</div>
-                <div class="skill-tag">API Development</div>
+                <div class="skill-category">
+                    <h4>🤖 AI Development</h4>
+                    <div class="skill-tag">Prompt Engineering</div>
+                    <div class="skill-tag">Claude AI</div>
+                    <div class="skill-tag">GPT-4</div>
+                    <div class="skill-tag">Cursor IDE</div>
+                    <div class="skill-tag">AI-Assisted Coding</div>
+                </div>
+                <div class="skill-category">
+                    <h4>💻 Full-Stack Development</h4>
+                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">Express.js</div>
+                    <div class="skill-tag">React</div>
+                    <div class="skill-tag">PostgreSQL</div>
+                    <div class="skill-tag">REST APIs</div>
+                </div>
+                <div class="skill-category">
+                    <h4>🏗️ Architecture & Systems</h4>
+                    <div class="skill-tag">Database Design</div>
+                    <div class="skill-tag">ERP Systems</div>
+                    <div class="skill-tag">Real-time Apps</div>
+                    <div class="skill-tag">Multi-tier Architecture</div>
+                    <div class="skill-tag">Security & Auth</div>
+                </div>
+                <div class="skill-category">
+                    <h4>📊 Business & Analysis</h4>
+                    <div class="skill-tag">Process Optimization</div>
+                    <div class="skill-tag">Business Consulting</div>
+                    <div class="skill-tag">Data Analysis</div>
+                    <div class="skill-tag">Strategic Planning</div>
+                    <div class="skill-tag">Stakeholder Management</div>
+                </div>
             </div>
         </section>
 
-        <section id="current-work">
-            <h2>Current Work</h2>
+        <section id="experience">
+            <h2>Professional Experience</h2>
             
-            <div class="job-title">Process Optimizer at USM Logistics</div>
-            <div class="job-period">July 2025 - Present</div>
-            
-            <div class="job-description">
-                <p>
-                    Working as a Process Optimizer at USM Logistics, a major Kazakhstani wagon operator. Focused on optimizing 
-                    railway logistics workflows, analyzing operational data, and implementing data-driven improvements for wagon 
-                    fleet management efficiency.
-                </p>
+            <div class="experience-item">
+                <div class="experience-title">Process Optimizer & Technical Developer</div>
+                <div class="experience-period">Railway Logistics Operations | July 2025 - Present</div>
+                
+                <div class="experience-description">
+                    <p>
+                        Leading process optimization and technical development initiatives for major railway logistics operations. 
+                        Focus on building internal systems, automating workflows, and implementing data-driven improvements.
+                    </p>
+                    
+                    <strong>Key Achievements:</strong>
+                    <ul>
+                        <li>Developed and deployed enterprise ERP system (RailClerk) handling wagon rental management, billing automation, and multi-tier reporting</li>
+                        <li>Reduced manual data processing time by 80% through intelligent automation pipelines</li>
+                        <li>Built comprehensive reporting system generating 500+ monthly reports for stakeholders</li>
+                        <li>Implemented role-based access control system supporting multiple user tiers (Admin, Manager, Personnel)</li>
+                        <li>Designed and optimized complex billing algorithms with loan period filtering and cross-month calculations</li>
+                        <li>Created automated batch processing workflows for movement tracking and cost analysis</li>
+                    </ul>
 
-                <h4 style="margin-top: 20px; margin-bottom: 10px;">Key Responsibilities:</h4>
-                <ul>
-                    <li>📊 Data analysis for operational efficiency</li>
-                    <li>⚙️ Process optimization workflows</li>
-                    <li>🗄️ Logistics data management</li>
-                    <li>💻 Development and deployment of internal ERP systems</li>
-                </ul>
-
-                <h4 style="margin-top: 20px; margin-bottom: 10px;">Key Projects:</h4>
-                <ul>
-                    <li>🚂 Developed and deployed RailClerk ERP system for wagon rental management</li>
-                    <li>💰 Implemented automated billing calculations reducing manual processing time by 80%</li>
-                    <li>📈 Built comprehensive reporting system for operational insights</li>
-                    <li>🔄 Automated logistics data processing workflows</li>
-                </ul>
+                    <strong>Technical Leadership:</strong>
+                    <ul>
+                        <li>Architected 39-table database schema with comprehensive migration system</li>
+                        <li>Delivered 6,500+ lines of production code using AI-assisted development</li>
+                        <li>Shipped 100+ feature releases in 5 months of active development</li>
+                        <li>Maintained production system serving thousands of monthly transactions</li>
+                    </ul>
+                </div>
             </div>
 
-            <h3>Professional Background</h3>
-            <p>
-                Previously worked as a business consultant at <strong>PwC Kazakhstan</strong> and other consulting firms, with 
-                experience in market research, strategic analysis, and project support across oil & gas, telecommunications, and 
-                nuclear industries. This consulting background provides valuable perspective for understanding business needs and 
-                implementing practical solutions.
-            </p>
+            <div class="experience-item">
+                <div class="experience-title">Business Consultant</div>
+                <div class="experience-period">PwC Kazakhstan | 2023 - 2025</div>
+                
+                <div class="experience-description">
+                    <p>
+                        Provided strategic consulting services across multiple industries including oil & gas, telecommunications, 
+                        and nuclear sectors. Specialized in market research, strategic analysis, and project support.
+                    </p>
+                    
+                    <strong>Key Responsibilities:</strong>
+                    <ul>
+                        <li>Conducted comprehensive market research and competitive analysis</li>
+                        <li>Developed strategic recommendations for enterprise clients</li>
+                        <li>Managed stakeholder communications and project deliverables</li>
+                        <li>Analyzed complex business processes and identified optimization opportunities</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section id="projects">
-            <h2>Technical Projects</h2>
+            <h2>Featured Projects</h2>
             
-            <p style="margin-bottom: 30px;">
-                Since February 2025, I've been developing technical skills through AI-assisted development, building practical 
-                applications that solve real business problems. These projects demonstrate my ability to combine business 
-                understanding with technical implementation.
-            </p>
-
-            <!-- Featured Project: RailClerk -->
-            <div class="project-card featured">
-                <div class="project-title">
-                    <span>🚂 Railway Logistics ERP (RailClerk)</span>
-                    <span class="featured-badge">⭐ FLAGSHIP PROJECT</span>
-                </div>
+            <div class="project-card flagship">
+                <div class="flagship-ribbon">FLAGSHIP PROJECT</div>
+                <div class="project-title">🚂 RailClerk - Enterprise Railway ERP System</div>
                 
                 <div class="project-description">
                     <p>
-                        <strong>Enterprise-grade railway wagon management and billing system built for USM Logistics operations.</strong> 
-                        Comprehensive platform handling the complete wagon rental lifecycle from supplier leasing to client invoicing 
-                        with sophisticated day-counting algorithms and multi-tier reporting.
+                        Comprehensive enterprise resource planning system for railway wagon rental management. Full-stack 
+                        application handling supplier relationships, wagon fleet tracking, movement monitoring, client billing, 
+                        and automated cost calculations. Built entirely using AI-assisted development methodologies.
                     </p>
                 </div>
 
-                <div class="project-impact">
-                    <strong>🎯 Real-World Impact:</strong> Production system processing 100+ wagons across multiple suppliers, 
-                    managing thousands of movements monthly, generating accurate billing reports for stakeholders. Reduced manual 
-                    billing processing time by 80% and improved billing accuracy with automated calculations.
+                <div class="metrics-box">
+                    <strong>Production Metrics & Scale:</strong>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="metric-number">6,500+</span>
+                            <span class="metric-label">Lines of Code</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-number">39</span>
+                            <span class="metric-label">Database Tables</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-number">100+</span>
+                            <span class="metric-label">Wagons Managed</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-number">80%</span>
+                            <span class="metric-label">Time Savings</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-number">1000s</span>
+                            <span class="metric-label">Monthly Transactions</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-number">500+</span>
+                            <span class="metric-label">Monthly Reports</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="project-features">
-                    <h4>Key Features & Achievements:</h4>
+                <div class="feature-list">
+                    <strong>Core Features & Capabilities:</strong>
                     <ul>
-                        <li><span class="feature-emoji">🏢</span><strong>Multi-Entity Management:</strong> Supplier-wagon fleet tracking, client billing, and movement chain validation</li>
-                        <li><span class="feature-emoji">📊</span><strong>Advanced Billing Engine:</strong> Intelligent day-counting algorithm with loan period filtering, repair exclusions, and cross-month calculations</li>
-                        <li><span class="feature-emoji">🚛</span><strong>Batch Intelligence:</strong> Automatic batch creation from loaded movements with preceding/subsequent empty movement linking</li>
-                        <li><span class="feature-emoji">📈</span><strong>Comprehensive Reporting:</strong> Manager, supplier, and client reports with professional Excel export (visual indicators, cell comments, UTF-8 encoding)</li>
-                        <li><span class="feature-emoji">🔐</span><strong>Enterprise Security:</strong> Role-based access control (Admin, Manager, Supplier Manager), session management, audit logging</li>
-                        <li><span class="feature-emoji">🗄️</span><strong>Database Architecture:</strong> 39 tables with comprehensive migration system, normalized schema design</li>
+                        <li><strong>Multi-Entity Management:</strong> Supplier fleet tracking, client relationships, wagon registry with comprehensive data management</li>
+                        <li><strong>Intelligent Billing Engine:</strong> Advanced day-counting algorithms with loan period filtering, repair exclusions, and cross-month calculations</li>
+                        <li><strong>Automated Batch Processing:</strong> Smart batch creation from loaded movements with automatic linking of preceding/subsequent empty movements</li>
+                        <li><strong>Comprehensive Reporting:</strong> Multi-tier reports (Manager, Supplier, Client) with professional Excel export featuring visual indicators and UTF-8 encoding</li>
+                        <li><strong>Enterprise Security:</strong> Role-based access control (Admin, Manager, Supplier Manager), session management, audit logging, SQL injection prevention</li>
+                        <li><strong>Geographic Intelligence:</strong> Support for RZD and Central Asian railway networks with station continuity validation</li>
+                        <li><strong>Real-time Data Processing:</strong> Movement tracking, route analysis, cost calculation, and billing automation</li>
                     </ul>
                 </div>
 
-                <div class="highlight">
-                    <h4 style="margin-bottom: 10px;">🆕 Recent Major Feature (October 2025):</h4>
-                    <p>
-                        Implemented comprehensive <strong>Wagon Loan Period Management System</strong> - defining rental availability 
-                        windows with first-day exclusion/last-day inclusion business rules, visual date adjustment indicators across 
-                        all reports, and loan period filtering integrated into the core billing engine. This feature ensures accurate 
-                        billing only for days when wagons are actively on loan.
-                    </p>
+                <div class="achievement-box">
+                    <strong>Recent Innovation (October 2025):</strong> Implemented Wagon Loan Period Management System with 
+                    sophisticated business rules (first-day exclusion, last-day inclusion), visual date adjustment indicators 
+                    across all reports, and integrated loan period filtering into core billing engine. This feature ensures 
+                    accurate billing only for days when wagons are actively on loan, demonstrating deep understanding of 
+                    complex business logic implementation.
                 </div>
 
-                <div class="project-tech">
-                    <strong>Tech Stack:</strong>
-                </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Express.js</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">EJS</span>
-                    <span class="tech-tag">Bootstrap 5</span>
-                    <span class="tech-tag">DataTables.js</span>
-                    <span class="tech-tag">ExcelJS</span>
-                    <span class="tech-tag">JWT Auth</span>
-                </div>
-
-                <div class="project-scale">
-                    <strong>📊 Scale:</strong> 39 database tables | 6,500+ lines of code | Comprehensive migration system | 
-                    Production deployment | 100+ active wagons | Thousands of monthly movements
+                <div class="tech-stack">
+                    <h4>Technology Stack:</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">EJS</span>
+                        <span class="tech-tag">Bootstrap 5</span>
+                        <span class="tech-tag">DataTables.js</span>
+                        <span class="tech-tag">ExcelJS</span>
+                        <span class="tech-tag">JWT Authentication</span>
+                        <span class="tech-tag">Session Management</span>
+                    </div>
                 </div>
 
-                <div class="project-links">
+                <div class="btn-group">
                     <a href="https://github.com/aqniyet/railclerk" class="btn" target="_blank">
                         📁 View on GitHub
                     </a>
                     <a href="https://github.com/aqniyet/railclerk/blob/main/PROJECT_DESCRIPTION.md" class="btn btn-secondary" target="_blank">
-                        📖 Documentation
+                        📖 Full Documentation
                     </a>
                 </div>
             </div>
 
-            <!-- Other Projects -->
             <div class="project-card">
-                <div class="project-title">🚗 Car Wash Management System</div>
+                <div class="project-title">🚗 Multi-Portal Car Wash Management System</div>
                 <div class="project-description">
                     <p>
-                        Multi-portal architecture with 4 separate frontend applications for different user roles (Owner, Admin, 
-                        Personnel, Client), featuring shared backend API and comprehensive business management.
+                        Comprehensive business management platform featuring 4 separate frontend applications for different user 
+                        roles (Owner, Admin, Personnel, Client). Demonstrates expertise in multi-portal architecture, role-based 
+                        interfaces, and shared backend API design.
                     </p>
+                    <ul style="margin-top: 15px; margin-left: 20px;">
+                        <li>Separate React applications for each user role with tailored UX</li>
+                        <li>Unified Node.js backend with comprehensive REST API</li>
+                        <li>JWT-based authentication and authorization system</li>
+                        <li>Real-time booking and scheduling features</li>
+                    </ul>
                 </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">JWT Auth</span>
-                    <span class="tech-tag">Multi-Portal</span>
+                <div class="tech-stack">
+                    <h4>Technology Stack:</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">JWT Auth</span>
+                        <span class="tech-tag">Multi-Portal</span>
+                    </div>
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/aqniyet/car-wash-management" class="btn">📁 GitHub</a>
+                <div class="btn-group">
+                    <a href="https://github.com/aqniyet" class="btn">📁 View on GitHub</a>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-title">📊 Logistics Data Processor</div>
+                <div class="project-title">📊 Automated Logistics Data Processor</div>
                 <div class="project-description">
                     <p>
-                        Desktop application that automates logistics data processing and report generation, reducing manual 
-                        processing time by 70% through intelligent automation.
+                        Desktop application for automating logistics data processing and report generation. Demonstrates 
+                        proficiency in data pipeline automation and process optimization.
                     </p>
+                    <ul style="margin-top: 15px; margin-left: 20px;">
+                        <li>Reduced manual data processing time by 70%</li>
+                        <li>Automated data validation and cleaning workflows</li>
+                        <li>Generated formatted reports with one-click processing</li>
+                        <li>Handled complex Excel file manipulation and transformation</li>
+                    </ul>
                 </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Desktop App</span>
-                    <span class="tech-tag">Process Automation</span>
-                    <span class="tech-tag">Data Processing</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="btn">📁 GitHub</a>
+                <div class="tech-stack">
+                    <h4>Technology Stack:</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Data Processing</span>
+                        <span class="tech-tag">Automation</span>
+                        <span class="tech-tag">Excel Integration</span>
+                    </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-title">🎮 Real-Time Poker Platform</div>
+                <div class="project-title">🎮 Real-Time Multiplayer Poker Platform</div>
                 <div class="project-description">
                     <p>
-                        Multiplayer poker game with Socket.IO for real-time communication, featuring advanced game mechanics, 
-                        tournament structure, and Docker deployment.
+                        Multiplayer poker game with real-time communication, advanced game mechanics, and tournament structure. 
+                        Demonstrates expertise in real-time applications and complex state management.
                     </p>
+                    <ul style="margin-top: 15px; margin-left: 20px;">
+                        <li>Socket.IO for real-time bidirectional communication</li>
+                        <li>Complex game state management across multiple clients</li>
+                        <li>Tournament bracket system and player matchmaking</li>
+                        <li>Docker deployment for scalability</li>
+                    </ul>
                 </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Socket.IO</span>
-                    <span class="tech-tag">Real-time</span>
-                    <span class="tech-tag">Multiplayer</span>
-                    <span class="tech-tag">Docker</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="btn btn-secondary">🎮 Live Demo</a>
-                    <a href="#" class="btn">📁 GitHub</a>
+                <div class="tech-stack">
+                    <h4>Technology Stack:</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Socket.IO</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Real-time</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="highlight" style="margin-top: 40px;">
-                <h3>💡 AI-Assisted Development Approach</h3>
-                <p>
-                    These projects were built using AI-assisted development with tools like <strong>Claude</strong> and 
-                    <strong>Cursor</strong>, allowing rapid prototyping and implementation while maintaining high quality standards. 
-                    This approach enables me to focus on solving business problems rather than getting bogged down in technical 
-                    implementation details, resulting in faster time-to-production and more innovative solutions.
-                </p>
+            <div class="achievement-box" style="margin-top: 40px;">
+                <strong>Development Methodology:</strong> All projects built using AI-assisted development with tools like 
+                <strong>Claude</strong> and <strong>Cursor IDE</strong>. This approach enables rapid prototyping, 
+                faster time-to-production, and the ability to focus on solving business problems rather than implementation 
+                details. As a top 1% Cursor user in Almaty, I've developed efficient workflows for leveraging AI tools to 
+                maintain high code quality while shipping features quickly.
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Get In Touch</h2>
+        <section id="skills">
+            <h2>Technical Skills</h2>
             
-            <form class="contact-form" action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>AI & Prompt Engineering</h4>
+                    <div class="skill-tag">Claude AI</div>
+                    <div class="skill-tag">GPT-4</div>
+                    <div class="skill-tag">Cursor IDE (Top 1%)</div>
+                    <div class="skill-tag">Prompt Optimization</div>
+                    <div class="skill-tag">AI-Assisted Development</div>
+                    <div class="skill-tag">LLM Integration</div>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="skill-category">
+                    <h4>Backend Development</h4>
+                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">Express.js</div>
+                    <div class="skill-tag">PostgreSQL</div>
+                    <div class="skill-tag">REST APIs</div>
+                    <div class="skill-tag">Database Design</div>
+                    <div class="skill-tag">SQL Optimization</div>
                 </div>
 
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
+                <div class="skill-category">
+                    <h4>Frontend Development</h4>
+                    <div class="skill-tag">React</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">EJS</div>
+                    <div class="skill-tag">Bootstrap</div>
+                    <div class="skill-tag">Responsive Design</div>
+                    <div class="skill-tag">DataTables.js</div>
                 </div>
 
-                <button type="submit" class="submit-btn">📧 Send Message</button>
-            </form>
+                <div class="skill-category">
+                    <h4>DevOps & Tools</h4>
+                    <div class="skill-tag">Git</div>
+                    <div class="skill-tag">GitHub</div>
+                    <div class="skill-tag">Docker</div>
+                    <div class="skill-tag">Database Migrations</div>
+                    <div class="skill-tag">CI/CD</div>
+                </div>
 
-            <div class="contact-info">
-                <p><strong>OR</strong></p>
-                <p style="margin: 15px 0;">
-                    📞 <a href="tel:+77752377700">Call +7 775 237 77 00</a>
-                </p>
-                <p style="color: #666;">
-                    📍 Currently working in railway logistics at USM Logistics, Astana, Kazakhstan
-                </p>
+                <div class="skill-category">
+                    <h4>Data & Integration</h4>
+                    <div class="skill-tag">Excel Processing</div>
+                    <div class="skill-tag">ExcelJS</div>
+                    <div class="skill-tag">CSV/Data Import</div>
+                    <div class="skill-tag">Data Validation</div>
+                    <div class="skill-tag">Report Generation</div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Security & Architecture</h4>
+                    <div class="skill-tag">JWT Authentication</div>
+                    <div class="skill-tag">Session Management</div>
+                    <div class="skill-tag">RBAC</div>
+                    <div class="skill-tag">API Security</div>
+                    <div class="skill-tag">System Architecture</div>
+                </div>
+            </div>
+
+            <h3>Languages</h3>
+            <div class="experience-description">
+                <ul>
+                    <li><strong>English:</strong> Fluent (Professional working proficiency)</li>
+                    <li><strong>Russian:</strong> Native</li>
+                    <li><strong>Kazakh:</strong> Native</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Get In Touch</h2>
+            <p class="intro-text">
+                Open to opportunities in AI development, prompt engineering, and technical roles.<br>
+                Based in Almaty, Kazakhstan.
+            </p>
+
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h4>Email</h4>
+                    <a href="mailto:contact@aqniyet.com">contact@aqniyet.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h4>Phone</h4>
+                    <a href="tel:+77752377700">+7 775 237 77 00</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">💼</div>
+                    <h4>LinkedIn</h4>
+                    <a href="https://www.linkedin.com/in/akniyet/" target="_blank">linkedin.com/in/akniyet</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">💻</div>
+                    <h4>GitHub</h4>
+                    <a href="https://github.com/aqniyet" target="_blank">github.com/aqniyet</a>
+                </div>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2025 Aqniyet Tulaqbayev. All Rights Reserved.</p>
-        <p style="margin-top: 10px; opacity: 0.8;">Process Optimizer & AI-Assisted Developer</p>
+        <p>&copy; 2025 Akniyet Tulakbayev. All Rights Reserved.</p>
+        <p>AI-Assisted Developer | Top 1% Cursor User in Almaty</p>
+        <p style="margin-top: 15px; font-size: 0.95em;">Almaty, Kazakhstan</p>
     </footer>
 </body>
 </html>
