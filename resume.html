@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akniyet Tulakbayev - Resume</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            font-size: 10pt;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #000;
+        }
+
+        .header h1 {
+            font-size: 24pt;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .header .title {
+            font-size: 12pt;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .header .contact {
+            font-size: 9pt;
+            line-height: 1.6;
+        }
+
+        .header .contact a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 13pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #000;
+            margin-bottom: 10px;
+            padding-bottom: 3px;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .experience-title {
+            font-size: 11pt;
+            font-weight: bold;
+        }
+
+        .experience-date {
+            font-size: 9pt;
+            color: #333;
+            font-style: italic;
+        }
+
+        .experience-company {
+            font-size: 10pt;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .experience-description {
+            font-size: 9.5pt;
+            margin-left: 15px;
+        }
+
+        .experience-description ul {
+            list-style-type: disc;
+            margin-left: 15px;
+        }
+
+        .experience-description li {
+            margin-bottom: 3px;
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 12px;
+            page-break-inside: avoid;
+        }
+
+        .project-title {
+            font-size: 10.5pt;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .project-link {
+            font-size: 8.5pt;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .project-description {
+            font-size: 9.5pt;
+            margin-left: 15px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .skill-category {
+            page-break-inside: avoid;
+        }
+
+        .skill-category h3 {
+            font-size: 10pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            font-size: 9.5pt;
+        }
+
+        .skill-category li {
+            margin-bottom: 2px;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .skill-category li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Certifications */
+        .cert-item {
+            margin-bottom: 5px;
+            font-size: 9.5pt;
+        }
+
+        .cert-name {
+            font-weight: bold;
+        }
+
+        .cert-org {
+            color: #333;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+        }
+
+        /* Print button */
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+            font-weight: bold;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .print-button:hover {
+            background: #333;
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>AKNIYET TULAKBAYEV</h1>
+        <div class="title">Developer & Business Consultant</div>
+        <div class="contact">
+            Almaty, Kazakhstan | 
+            <a href="mailto:aqniyet@yandex.kz">aqniyet@yandex.kz</a> | 
+            <a href="tel:+77752377700">+7 775 237 77 00</a><br>
+            <a href="https://linkedin.com/in/akniyet">linkedin.com/in/akniyet</a> | 
+            <a href="https://github.com/aqniyet">github.com/aqniyet</a> | 
+            <a href="https://aqniyet.com">aqniyet.com</a>
+        </div>
+    </div>
+
+    <!-- Professional Summary -->
+    <div class="section">
+        <div class="section-title">Professional Summary</div>
+        <p style="font-size: 9.5pt;">
+            Developer and business consultant specializing in AI-assisted development and enterprise systems. 
+            Recognized as top 1% Cursor user in Almaty. Background in strategy consulting at PwC Kazakhstan 
+            with 7+ years of experience across consulting and development roles. Proven track record of 
+            delivering production-grade systems and strategic insights across oil & gas, telecommunications, 
+            and government sectors.
+        </p>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+        <div class="section-title">Professional Experience</div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Developer & Technical Lead</div>
+                <div class="experience-date">2025 — Present</div>
+            </div>
+            <div class="experience-company">AI-Assisted Development</div>
+            <div class="experience-description">
+                <ul>
+                    <li>Developed enterprise ERP system (6,500+ LOC) with comprehensive wagon rental management</li>
+                    <li>Reduced manual processing time by 80% through intelligent automation</li>
+                    <li>Built multi-tier reporting system generating 500+ monthly reports</li>
+                    <li>Architected 39-table PostgreSQL database with migration system</li>
+                    <li>Shipped 100+ features in 5 months using AI-first development approach</li>
+                    <li>Implemented role-based access control and enterprise security features</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Associate Consultant</div>
+                <div class="experience-date">Feb 2024 — Aug 2024</div>
+            </div>
+            <div class="experience-company">Top-Tier Consulting Firm</div>
+            <div class="experience-description">
+                <ul>
+                    <li>Supported multinational client in tobacco industry with data analysis and project tracking</li>
+                    <li>Gathered and organized data to build comprehensive database for pilot project monitoring</li>
+                    <li>Delivered actionable insights to improve project performance for senior leadership</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Senior Analyst</div>
+                <div class="experience-date">Feb 2023 — Oct 2023</div>
+            </div>
+            <div class="experience-company">Tör Altai Nuclear Consulting, Astana, Kazakhstan</div>
+            <div class="experience-description">
+                <ul>
+                    <li>Led comprehensive market research on uranium primary production</li>
+                    <li>Conducted marketing research on natural uranium market for NAC International</li>
+                    <li>Contributed to "Nuclear Market Issues & Insights 2023" report</li>
+                    <li>Developed robust package of presentation materials to establish company credentials</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Senior Business Consultant</div>
+                <div class="experience-date">Feb 2022 — Dec 2022</div>
+            </div>
+            <div class="experience-company">Transtelecom JSC, Nur-Sultan, Kazakhstan</div>
+            <div class="experience-description">
+                <ul>
+                    <li>Specialized in developing strategic plans for product groups and crafting investment teasers</li>
+                    <li>Aligned strategies with broader corporate objectives</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Senior Consultant / Consultant / Intern</div>
+                <div class="experience-date">Oct 2016 — Jan 2021</div>
+            </div>
+            <div class="experience-company">PwC Kazakhstan, Astana, Kazakhstan</div>
+            <div class="experience-description">
+                <p style="margin-bottom: 3px; margin-left: 15px;"><strong>Senior Consultant (Oct 2019 - Jan 2021)</strong></p>
+                <ul>
+                    <li>Supported business transformation project for national oil and gas operator as PMO member</li>
+                    <li>Participated in feasibility studies for petrochemical projects with international SMEs</li>
+                    <li>Contributed to e-commerce platform analysis for enhancing agricultural exports</li>
+                </ul>
+                <p style="margin-top: 5px; margin-bottom: 3px; margin-left: 15px;"><strong>Consultant (Feb 2017 - Sep 2019)</strong></p>
+                <ul>
+                    <li>Contributed to Justice Sector Institutional Strengthening Project</li>
+                    <li>Performed technical and economic analysis for new border crossing point</li>
+                    <li>Assisted in market sizing and PESTEL analysis for strategic development</li>
+                    <li>Aided in financial modeling for oil service companies in joint ventures</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education & Certifications -->
+    <div class="section">
+        <div class="section-title">Education & Certifications</div>
+        
+        <div style="margin-bottom: 12px;">
+            <div style="font-weight: bold; font-size: 10.5pt;">Bachelor of Arts in Political Science and International Relations</div>
+            <div style="font-size: 9.5pt; color: #333;">Nazarbayev University, Astana, Kazakhstan | Aug 2012 — May 2016</div>
+        </div>
+
+        <div style="margin-top: 12px;">
+            <div style="font-weight: bold; font-size: 10pt; margin-bottom: 5px;">Professional Certifications:</div>
+            <div class="cert-item">
+                <span class="cert-name">The Modern Python3 Bootcamp</span> — 
+                <span class="cert-org">Udemy (Dec 2024)</span>
+            </div>
+            <div class="cert-item">
+                <span class="cert-name">Financial Modeling & Valuation Analyst (FMVA®)</span> — 
+                <span class="cert-org">Corporate Finance Institute (Oct 2024)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+        <div class="section-title">Selected Projects</div>
+
+        <div class="project-item">
+            <div class="project-title">RailClerk — Enterprise Railway ERP</div>
+            <div class="project-link">github.com/aqniyet/railclerk</div>
+            <div class="project-description">
+                Comprehensive enterprise resource planning system for railway wagon rental management. 
+                Full-stack application handling supplier relationships, wagon fleet tracking, movement monitoring, 
+                client billing, and automated cost calculations. 6,500+ LOC, 39 DB tables, 80% time reduction.
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">Multi-Portal Management System</div>
+            <div class="project-link">github.com/aqniyet/joo</div>
+            <div class="project-description">
+                Business management platform with 4 separate frontend applications for different user roles. 
+                Demonstrates expertise in multi-portal architecture and role-based interfaces.
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">Multiplayer Poker Platform</div>
+            <div class="project-link">github.com/aqniyet/poker_for_nfactorial</div>
+            <div class="project-description">
+                Real-time poker game with Node.js backend and React frontend. Features WebSocket communication, 
+                tournament mechanics, and Docker deployment with SSL.
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">Financial Transaction System</div>
+            <div class="project-link">github.com/aqniyet/taxi_withdrawal</div>
+            <div class="project-description">
+                Payment processing and withdrawal management system. Handles financial transactions with 
+                secure authentication and automated processing workflows.
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">Real-Time Chat Application</div>
+            <div class="project-link">github.com/aqniyet/abdre_api_clear</div>
+            <div class="project-description">
+                Modern messaging platform with WebSocket support, QR code connectivity, and typing indicators. 
+                Microservice architecture with Flask and FastAPI backend.
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>AI & Data Science</h3>
+                <ul>
+                    <li>Prompt Engineering</li>
+                    <li>Claude AI & GPT-4</li>
+                    <li>Cursor IDE</li>
+                    <li>Python Programming</li>
+                    <li>AI-Assisted Development</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Business & Analysis</h3>
+                <ul>
+                    <li>Strategy Consulting</li>
+                    <li>Financial Modeling</li>
+                    <li>Market Research</li>
+                    <li>PESTEL Analysis</li>
+                    <li>Process Optimization</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Development</h3>
+                <ul>
+                    <li>Database Design</li>
+                    <li>System Architecture</li>
+                    <li>API Integration</li>
+                    <li>Enterprise Systems</li>
+                    <li>Process Automation</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Project Management</h3>
+                <ul>
+                    <li>PMO Support</li>
+                    <li>Data Analysis</li>
+                    <li>Stakeholder Management</li>
+                    <li>Strategic Planning</li>
+                    <li>Deliverable Management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="section">
+        <div class="section-title">Languages</div>
+        <div style="font-size: 9.5pt;">
+            <strong>English:</strong> Full professional proficiency | 
+            <strong>Kazakh:</strong> Native proficiency | 
+            <strong>Russian:</strong> Bilingual proficiency
+        </div>
+    </div>
+</body>
+</html>
+
