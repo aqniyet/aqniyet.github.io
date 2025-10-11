@@ -28,7 +28,6 @@
             overflow-x: hidden;
         }
 
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -400,9 +399,13 @@
 
         /* Contact Section */
         .contact-section {
-            text-align: center;
             background: var(--light-gray);
             padding: 120px 60px;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .contact-section h2 {
@@ -410,22 +413,28 @@
             font-weight: 300;
             letter-spacing: -1px;
             margin-bottom: 30px;
+            text-align: center;
         }
 
         .contact-section h2 strong {
             font-weight: 700;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
             margin-top: 60px;
-            flex-wrap: wrap;
         }
 
-        .contact-item {
-            text-align: center;
+        .contact-info-left {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--soft-black);
+        }
+
+        .contact-method {
+            margin: 30px 0;
         }
 
         .contact-label {
@@ -451,6 +460,85 @@
             color: var(--medium-gray);
         }
 
+        /* Contact Form */
+        .contact-form {
+            background: var(--accent-white);
+            padding: 50px;
+            border: 1px solid var(--border-gray);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--border-gray);
+            background: var(--accent-white);
+            font-family: inherit;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-black);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-black);
+            color: var(--accent-white);
+            border: none;
+            font-size: 0.85em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--soft-black);
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
         /* Footer */
         footer {
             background: var(--primary-black);
@@ -468,7 +556,8 @@
         /* Responsive */
         @media (max-width: 1200px) {
             .about-grid,
-            .experience-header {
+            .experience-header,
+            .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
@@ -520,9 +609,16 @@
             .project-card.featured {
                 grid-column: 1;
             }
+
+            .contact-section {
+                padding: 80px 30px;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
         }
 
-        /* Subtle animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -577,14 +673,13 @@
                     AI-powered development workflows and rapid product delivery.
                 </p>
                 <p>
-                    Background in business consulting at PwC Kazakhstan combined with hands-on technical development 
-                    creates a unique ability to understand business requirements and translate them into scalable 
-                    technical solutions. Eight months of intensive experience with AI tools including Claude, GPT-4, 
-                    and Cursor IDE.
+                    Background in strategy consulting at PwC Kazakhstan and senior analyst roles at Tör Altai Nuclear 
+                    Consulting and Transtelecom. Eight months of intensive experience with AI tools including Claude, 
+                    GPT-4, and Cursor IDE, building systems that deliver measurable business impact.
                 </p>
                 <p>
-                    Currently focused on process optimization and technical development in railway logistics operations, 
-                    delivering measurable business impact through intelligent automation and enterprise systems.
+                    Currently focused on AI-assisted development and technical innovation, delivering enterprise-grade 
+                    solutions through modern development methodologies and business-oriented approach.
                 </p>
             </div>
         </div>
@@ -613,25 +708,25 @@
             <div class="experience-header">
                 <div class="experience-meta">
                     2025 — Present<br>
-                    Railway Logistics
+                    AI Development
                 </div>
                 <div>
-                    <h3 class="experience-title">Process Optimizer &<br><strong>Technical Developer</strong></h3>
+                    <h3 class="experience-title"><strong>AI-Assisted Developer</strong> &<br>Technical Lead</h3>
                 </div>
             </div>
             <div class="experience-description">
                 <p>
-                    Leading process optimization and technical development initiatives for major railway logistics 
-                    operations. Focus on building internal systems, automating workflows, and implementing data-driven 
-                    improvements.
+                    Building production-grade enterprise systems using AI-assisted development. Recognized as top 1% 
+                    Cursor user in Almaty. Focus on rapid prototyping, system architecture, and delivering measurable 
+                    business value through modern development practices.
                 </p>
                 <ul>
-                    <li>Developed and deployed enterprise ERP system handling wagon rental management and billing automation</li>
-                    <li>Reduced manual data processing time by 80% through intelligent automation pipelines</li>
-                    <li>Built comprehensive reporting system generating 500+ monthly reports for stakeholders</li>
-                    <li>Architected 39-table database schema with comprehensive migration system</li>
-                    <li>Delivered 6,500+ lines of production code using AI-assisted development</li>
-                    <li>Shipped 100+ feature releases in 5 months of active development</li>
+                    <li>Developed enterprise ERP system (6,500+ LOC) with comprehensive wagon rental management</li>
+                    <li>Reduced manual processing time by 80% through intelligent automation</li>
+                    <li>Built multi-tier reporting system generating 500+ monthly reports</li>
+                    <li>Architected 39-table PostgreSQL database with migration system</li>
+                    <li>Shipped 100+ features in 5 months using AI-first development approach</li>
+                    <li>Implemented role-based access control and enterprise security features</li>
                 </ul>
             </div>
         </div>
@@ -639,24 +734,61 @@
         <div class="experience-item">
             <div class="experience-header">
                 <div class="experience-meta">
-                    2023 — 2025<br>
+                    Feb 2023 — Oct 2023<br>
+                    Tör Altai Nuclear
+                </div>
+                <div>
+                    <h3 class="experience-title"><strong>Senior Analyst</strong></h3>
+                </div>
+            </div>
+            <div class="experience-description">
+                <p>
+                    Conducted comprehensive marketing research on the natural uranium market for NAC International, 
+                    contributing to the "Nuclear Market Issues & Insights 2023" report.
+                </p>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-meta">
+                    Feb 2022 — Dec 2022<br>
+                    Transtelecom
+                </div>
+                <div>
+                    <h3 class="experience-title"><strong>Senior Business Consultant</strong></h3>
+                </div>
+            </div>
+            <div class="experience-description">
+                <p>
+                    Developed strategies for product groups and investment teasers, aligning with corporate objectives 
+                    and market opportunities.
+                </p>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-meta">
+                    Feb 2017 — Dec 2020<br>
                     PwC Kazakhstan
                 </div>
                 <div>
-                    <h3 class="experience-title"><strong>Business Consultant</strong></h3>
+                    <h3 class="experience-title"><strong>Senior Strategy</strong> &<br>Operations Consultant</h3>
                 </div>
             </div>
             <div class="experience-description">
                 <p>
                     Provided strategic consulting services across multiple industries including oil & gas, 
-                    telecommunications, and nuclear sectors. Specialized in market research, strategic analysis, 
-                    and project support.
+                    telecommunications, and government sectors.
                 </p>
                 <ul>
-                    <li>Conducted comprehensive market research and competitive analysis</li>
-                    <li>Developed strategic recommendations for enterprise clients</li>
-                    <li>Managed stakeholder communications and project deliverables</li>
-                    <li>Analyzed complex business processes and identified optimization opportunities</li>
+                    <li>Supported business transformation project for national oil and gas operator as PMO member</li>
+                    <li>Contributed to Justice Sector Institutional Strengthening Project through analytical support</li>
+                    <li>Participated in feasibility study for petrochemical projects with international SMEs</li>
+                    <li>Performed technical and economic analysis for new border crossing point</li>
+                    <li>Assisted in market sizing and PESTEL analysis for strategic development</li>
+                    <li>Aided in financial modeling for Kazakhstani oil service companies in joint ventures</li>
                 </ul>
             </div>
         </div>
@@ -664,7 +796,7 @@
         <div class="experience-item">
             <div class="experience-header">
                 <div class="experience-meta">
-                    2019 — 2023<br>
+                    Aug 2012 — May 2016<br>
                     Nazarbayev University
                 </div>
                 <div>
@@ -673,8 +805,8 @@
             </div>
             <div class="experience-description">
                 <p>
-                    Bachelor's degree with focus on business analysis and strategic management. Developed strong 
-                    analytical foundation and problem-solving skills applied to technical development.
+                    Bachelor of Arts in Political Science and International Relations. Developed strong analytical 
+                    foundation and problem-solving skills applied to business consulting and technical development.
                 </p>
             </div>
         </div>
@@ -745,20 +877,6 @@
 
             <div class="project-card">
                 <div class="project-number">03</div>
-                <h3 class="project-title">Logistics <strong>Data Processor</strong></h3>
-                <p class="project-description">
-                    Desktop application automating logistics data processing and report generation. 
-                    70% reduction in manual processing time through intelligent automation.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Automation</span>
-                    <span class="tech-tag">Excel</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">04</div>
                 <h3 class="project-title">Real-Time <strong>Poker Platform</strong></h3>
                 <p class="project-description">
                     Multiplayer poker game with Socket.IO for real-time communication, featuring advanced game 
@@ -786,6 +904,7 @@
                     <li>GPT-4</li>
                     <li>Cursor IDE</li>
                     <li>AI-Assisted Coding</li>
+                    <li>LLM Integration</li>
                 </ul>
             </div>
 
@@ -797,6 +916,7 @@
                     <li>PostgreSQL</li>
                     <li>REST APIs</li>
                     <li>Database Design</li>
+                    <li>System Architecture</li>
                 </ul>
             </div>
 
@@ -808,17 +928,39 @@
                     <li>HTML/CSS</li>
                     <li>Bootstrap</li>
                     <li>Responsive Design</li>
+                    <li>UI/UX</li>
                 </ul>
             </div>
 
             <div class="skill-category">
-                <h3>Tools & Methods</h3>
+                <h3>Business & Analysis</h3>
                 <ul>
-                    <li>Git & GitHub</li>
-                    <li>Docker</li>
-                    <li>Agile Development</li>
-                    <li>System Architecture</li>
+                    <li>Strategy Consulting</li>
+                    <li>Financial Modeling</li>
+                    <li>Market Research</li>
+                    <li>PESTEL Analysis</li>
                     <li>Process Optimization</li>
+                    <li>MS Office (Advanced)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 60px;">
+            <h3 style="font-size: 0.85em; letter-spacing: 2px; text-transform: uppercase; color: var(--medium-gray); margin-bottom: 20px;">Languages</h3>
+            <div class="experience-description">
+                <ul>
+                    <li><strong>English:</strong> Full professional proficiency</li>
+                    <li><strong>Kazakh:</strong> Native proficiency</li>
+                    <li><strong>Russian:</strong> Bilingual proficiency</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <h3 style="font-size: 0.85em; letter-spacing: 2px; text-transform: uppercase; color: var(--medium-gray); margin-bottom: 20px;">Certifications</h3>
+            <div class="experience-description">
+                <ul>
+                    <li>Financial Modeling & Valuation Analyst (FMVA) — In Progress</li>
                 </ul>
             </div>
         </div>
@@ -826,37 +968,66 @@
 
     <!-- Contact Section -->
     <div class="contact-section" id="contact">
-        <h2>Let's Work <strong>Together</strong></h2>
-        <p style="font-size: 1.2em; color: var(--medium-gray); margin-top: 20px;">
-            Open to opportunities in AI development, prompt engineering, and technical roles.
-        </p>
+        <div class="contact-container">
+            <h2>Let's Work <strong>Together</strong></h2>
 
-        <div class="contact-info">
-            <div class="contact-item">
-                <div class="contact-label">Email</div>
-                <div class="contact-value">
-                    <a href="mailto:contact@aqniyet.com">contact@aqniyet.com</a>
+            <div class="contact-grid">
+                <div class="contact-info-left">
+                    <p style="margin-bottom: 40px;">
+                        Open to opportunities in AI development, prompt engineering, and technical roles. 
+                        Based in Almaty, Kazakhstan.
+                    </p>
+
+                    <div class="contact-method">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">
+                            <a href="mailto:aqniyet@yandex.kz">aqniyet@yandex.kz</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">
+                            <a href="tel:+77752377700">+7 775 237 77 00</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">
+                            <a href="https://www.linkedin.com/in/akniyet/" target="_blank">linkedin.com/in/akniyet</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-label">GitHub</div>
+                        <div class="contact-value">
+                            <a href="https://github.com/aqniyet" target="_blank">github.com/aqniyet</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="contact-item">
-                <div class="contact-label">Phone</div>
-                <div class="contact-value">
-                    <a href="tel:+77752377700">+7 775 237 77 00</a>
-                </div>
-            </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
 
-            <div class="contact-item">
-                <div class="contact-label">LinkedIn</div>
-                <div class="contact-value">
-                    <a href="https://www.linkedin.com/in/akniyet/" target="_blank">linkedin.com/in/akniyet</a>
-                </div>
-            </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
 
-            <div class="contact-item">
-                <div class="contact-label">GitHub</div>
-                <div class="contact-value">
-                    <a href="https://github.com/aqniyet" target="_blank">github.com/aqniyet</a>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                        
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -897,9 +1068,71 @@
             });
         }, observerOptions);
 
-        // Observe all sections
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
+        });
+
+        // Contact Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = this.querySelector('.submit-btn');
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SENDING...';
+            
+            // Simulate form submission (replace with actual backend endpoint)
+            setTimeout(() => {
+                // Show success message
+                formMessage.className = 'form-message success';
+                formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                
+                // Reset form
+                this.reset();
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SEND MESSAGE';
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }, 1000);
+            
+            // For production, use actual form submission:
+            /*
+            fetch('YOUR_BACKEND_ENDPOINT', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                formMessage.className = 'form-message success';
+                formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                this.reset();
+            })
+            .catch(error => {
+                formMessage.className = 'form-message error';
+                formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SEND MESSAGE';
+            });
+            */
         });
     </script>
 </body>
