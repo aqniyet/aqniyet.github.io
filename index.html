@@ -27,6 +27,8 @@
             color: var(--primary-black);
             background: var(--accent-white);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         html {
@@ -707,50 +709,226 @@
         }
 
         @media (max-width: 768px) {
+            /* Disable complex animations on mobile for performance */
+            * {
+                animation-duration: 0.4s !important;
+            }
+
             nav .container {
-                padding: 20px 30px;
+                padding: 15px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
             }
 
-            nav ul {
-                gap: 25px;
-                font-size: 0.9em;
-            }
-
-            .hero h1 {
-                font-size: 3em;
-            }
-
-            .hero .subtitle {
+            nav .logo {
                 font-size: 1.1em;
             }
 
+            nav ul {
+                gap: 15px;
+                font-size: 0.85em;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+
+            .hero {
+                padding-top: 120px;
+                min-height: 80vh;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+
+            .hero .subtitle {
+                font-size: 1em;
+                line-height: 1.6;
+            }
+
+            .hero .badge {
+                font-size: 0.75em;
+                padding: 10px 20px;
+            }
+
             section {
-                padding: 80px 30px;
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                margin-bottom: 30px;
+                font-size: 0.8em;
             }
 
             .about-grid h2,
             .contact-section h2 {
-                font-size: 2.5em;
+                font-size: 2em;
+                line-height: 1.2;
+            }
+
+            .about-content {
+                font-size: 1em;
             }
 
             .stats {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .stat-item {
+                padding: 20px;
+            }
+
+            .experience-header {
+                gap: 20px;
+            }
+
+            .experience-title {
+                font-size: 1.5em;
+            }
+
+            .experience-description {
+                font-size: 1em;
+            }
+
+            .project-card {
+                padding: 30px 20px;
             }
 
             .project-card.featured {
                 grid-column: 1;
+                padding: 40px 20px;
+            }
+
+            .project-title {
+                font-size: 1.5em;
+            }
+
+            .project-metrics {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .metric-value {
+                font-size: 1.5em;
+            }
+
+            .project-link {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
+                font-size: 0.8em;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .skill-category {
+                text-align: center;
+            }
+
+            .skill-category ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .skill-category li {
+                background: var(--light-gray);
+                padding: 8px 15px;
+                border-radius: 4px;
+                font-size: 0.9em;
             }
 
             .contact-section {
-                padding: 80px 30px;
+                padding: 60px 20px;
             }
 
-            .contact-form {
-                padding: 30px;
+            .contact-section h2 {
+                font-size: 2em;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-method {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .contact-value {
+                font-size: 1em;
+            }
+
+            /* Simplify hover effects on mobile */
+            .project-card:hover,
+            .stat-item:hover {
+                transform: none;
+            }
+
+            /* Better touch targets */
+            nav a,
+            .contact-value a,
+            .project-link {
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .container {
+                padding: 15px 15px;
+            }
+
+            nav ul {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero .subtitle {
+                font-size: 0.95em;
+            }
+
+            section {
+                padding: 40px 15px;
+            }
+
+            .about-grid h2,
+            .contact-section h2 {
+                font-size: 1.8em;
+            }
+
+            .project-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-meta,
+            .contact-label {
+                font-size: 0.75em;
+            }
+
+            .experience-title {
+                font-size: 1.3em;
+            }
+
+            footer p {
+                font-size: 0.75em;
             }
         }
 
@@ -1192,26 +1370,49 @@
         });
 
         // Enhanced Intersection Observer for smooth scroll animations
+        // Optimize for mobile performance
+        const isMobile = window.innerWidth <= 768;
+        
         const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: isMobile ? 0.05 : 0.15,
+            rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // Optionally unobserve after animation
-                    // observer.unobserve(entry.target);
+                    // Unobserve after animation on mobile for better performance
+                    if (isMobile) {
+                        observer.unobserve(entry.target);
+                    }
                 }
             });
         }, observerOptions);
 
         // Observe all sections and key elements
-        document.querySelectorAll('section, .project-card, .stat-item, .experience-item').forEach(element => {
+        // On mobile, only observe sections for better performance
+        const elementsToObserve = isMobile 
+            ? 'section' 
+            : 'section, .project-card, .stat-item, .experience-item';
+        
+        document.querySelectorAll(elementsToObserve).forEach(element => {
             element.classList.add('fade-in-section');
             observer.observe(element);
         });
+
+        // Optimize scroll performance on mobile
+        if (isMobile) {
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+        }
 
         // Form submission is handled by FormSubmit.co
         // No JavaScript needed - standard HTML form submission
