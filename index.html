@@ -882,14 +882,6 @@
                     </div>
                 </div>
 
-                <div class="project-tech">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Express.js</span>
-                    <span class="tech-tag">EJS</span>
-                    <span class="tech-tag">AI-Assisted</span>
-                </div>
-
                 <a href="https://github.com/aqniyet/railclerk" class="project-link" target="_blank">View on GitHub</a>
             </div>
 
@@ -900,11 +892,6 @@
                     Multi-portal architecture with 4 separate frontend applications for different user roles. 
                     Demonstrates expertise in multi-portal architecture and role-based interfaces.
                 </p>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">JWT Auth</span>
-                </div>
                 <a href="https://github.com/aqniyet" class="project-link">View Project</a>
             </div>
 
@@ -912,14 +899,9 @@
                 <div class="project-number">03</div>
                 <h3 class="project-title">Real-Time <strong>Poker Platform</strong></h3>
                 <p class="project-description">
-                    Multiplayer poker game with Socket.IO for real-time communication, featuring advanced game 
+                    Multiplayer poker game with real-time communication, featuring advanced game 
                     mechanics and tournament structure.
                 </p>
-                <div class="project-tech">
-                    <span class="tech-tag">Socket.IO</span>
-                    <span class="tech-tag">Real-time</span>
-                    <span class="tech-tag">Docker</span>
-                </div>
             </div>
         </div>
     </section>
@@ -937,31 +919,7 @@
                     <li>Cursor IDE</li>
                     <li>Machine Learning</li>
                     <li>Python Programming</li>
-                    <li>Linear Algebra</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Backend</h3>
-                <ul>
-                    <li>Node.js</li>
-                    <li>Express.js</li>
-                    <li>PostgreSQL</li>
-                    <li>REST APIs</li>
-                    <li>Database Design</li>
-                    <li>System Architecture</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Frontend</h3>
-                <ul>
-                    <li>React</li>
-                    <li>JavaScript</li>
-                    <li>HTML/CSS</li>
-                    <li>Bootstrap</li>
-                    <li>Responsive Design</li>
-                    <li>UI/UX</li>
+                    <li>AI-Assisted Development</li>
                 </ul>
             </div>
 
@@ -974,6 +932,30 @@
                     <li>PESTEL Analysis</li>
                     <li>Process Optimization</li>
                     <li>MS Office (Advanced)</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Development</h3>
+                <ul>
+                    <li>Full-Stack Development</li>
+                    <li>Database Design</li>
+                    <li>System Architecture</li>
+                    <li>API Integration</li>
+                    <li>Enterprise Systems</li>
+                    <li>Process Automation</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Project Management</h3>
+                <ul>
+                    <li>Agile Methodologies</li>
+                    <li>PMO Support</li>
+                    <li>Data Analysis</li>
+                    <li>Stakeholder Management</li>
+                    <li>Strategic Planning</li>
+                    <li>Deliverable Management</li>
                 </ul>
             </div>
         </div>
@@ -994,8 +976,8 @@
             <div class="experience-description">
                 <ul>
                     <li><strong>Linear Algebra for Machine Learning and Data Science</strong> — DeepLearning.AI (Feb 2025)</li>
-                    <li><strong>The Modern Python3 Bootcamp</strong> — Udemy (Dec 2024)</li>
-                    <li><strong>Financial Modeling & Valuation Analyst (FMVA®)</strong> — Corporate Finance Institute (Oct 2024)</li>
+                    <li><strong><a href="https://www.udemy.com/certificate/UC-d7fda4c6-7c27-4f70-b4d5-991a39537990/" target="_blank" style="color: var(--dark-gray); text-decoration: underline;">The Modern Python3 Bootcamp</a></strong> — Udemy (Dec 2024)</li>
+                    <li><strong><a href="https://credentials.corporatefinanceinstitute.com/7926eb70-c563-4edd-aa15-802bc614f47f#acc.BHEQSvLx" target="_blank" style="color: var(--dark-gray); text-decoration: underline;">Financial Modeling & Valuation Analyst (FMVA®)</a></strong> — Corporate Finance Institute (Oct 2024)</li>
                 </ul>
             </div>
         </div>
@@ -1107,67 +1089,68 @@
             observer.observe(section);
         });
 
-        // Contact Form Handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Contact Form Handling with Telegram Integration
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const formMessage = document.getElementById('formMessage');
             const submitBtn = this.querySelector('.submit-btn');
             
             // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
             
             // Disable submit button
             submitBtn.disabled = true;
             submitBtn.textContent = 'SENDING...';
             
-            // Simulate form submission (replace with actual backend endpoint)
-            setTimeout(() => {
-                // Show success message
-                formMessage.className = 'form-message success';
-                formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+            // Prepare Telegram message
+            const telegramBotToken = '8022028226:AAHCLOtLQFGc2CZZoFrLwKbxqeFjEqWWPQk';
+            const telegramChatId = '887515131';
+            const telegramMessage = `🔔 New Contact Form Submission\n\n` +
+                `👤 Name: ${name}\n` +
+                `📧 Email: ${email}\n` +
+                `💬 Message:\n${message}`;
+            
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: telegramChatId,
+                        text: telegramMessage
+                    })
+                });
                 
-                // Reset form
-                this.reset();
-                
+                if (response.ok) {
+                    // Show success message
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                    formMessage.style.display = 'block';
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                console.error('Error sending message:', error);
+                formMessage.className = 'form-message error';
+                formMessage.textContent = 'Sorry, there was an error. Please email me directly at aqniyet@yandex.kz';
+                formMessage.style.display = 'block';
+            } finally {
                 // Re-enable button
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'SEND MESSAGE';
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            }, 1000);
-            
-            // For production, use actual form submission:
-            /*
-            fetch('YOUR_BACKEND_ENDPOINT', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                formMessage.className = 'form-message success';
-                formMessage.textContent = 'Thank you! Your message has been sent successfully.';
-                this.reset();
-            })
-            .catch(error => {
-                formMessage.className = 'form-message error';
-                formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'SEND MESSAGE';
-            });
-            */
+            }
         });
     </script>
 </body>
