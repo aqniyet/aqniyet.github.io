@@ -85,23 +85,23 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 60px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             align-items: center;
             width: 100%;
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 600px;
         }
 
         .hero-title {
-            font-size: clamp(40px, 12vw, 140px);
+            font-size: clamp(36px, 8vw, 90px);
             font-weight: 700;
-            line-height: 0.85;
-            letter-spacing: -0.04em;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
             text-transform: uppercase;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .hero-title span {
@@ -109,12 +109,12 @@
         }
 
         .hero-title .outline {
-            -webkit-text-stroke: 1px #fff;
+            -webkit-text-stroke: 2px #fff;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-sub {
-            max-width: 500px;
+            max-width: 450px;
             font-size: 14px;
             line-height: 1.8;
             color: #888;
@@ -142,34 +142,37 @@
         /* ASCII ART */
         .ascii-container {
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .ascii-art {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 2.5px;
-            line-height: 1;
-            letter-spacing: 0px;
+            font-size: 3.5px;
+            line-height: 1.05;
+            letter-spacing: 0.5px;
             white-space: pre;
             color: #0f0;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            text-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
             animation: flicker 0.15s infinite;
-            overflow: hidden;
-            max-height: 400px;
         }
 
         @keyframes flicker {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.85; }
+            50% { opacity: 0.9; }
         }
 
         .ascii-label {
             position: absolute;
             bottom: -30px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #333;
+            color: #0f0;
+            opacity: 0.5;
         }
 
         /* SECTION */
@@ -378,20 +381,33 @@
         }
 
         /* RESPONSIVE */
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 60px;
+            }
+
+            .hero-content {
+            text-align: center;
+                max-width: 100%;
+            }
+
+            .hero-title {
+                font-size: clamp(40px, 10vw, 100px);
+            }
+
+            .hero-sub {
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .ascii-container {
-                order: -1;
-                justify-self: start;
+                justify-self: center;
             }
 
             .ascii-art {
-                font-size: 1.5px;
-                max-height: 250px;
+                font-size: 2.5px;
             }
         }
 
@@ -409,9 +425,12 @@
                 padding: 100px 20px 60px;
             }
 
+            .hero-title {
+                font-size: clamp(32px, 12vw, 60px);
+            }
+
             .ascii-art {
-                font-size: 1px;
-                max-height: 180px;
+                font-size: 1.8px;
             }
 
             section {
