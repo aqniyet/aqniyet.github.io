@@ -484,7 +484,7 @@
             <div class="project-header">
                 <a href="https://eunoia.kz" target="_blank" class="project-name">Eunoia</a>
                 <span class="project-status wip">WIP</span>
-                </div>
+            </div>
             <p class="project-desc">
                 Instant payouts in Kazakhstan. Send money with just a phone number. 
                 10-second transfers via СМП. 11 banks. Full API automation.
@@ -520,7 +520,7 @@
                         <div class="contact-label">GitHub</div>
                 <div class="contact-value">/aqniyet</div>
             </a>
-                        </div>
+                </div>
     </section>
 
     <!-- FOOTER -->
@@ -819,14 +819,22 @@
             
             // Reset scale first to get true dimensions
             ascii.style.transform = 'scale(1)';
+            banner.style.height = 'auto';
             
             const asciiWidth = ascii.scrollWidth;
+            const asciiHeight = ascii.scrollHeight;
             const viewportWidth = banner.clientWidth;
             
             // Scale to fit width exactly
             const scale = (viewportWidth / asciiWidth) * 0.98;
             
             ascii.style.transform = `scale(${scale})`;
+            
+            // Adjust container height to match scaled content (for mobile)
+            if (window.innerWidth <= 768) {
+                const scaledHeight = asciiHeight * scale;
+                banner.style.height = scaledHeight + 'px';
+            }
         }
 
         // Run after first render
