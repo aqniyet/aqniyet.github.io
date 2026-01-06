@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akniyet Tulakbayev - Developer & Business Consultant</title>
+    <title>AQNIYET</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,1412 +15,504 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-black: #0a0a0a;
-            --soft-black: #1a1a1a;
-            --medium-gray: #666666;
-            --light-gray: #f5f5f5;
-            --accent-white: #ffffff;
-            --border-gray: #e0e0e0;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--primary-black);
-            background: var(--accent-white);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        ::selection {
+            background: #fff;
+            color: #000;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        /* Professional Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: #000;
+            color: #fff;
+            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+            cursor: crosshair;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Navigation */
+        /* NAV */
         nav {
             position: fixed;
             top: 0;
-            width: 100%;
-            background: var(--accent-white);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-gray);
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        nav .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 25px 60px;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            mix-blend-mode: difference;
         }
 
-        nav .logo {
-            font-size: 1.3em;
+        .nav-logo {
+            font-size: 14px;
             font-weight: 700;
-            letter-spacing: -0.5px;
-            color: var(--primary-black);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 50px;
-        }
-
-        nav a {
-            color: var(--primary-black);
-            text-decoration: none;
-            font-size: 0.95em;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-black);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--medium-gray);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: var(--accent-white);
-            position: relative;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            padding: 0 40px;
-        }
-
-        .hero h1 {
-            font-size: 5em;
-            font-weight: 300;
-            letter-spacing: -2px;
-            margin-bottom: 30px;
-            line-height: 1.1;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero h1 strong {
-            font-weight: 700;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3em;
-            color: var(--medium-gray);
-            font-weight: 300;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .hero .badge {
-            display: inline-block;
-            background: var(--primary-black);
-            color: var(--accent-white);
-            padding: 12px 30px;
-            margin-top: 30px;
-            font-size: 0.9em;
             letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .hero .badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Section Styles */
-        section {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 120px 60px;
-        }
-
-        .section-title {
-            font-size: 0.85em;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--medium-gray);
-            margin-bottom: 50px;
-            font-weight: 600;
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .about-grid h2 {
-            font-size: 3.5em;
-            font-weight: 300;
-            letter-spacing: -1px;
-            line-height: 1.2;
-            margin-bottom: 30px;
-        }
-
-        .about-grid h2 strong {
-            font-weight: 700;
-        }
-
-        .about-content {
-            font-size: 1.15em;
-            line-height: 1.9;
-            color: var(--soft-black);
-        }
-
-        .about-content p {
-            margin-bottom: 25px;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .nav-links {
+            display: flex;
             gap: 40px;
-            margin-top: 60px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 30px;
-            border: 1px solid var(--border-gray);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-color: var(--primary-black);
-        }
-
-        .stat-number {
-            font-size: 3em;
-            font-weight: 300;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 0.85em;
-            letter-spacing: 2px;
+            font-size: 12px;
             text-transform: uppercase;
-            color: var(--medium-gray);
+            letter-spacing: 1px;
         }
 
-        /* Experience Section */
-        .experience-item {
-            margin-bottom: 80px;
-            padding-bottom: 80px;
-            border-bottom: 1px solid var(--border-gray);
+        .nav-links a {
+            transition: opacity 0.2s;
         }
 
-        .experience-item:last-child {
-            border-bottom: none;
+        .nav-links a:hover {
+            opacity: 0.5;
         }
 
-        .experience-header {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 80px;
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 120px 30px 80px;
+            border-bottom: 1px solid #333;
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 15vw, 200px);
+            font-weight: 700;
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+        }
+
+        .hero-title span {
+            display: block;
+        }
+
+        .hero-title .outline {
+            -webkit-text-stroke: 1px #fff;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            max-width: 500px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #888;
             margin-bottom: 40px;
         }
 
-        .experience-meta {
-            font-size: 0.85em;
+        .hero-cta {
+            display: inline-block;
+            font-size: 12px;
+            text-transform: uppercase;
             letter-spacing: 2px;
+            padding: 20px 0;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            transition: all 0.3s;
+        }
+
+        .hero-cta:hover {
+            padding-left: 20px;
+            padding-right: 20px;
+            background: #fff;
+            color: #000;
+        }
+
+        /* SECTION */
+        section {
+            padding: 100px 30px;
+            border-bottom: 1px solid #333;
+        }
+
+        .section-label {
+            font-size: 10px;
             text-transform: uppercase;
-            color: var(--medium-gray);
-        }
-
-        .experience-title {
-            font-size: 2em;
-            font-weight: 300;
-            letter-spacing: -0.5px;
-            line-height: 1.3;
-            margin-bottom: 20px;
-        }
-
-        .experience-title strong {
-            font-weight: 700;
-        }
-
-        .experience-description {
-            font-size: 1.05em;
-            line-height: 1.9;
-            color: var(--soft-black);
-        }
-
-        .experience-description ul {
-            list-style: none;
-            margin-top: 25px;
-        }
-
-        .experience-description li {
-            padding-left: 30px;
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        .experience-description li:before {
-            content: "—";
-            position: absolute;
-            left: 0;
-        }
-
-        /* Projects Section */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 60px;
-        }
-
-        .project-card {
-            border: 1px solid var(--border-gray);
-            padding: 50px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(10,10,10,0.03), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-            border-color: var(--primary-black);
-        }
-
-        .project-card:hover::before {
-            left: 100%;
-        }
-
-        .project-card.featured {
-            grid-column: 1 / -1;
-            background: var(--light-gray);
-            border: 2px solid var(--primary-black);
-        }
-
-        .project-number {
-            font-size: 0.75em;
             letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--medium-gray);
-            margin-bottom: 20px;
+            color: #555;
+            margin-bottom: 60px;
         }
 
-        .project-title {
-            font-size: 2em;
-            font-weight: 300;
-            letter-spacing: -0.5px;
-            margin-bottom: 20px;
+        /* PROJECTS */
+        .project {
+            margin-bottom: 80px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid #222;
         }
 
-        .project-title strong {
-            font-weight: 700;
+        .project:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
 
-        .project-description {
-            font-size: 1.05em;
-            line-height: 1.8;
-            color: var(--soft-black);
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 20px;
             margin-bottom: 30px;
         }
 
-        .project-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-            padding: 30px 0;
-            border-top: 1px solid var(--border-gray);
-            border-bottom: 1px solid var(--border-gray);
-        }
-
-        .metric {
-            text-align: center;
-        }
-
-        .metric-value {
-            font-size: 2em;
-            font-weight: 300;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .metric-label {
-            font-size: 0.75em;
-            letter-spacing: 1px;
+        .project-name {
+            font-size: clamp(32px, 8vw, 72px);
+            font-weight: 700;
             text-transform: uppercase;
-            color: var(--medium-gray);
+            letter-spacing: -0.02em;
+            transition: opacity 0.2s;
         }
 
-        .project-tech {
+        .project-name:hover {
+            opacity: 0.6;
+        }
+
+        .project-status {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 8px 16px;
+            border: 1px solid currentColor;
+        }
+
+        .project-status.live {
+            color: #0f0;
+            border-color: #0f0;
+        }
+
+        .project-status.wip {
+            color: #ff0;
+            border-color: #ff0;
+        }
+
+        .project-desc {
+            max-width: 600px;
+            font-size: 14px;
+            line-height: 1.9;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .project-features {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 12px;
         }
 
-        .tech-tag {
-            font-size: 0.8em;
+        .feature-tag {
+            font-size: 11px;
+            text-transform: uppercase;
             letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 8px 20px;
-            border: 1px solid var(--primary-black);
-            color: var(--primary-black);
+            padding: 10px 16px;
+            background: #111;
+            border: 1px solid #333;
+            transition: all 0.2s;
         }
 
-        .project-link {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 40px;
-            background: var(--primary-black);
-            color: var(--accent-white);
-            text-decoration: none;
-            font-size: 0.85em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+        .feature-tag:hover {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
         }
 
-        .project-link::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+        /* CONTACT */
+        .contact {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .project-link:hover {
-            background: var(--soft-black);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
-        .project-link:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-        }
-
-        .skill-category h3 {
-            font-size: 0.85em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--medium-gray);
-            margin-bottom: 20px;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            font-size: 1.05em;
-            margin-bottom: 12px;
-            color: var(--soft-black);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--light-gray);
-            padding: 120px 60px;
-        }
-
-        .contact-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .contact-section h2 {
-            font-size: 4em;
-            font-weight: 300;
-            letter-spacing: -1px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .contact-section h2 strong {
+        .contact-title {
+            font-size: clamp(32px, 10vw, 120px);
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            margin-bottom: 60px;
+        }
+
+        .contact-title span {
+            display: block;
+        }
+
+        .contact-title .outline {
+            -webkit-text-stroke: 1px #fff;
+            -webkit-text-fill-color: transparent;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 80px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 800px;
         }
 
-        .contact-info-left {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: var(--soft-black);
-        }
-
-        .contact-method {
-            margin: 30px 0;
+        .contact-item {
+            display: block;
         }
 
         .contact-label {
-            font-size: 0.75em;
-            letter-spacing: 2px;
+            font-size: 10px;
             text-transform: uppercase;
-            color: var(--medium-gray);
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+            color: #555;
+            margin-bottom: 12px;
         }
 
         .contact-value {
-            font-size: 1.2em;
-            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s;
         }
 
-        .contact-value a {
-            color: var(--primary-black);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            display: inline-block;
+        .contact-item:hover .contact-value {
+            color: #888;
         }
 
-        .contact-value a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--primary-black);
-            transition: width 0.3s ease;
-        }
-
-        .contact-value a:hover {
-            color: var(--medium-gray);
-            transform: translateX(5px);
-        }
-
-        .contact-value a:hover::after {
-            width: 100%;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            background: var(--accent-white);
-            padding: 50px;
-            border: 1px solid var(--border-gray);
-        }
-
-        .form-group {
-            margin-bottom: 30px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.75em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--medium-gray);
-            margin-bottom: 15px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid var(--border-gray);
-            background: var(--accent-white);
-            font-family: inherit;
-            font-size: 1em;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-black);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: var(--primary-black);
-            color: var(--accent-white);
-            border: none;
-            font-size: 0.85em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .submit-btn:hover {
-            background: var(--soft-black);
-        }
-
-        .form-message {
-            margin-top: 20px;
-            padding: 15px;
-            text-align: center;
-            display: none;
-        }
-
-        .form-message.success {
-            background: #d4edda;
-            color: #155724;
-            display: block;
-        }
-
-        .form-message.error {
-            background: #f8d7da;
-            color: #721c24;
-            display: block;
-        }
-
-        /* Footer */
+        /* FOOTER */
         footer {
-            background: var(--primary-black);
-            color: var(--accent-white);
-            text-align: center;
-            padding: 60px 40px;
-        }
-
-        footer p {
-            font-size: 0.85em;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+            text-transform: uppercase;
             letter-spacing: 2px;
-            opacity: 0.7;
+            color: #555;
+            border-top: 1px solid #333;
         }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .about-grid,
-            .experience-header,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* MARQUEE */
+        .marquee-container {
+            overflow: hidden;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            background: #0a0a0a;
         }
 
+        .marquee {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 60px;
+            padding-right: 60px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            /* Disable complex animations on mobile for performance */
-            * {
-                animation-duration: 0.4s !important;
-            }
-
-            nav .container {
+            nav {
                 padding: 15px 20px;
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
             }
 
-            nav .logo {
-                font-size: 1.1em;
-                text-align: center;
-            }
-
-            nav ul {
-                gap: 15px;
-                font-size: 0.85em;
-                flex-wrap: wrap;
-                justify-content: center;
+            .nav-links {
+                gap: 20px;
+                font-size: 10px;
             }
 
             .hero {
-                padding-top: 120px;
-                min-height: 80vh;
-            }
-
-            .hero-content {
-                padding: 0 20px;
-            }
-
-            .hero h1 {
-                font-size: 2.5em;
-                line-height: 1.2;
-                margin-bottom: 20px;
-            }
-
-            .hero .subtitle {
-                font-size: 1em;
-                line-height: 1.6;
-            }
-
-            .hero .badge {
-                font-size: 0.75em;
-                padding: 10px 20px;
+                padding: 100px 20px 60px;
             }
 
             section {
                 padding: 60px 20px;
             }
 
-            .section-title {
-                margin-bottom: 30px;
-                font-size: 0.8em;
-            }
-
-            .about-grid h2,
-            .contact-section h2 {
-                font-size: 2em;
-                line-height: 1.2;
-            }
-
-            .about-content {
-                font-size: 1em;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .stat-item {
-                padding: 20px;
-            }
-
-            .experience-header {
-                gap: 20px;
-            }
-
-            .experience-title {
-                font-size: 1.5em;
-            }
-
-            .experience-description {
-                font-size: 1em;
-            }
-
-            .project-card {
-                padding: 30px 20px;
-            }
-
-            .project-card.featured {
-                grid-column: 1;
-                padding: 40px 20px;
-            }
-
-            .project-title {
-                font-size: 1.5em;
-            }
-
-            .project-metrics {
-                grid-template-columns: repeat(2, 1fr);
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
                 gap: 15px;
             }
 
-            .metric-value {
-                font-size: 1.5em;
-            }
-
-            .project-link {
-                width: 100%;
-                text-align: center;
-                padding: 12px 20px;
-                font-size: 0.8em;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .contact-grid {
                 gap: 30px;
             }
 
-            .skill-category {
+            footer {
+                flex-direction: column;
+                gap: 15px;
                 text-align: center;
-            }
-
-            .skill-category ul {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-
-            .skill-category li {
-                background: var(--light-gray);
-                padding: 8px 15px;
-                border-radius: 4px;
-                font-size: 0.9em;
-            }
-
-            .contact-section {
-                padding: 60px 20px;
-            }
-
-            .contact-section h2 {
-                font-size: 2em;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-method {
-                text-align: center;
-                margin: 20px 0;
-            }
-
-            .contact-value {
-                font-size: 1em;
-            }
-
-            /* Simplify hover effects on mobile */
-            .project-card:hover,
-            .stat-item:hover {
-                transform: none;
-            }
-
-            /* Better touch targets */
-            nav a,
-            .contact-value a,
-            .project-link {
-                min-height: 44px;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
+                padding: 20px;
             }
         }
 
-        @media (max-width: 480px) {
-            nav .container {
-                padding: 15px 15px;
-            }
-
-            nav ul {
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .hero h1 {
-                font-size: 2em;
-            }
-
-            .hero .subtitle {
-                font-size: 0.95em;
-            }
-
-            section {
-                padding: 40px 15px;
-            }
-
-            .about-grid h2,
-            .contact-section h2 {
-                font-size: 1.8em;
-            }
-
-            .project-metrics {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-meta,
-            .contact-label {
-                font-size: 0.75em;
-            }
-
-            .experience-title {
-                font-size: 1.3em;
-            }
-
-            footer p {
-                font-size: 0.75em;
-            }
+        /* GLITCH EFFECT ON HOVER */
+        .glitch {
+            position: relative;
         }
 
-        /* Scroll-triggered animations */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        .glitch:hover {
+            animation: glitch 0.3s ease;
         }
 
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
+    <!-- NAV -->
     <nav>
-        <div class="container">
-            <div class="logo">AKNIYET TULAKBAYEV</div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <div class="nav-logo">AQNIYET</div>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Developer &<br><strong>Business Consultant</strong></h1>
-            <p class="subtitle">Building enterprise systems through AI-assisted development</p>
-            <div class="badge">Top 1% Cursor User · Almaty</div>
-        </div>
+        <h1 class="hero-title glitch">
+            <span>I BUILD</span>
+            <span class="outline">SYSTEMS</span>
+            <span>THAT WORK</span>
+        </h1>
+        <p class="hero-sub">
+            Former management consultant who learned to design. 
+            I turn complex business operations into software that saves time and money.
+        </p>
+        <a href="#contact" class="hero-cta">Let's talk →</a>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="section-title">About</div>
-        <div class="about-grid">
-            <div>
-                <h2>Combining <strong>Business Insight</strong> with <strong>Technical Excellence</strong></h2>
+    <!-- MARQUEE -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>Enterprise Systems</span>
+                <span>•</span>
+                <span>Business Automation</span>
+                <span>•</span>
+                <span>Product Design</span>
+                <span>•</span>
+                <span>Almaty, KZ</span>
+                <span>•</span>
+                <span>Enterprise Systems</span>
+                <span>•</span>
+                <span>Business Automation</span>
+                <span>•</span>
+                <span>Product Design</span>
+                <span>•</span>
+                <span>Almaty, KZ</span>
+                <span>•</span>
             </div>
-            <div class="about-content">
-                <p>
-                    AI-assisted developer and business consultant specializing in building production-grade enterprise 
-                    systems. Recognized as a <strong>top 1% Cursor user in Almaty</strong>, demonstrating expertise in 
-                    AI-powered development workflows and rapid product delivery.
-                </p>
-                <p>
-                    Background in strategy consulting at PwC Kazakhstan and senior analyst roles at Tör Altai Nuclear 
-                    Consulting and Transtelecom. Eight months of intensive experience with AI tools including Claude, 
-                    GPT-4, and Cursor IDE, building systems that deliver measurable business impact.
-                </p>
-                <p>
-                    Currently focused on AI-assisted development and technical innovation, delivering enterprise-grade 
-                    solutions through modern development methodologies and business-oriented approach.
-                </p>
-            </div>
-        </div>
-
-        <div class="stats">
-            <div class="stat-item">
-                <span class="stat-number">5+</span>
-                <span class="stat-label">Production Systems</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">80%</span>
-                <span class="stat-label">Time Reduction</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">100+</span>
-                <span class="stat-label">Features Shipped</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="section-title">Professional Experience</div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-meta">
-                    2025 — Present<br>
-                    Development
-                </div>
-                <div>
-                    <h3 class="experience-title"><strong>Developer</strong> &<br>Technical Lead</h3>
-                </div>
-            </div>
-            <div class="experience-description">
-                <p>
-                    Building production-grade enterprise systems using AI-assisted development. Recognized as top 1% 
-                    Cursor user in Almaty. Focus on rapid prototyping, system architecture, and delivering measurable 
-                    business value through modern development practices.
-                </p>
-                <ul>
-                    <li>Developed enterprise ERP system (6,500+ LOC) with comprehensive wagon rental management</li>
-                    <li>Reduced manual processing time by 80% through intelligent automation</li>
-                    <li>Built multi-tier reporting system generating 500+ monthly reports</li>
-                    <li>Architected 39-table PostgreSQL database with migration system</li>
-                    <li>Shipped 100+ features in 5 months using AI-first development approach</li>
-                    <li>Implemented role-based access control and enterprise security features</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-meta">
-                    Feb 2024 — Aug 2024<br>
-                    Top-Tier Consulting
-                </div>
-                <div>
-                    <h3 class="experience-title"><strong>Associate Consultant</strong></h3>
-                </div>
-            </div>
-            <div class="experience-description">
-                <p>
-                    Supported a multinational client in the tobacco industry with data analysis and project tracking 
-                    for a key pilot initiative.
-                </p>
-                <ul>
-                    <li>Gathered and organized data to build a comprehensive database, ensuring accurate monitoring of pilot project progress</li>
-                    <li>Delivered actionable insights to improve project performance and facilitate decision-making for senior leadership</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-meta">
-                    Feb 2023 — Oct 2023<br>
-                    Tör Altai Nuclear
-                </div>
-                <div>
-                    <h3 class="experience-title"><strong>Senior Analyst</strong></h3>
-                </div>
-            </div>
-            <div class="experience-description">
-                <p>
-                    Led comprehensive market research on uranium primary production, compiling vital market data to 
-                    guide strategic decisions.
-                </p>
-                <ul>
-                    <li>Conducted comprehensive marketing research on the natural uranium market for NAC International</li>
-                    <li>Contributed to the "Nuclear Market Issues & Insights 2023" report</li>
-                    <li>Developed robust package of presentation materials to establish the company's credentials</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-meta">
-                    Feb 2022 — Dec 2022<br>
-                    Transtelecom JSC
-                </div>
-                <div>
-                    <h3 class="experience-title"><strong>Senior Business Consultant</strong></h3>
-                </div>
-            </div>
-            <div class="experience-description">
-                <p>
-                    Specialized in developing strategic plans for product groups and crafting investment teasers. 
-                    Role was pivotal in aligning these strategies with broader corporate objectives.
-                </p>
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-meta">
-                    Oct 2016 — Jan 2021<br>
-                    PwC Kazakhstan
-                </div>
-                <div>
-                    <h3 class="experience-title"><strong>Senior Consultant</strong><br>Consultant · Intern</h3>
-                </div>
-            </div>
-            <div class="experience-description">
-                <p>
-                    Provided strategic consulting services across multiple industries including oil & gas, 
-                    telecommunications, and government sectors. Progressed from Intern to Senior Consultant over 4+ years.
-                </p>
-                <p><strong>Senior Consultant (Oct 2019 - Jan 2021)</strong></p>
-                <ul>
-                    <li>Supported business transformation project for national oil and gas operator as PMO member</li>
-                    <li>Participated in feasibility studies for petrochemical projects with international SMEs</li>
-                    <li>Contributed to e-commerce platform analysis for enhancing agricultural product exports</li>
-                </ul>
-                <p style="margin-top: 20px;"><strong>Consultant (Feb 2017 - Sep 2019)</strong></p>
-                <ul>
-                    <li>Contributed to Justice Sector Institutional Strengthening Project through analytical support</li>
-                    <li>Performed technical and economic analysis for new border crossing point</li>
-                    <li>Assisted in market sizing and PESTEL analysis for strategic development</li>
-                    <li>Aided in financial modeling for Kazakhstani oil service companies in joint ventures</li>
-                </ul>
-                <p style="margin-top: 20px;"><strong>Intern (Oct 2016 - Jan 2017)</strong></p>
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-meta">
-                    Aug 2012 — May 2016<br>
-                    Nazarbayev University
-                </div>
-                <div>
-                    <h3 class="experience-title"><strong>Education</strong></h3>
-                </div>
-            </div>
-            <div class="experience-description">
-                <p>
-                    Bachelor of Arts in Political Science and International Relations.
-                </p>
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-meta">
-                    Certifications
-                </div>
-                <div>
-                    <h3 class="experience-title"><strong>Professional Certifications</strong></h3>
-                </div>
-            </div>
-            <div class="experience-description">
-                <ul>
-                    <li><strong><a href="https://www.udemy.com/certificate/UC-d7fda4c6-7c27-4f70-b4d5-991a39537990/" target="_blank" style="color: var(--dark-gray); text-decoration: underline;">The Modern Python3 Bootcamp</a></strong> — Udemy (Dec 2024)</li>
-                    <li><strong><a href="https://credentials.corporatefinanceinstitute.com/7926eb70-c563-4edd-aa15-802bc614f47f#acc.BHEQSvLx" target="_blank" style="color: var(--dark-gray); text-decoration: underline;">Financial Modeling & Valuation Analyst (FMVA®)</a></strong> — Corporate Finance Institute (Oct 2024)</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="section-title">Selected Projects</div>
-
-        <div class="project-grid">
-            <div class="project-card featured">
-                <div class="project-number">Featured Project</div>
-                <h3 class="project-title"><strong>RailClerk</strong> — Enterprise Railway ERP</h3>
-                <p class="project-description">
-                    Comprehensive enterprise resource planning system for railway wagon rental management. Full-stack 
-                    application handling supplier relationships, wagon fleet tracking, movement monitoring, client billing, 
-                    and automated cost calculations. Built entirely using AI-assisted development methodologies.
-                </p>
-
-                <div class="project-metrics">
-                    <div class="metric">
-                        <span class="metric-value">5</span>
-                        <span class="metric-label">Months Built</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value">39</span>
-                        <span class="metric-label">DB Tables</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value">100+</span>
-                        <span class="metric-label">Wagons</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value">80%</span>
-                        <span class="metric-label">Time Saved</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value">1000s</span>
-                        <span class="metric-label">Transactions</span>
-                    </div>
-                </div>
-
-                <a href="https://github.com/aqniyet/railclerk" class="project-link" target="_blank">View on GitHub</a>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">02</div>
-                <h3 class="project-title">Multi-Portal <strong>Management System</strong></h3>
-                <p class="project-description">
-                    Business management platform with 4 separate frontend applications for different user roles. 
-                    Demonstrates expertise in multi-portal architecture and role-based interfaces.
-                </p>
-                <a href="https://github.com/aqniyet/joo" class="project-link" target="_blank">View on GitHub</a>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">03</div>
-                <h3 class="project-title">Multiplayer <strong>Poker Platform</strong></h3>
-                <p class="project-description">
-                    Real-time poker game with Node.js backend and React frontend. Features WebSocket 
-                    communication, tournament mechanics, and Docker deployment with SSL.
-                </p>
-                <a href="https://github.com/aqniyet/poker_for_nfactorial" class="project-link" target="_blank">View on GitHub</a>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">04</div>
-                <h3 class="project-title">Financial <strong>Transaction System</strong></h3>
-                <p class="project-description">
-                    Payment processing and withdrawal management system. Handles financial transactions 
-                    with secure authentication and automated processing workflows.
-                </p>
-                <a href="https://github.com/aqniyet/taxi_withdrawal" class="project-link" target="_blank">View on GitHub</a>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">05</div>
-                <h3 class="project-title">Real-Time <strong>Chat Application</strong></h3>
-                <p class="project-description">
-                    Modern messaging platform with WebSocket support, QR code connectivity, and typing 
-                    indicators. Microservice architecture with Flask and FastAPI backend.
-                </p>
-                <a href="https://github.com/aqniyet/abdre_api_clear" class="project-link" target="_blank">View on GitHub</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="section-title">Technical Skills</div>
-
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>AI & Data Science</h3>
-                <ul>
-                    <li>Prompt Engineering</li>
-                    <li>Claude AI & GPT-4</li>
-                    <li>Cursor IDE</li>
-                    <li>Python Programming</li>
-                    <li>AI-Assisted Development</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Business & Analysis</h3>
-                <ul>
-                    <li>Strategy Consulting</li>
-                    <li>Financial Modeling</li>
-                    <li>Market Research</li>
-                    <li>PESTEL Analysis</li>
-                    <li>Process Optimization</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Development</h3>
-                <ul>
-                    <li>Database Design</li>
-                    <li>System Architecture</li>
-                    <li>API Integration</li>
-                    <li>Enterprise Systems</li>
-                    <li>Process Automation</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Project Management</h3>
-                <ul>
-                    <li>PMO Support</li>
-                    <li>Data Analysis</li>
-                    <li>Stakeholder Management</li>
-                    <li>Strategic Planning</li>
-                    <li>Deliverable Management</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <div class="contact-section" id="contact">
-        <div class="contact-container">
-            <h2>Let's Work <strong>Together</strong></h2>
-
-            <div style="max-width: 600px; margin: 60px auto 0; text-align: center;">
-                <p style="margin-bottom: 60px; font-size: 1.1em; line-height: 1.8;">
-                    Open to opportunities in AI development, prompt engineering, and technical roles. 
-                    Based in Almaty, Kazakhstan.
-                </p>
-
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; text-align: center;">
-                    <div class="contact-method">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">
-                            <a href="mailto:aqniyet@yandex.kz">aqniyet@yandex.kz</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-method">
-                        <div class="contact-label">Phone</div>
-                        <div class="contact-value">
-                            <a href="tel:+77752377700">+7 775 237 77 00</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-method">
-                        <div class="contact-label">LinkedIn</div>
-                        <div class="contact-value">
-                            <a href="https://www.linkedin.com/in/akniyet/" target="_blank">linkedin.com/in/akniyet</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-method">
-                        <div class="contact-label">GitHub</div>
-                        <div class="contact-value">
-                            <a href="https://github.com/aqniyet" target="_blank">github.com/aqniyet</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="marquee-content">
+                <span>Enterprise Systems</span>
+                <span>•</span>
+                <span>Business Automation</span>
+                <span>•</span>
+                <span>Product Design</span>
+                <span>•</span>
+                <span>Almaty, KZ</span>
+                <span>•</span>
+                <span>Enterprise Systems</span>
+                <span>•</span>
+                <span>Business Automation</span>
+                <span>•</span>
+                <span>Product Design</span>
+                <span>•</span>
+                <span>Almaty, KZ</span>
+                <span>•</span>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- WORK -->
+    <section id="work">
+        <div class="section-label">Selected Work</div>
+
+        <div class="project">
+            <div class="project-header">
+                <a href="https://railclerk.com" target="_blank" class="project-name glitch">RailClerk</a>
+                <span class="project-status live">Live</span>
+            </div>
+            <p class="project-desc">
+                Enterprise ERP for railway wagon rental. Fleet tracking, supplier management, 
+                movement monitoring, automated billing, cost calculations. The whole thing.
+            </p>
+            <div class="project-features">
+                <span class="feature-tag">Movement Tracking</span>
+                <span class="feature-tag">Billing System</span>
+                <span class="feature-tag">Reporting</span>
+                <span class="feature-tag">Access Control</span>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-header">
+                <a href="https://eunoia.kz" target="_blank" class="project-name glitch">Eunoia</a>
+                <span class="project-status wip">WIP</span>
+            </div>
+            <p class="project-desc">
+                Instant payouts in Kazakhstan. Send money with just a phone number. 
+                10-second transfers via СМП. 11 banks. Full API automation.
+            </p>
+            <div class="project-features">
+                <span class="feature-tag">Phone-Only Payouts</span>
+                <span class="feature-tag">10s Transfers</span>
+                <span class="feature-tag">REST API</span>
+                <span class="feature-tag">Audit Trail</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <h2 class="contact-title glitch">
+            <span class="outline">Got a</span>
+            <span>Problem?</span>
+        </h2>
+
+        <div class="contact-grid">
+            <a href="mailto:aqniyet@yandex.kz" class="contact-item">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">aqniyet@yandex.kz</div>
+            </a>
+            <a href="tel:+77752377700" class="contact-item">
+                <div class="contact-label">Phone</div>
+                <div class="contact-value">+7 775 237 77 00</div>
+            </a>
+            <a href="https://www.linkedin.com/in/akniyet/" target="_blank" class="contact-item">
+                <div class="contact-label">LinkedIn</div>
+                <div class="contact-value">/in/akniyet</div>
+            </a>
+            <a href="https://github.com/aqniyet" target="_blank" class="contact-item">
+                <div class="contact-label">GitHub</div>
+                <div class="contact-value">/aqniyet</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2025 AKNIYET TULAKBAYEV — DEVELOPER & BUSINESS CONSULTANT</p>
-        <p style="margin-top: 15px;">ALMATY, KAZAKHSTAN</p>
+        <span>© 2025</span>
+        <span>Almaty, Kazakhstan</span>
     </footer>
 
-    <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Enhanced Intersection Observer for smooth scroll animations
-        // Optimize for mobile performance
-        const isMobile = window.innerWidth <= 768;
-        
-        const observerOptions = {
-            threshold: isMobile ? 0.05 : 0.15,
-            rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    // Unobserve after animation on mobile for better performance
-                    if (isMobile) {
-                        observer.unobserve(entry.target);
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections and key elements
-        // On mobile, only observe sections for better performance
-        const elementsToObserve = isMobile 
-            ? 'section' 
-            : 'section, .project-card, .stat-item, .experience-item';
-        
-        document.querySelectorAll(elementsToObserve).forEach(element => {
-            element.classList.add('fade-in-section');
-            observer.observe(element);
-        });
-
-        // Optimize scroll performance on mobile
-        if (isMobile) {
-            let ticking = false;
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(() => {
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-        }
-
-        // Form submission is handled by FormSubmit.co
-        // No JavaScript needed - standard HTML form submission
-    </script>
 </body>
 </html>
-
