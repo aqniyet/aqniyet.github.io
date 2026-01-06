@@ -83,27 +83,20 @@
             border-bottom: 1px solid #333;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 60px;
-            align-items: center;
+        .hero-inner {
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .hero-content {
-            max-width: 700px;
-        }
-
         .hero-title {
-            font-size: clamp(48px, 10vw, 130px);
+            font-size: clamp(60px, 12vw, 180px);
             font-weight: 700;
             line-height: 0.85;
             letter-spacing: -0.04em;
             text-transform: uppercase;
             margin-bottom: 50px;
+            position: relative;
         }
 
         .hero-title span {
@@ -113,6 +106,40 @@
         .hero-title .outline {
             -webkit-text-stroke: 2px #fff;
             -webkit-text-fill-color: transparent;
+        }
+
+        .hero-title .work-line {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* ASCII ART - positioned over "RK" */
+        .ascii-container {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .ascii-art {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.8px;
+            line-height: 1;
+            letter-spacing: 0px;
+            white-space: pre;
+            color: #0f0;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            animation: flicker 0.15s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+
+        .ascii-label {
+            display: none;
         }
 
         .hero-sub {
@@ -139,43 +166,6 @@
             padding-right: 20px;
             background: #fff;
             color: #000;
-        }
-
-        /* ASCII ART */
-        .ascii-container {
-            position: relative;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .ascii-art {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 2px;
-            line-height: 1;
-            letter-spacing: 0px;
-            white-space: pre;
-            color: #0f0;
-            text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
-            animation: flicker 0.15s infinite;
-            max-width: 400px;
-            overflow: hidden;
-        }
-
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.9; }
-        }
-
-        .ascii-label {
-            position: absolute;
-            bottom: -25px;
-            right: 0;
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #0f0;
-            opacity: 0.4;
         }
 
         /* SECTION */
@@ -385,25 +375,18 @@
 
         /* RESPONSIVE */
         @media (max-width: 1200px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .ascii-container {
-                justify-self: center;
-                order: -1;
+            .hero-title {
+                font-size: clamp(50px, 10vw, 120px);
             }
 
             .ascii-art {
-                font-size: 1.8px;
-                max-width: 350px;
+                font-size: 1.5px;
             }
+        }
 
-            .ascii-label {
-                right: auto;
-                left: 50%;
-                transform: translateX(-50%);
+        @media (max-width: 900px) {
+            .ascii-container {
+                display: none;
             }
         }
 
@@ -422,12 +405,7 @@
             }
 
             .hero-title {
-                font-size: clamp(36px, 12vw, 70px);
-            }
-
-            .ascii-art {
-                font-size: 1.2px;
-                max-width: 280px;
+                font-size: clamp(40px, 14vw, 80px);
             }
 
             section {
@@ -504,24 +482,21 @@
 
     <!-- HERO -->
     <section class="hero">
-        <div class="hero-grid">
-        <div class="hero-content">
-                <h1 class="hero-title glitch">
-                    <span>I BUILD</span>
-                    <span class="outline">SYSTEMS</span>
-                    <span>THAT WORK</span>
-                </h1>
-                <p class="hero-sub">
-                    Former management consultant who learned to design. 
-                    I turn complex business operations into software that saves time and money.
-                </p>
-                <a href="#contact" class="hero-cta">Let's talk →</a>
-        </div>
-
-            <div class="ascii-container">
-                <pre class="ascii-art" id="ascii-portrait"></pre>
-                <div class="ascii-label">[ portrait.exe ]</div>
-            </div>
+        <div class="hero-inner">
+            <h1 class="hero-title glitch">
+                <span>I BUILD</span>
+                <span class="outline">SYSTEMS</span>
+                <span class="work-line">THAT WORK
+                    <div class="ascii-container">
+                        <pre class="ascii-art" id="ascii-portrait"></pre>
+                    </div>
+                </span>
+            </h1>
+            <p class="hero-sub">
+                Former management consultant who learned to design. 
+                I turn complex business operations into software that saves time and money.
+            </p>
+            <a href="#contact" class="hero-cta">Let's talk →</a>
         </div>
     </section>
 
