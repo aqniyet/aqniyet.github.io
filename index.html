@@ -705,21 +705,103 @@
 
         const asciiElement = document.getElementById('ascii-banner');
         
+        // Glitch intensity - varies over time
+        let glitchIntensity = 0.02;
+        let glitchWave = 0;
+        
         function animateBanner() {
-            const glitchChars = ['@', '%', '#', '*', '+', '=', '-', ':', '.', ' '];
+            const glitchChars = ['@', '%', '#', '*', '+', '=', '-', ':', '.', ' ', '█', '▓', '▒', '░', '/', '\\', '|', '_', '~', '^'];
+            const lines = bannerText.split('\n');
             let result = '';
-            for (let i = 0; i < bannerText.length; i++) {
-                if (Math.random() < 0.002 && bannerText[i] !== ' ' && bannerText[i] !== '\n') {
-                    result += glitchChars[Math.floor(Math.random() * glitchChars.length)];
-                } else {
-                    result += bannerText[i];
+            
+            // Wave effect - glitch intensity varies
+            glitchWave += 0.1;
+            const waveGlitch = Math.sin(glitchWave) * 0.015 + glitchIntensity;
+            
+            // Random glitch burst
+            const burstActive = Math.random() < 0.05;
+            const burstIntensity = burstActive ? 0.15 : 0;
+            
+            // Random horizontal shift for some lines
+            const shiftLine = Math.floor(Math.random() * lines.length);
+            const shiftAmount = Math.random() < 0.03 ? Math.floor(Math.random() * 10) - 5 : 0;
+            
+            for (let lineIdx = 0; lineIdx < lines.length; lineIdx++) {
+                const line = lines[lineIdx];
+                
+                // Occasionally duplicate or skip a line
+                if (Math.random() < 0.005) {
+                    result += line + '\n' + line + '\n';
+                    continue;
                 }
+                
+                // Line-specific glitch intensity
+                const lineGlitch = lineIdx === shiftLine ? 0.1 : 0;
+                const totalGlitch = waveGlitch + burstIntensity + lineGlitch;
+                
+                // Horizontal shift
+                if (lineIdx === shiftLine && shiftAmount !== 0) {
+                    if (shiftAmount > 0) {
+                        result += ' '.repeat(shiftAmount) + line.slice(0, -shiftAmount) + '\n';
+                    } else {
+                        result += line.slice(-shiftAmount) + ' '.repeat(-shiftAmount) + '\n';
+                    }
+                    continue;
+                }
+                
+                for (let i = 0; i < line.length; i++) {
+                    const char = line[i];
+                    
+                    // Skip spaces and newlines from glitching (mostly)
+                    if (char === ' ' && Math.random() > 0.01) {
+                        result += char;
+                        continue;
+                    }
+                    
+                    // Apply glitch
+                    if (Math.random() < totalGlitch) {
+                        // Different glitch types
+                        const glitchType = Math.random();
+                        if (glitchType < 0.4) {
+                            // Replace with random char
+                            result += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                        } else if (glitchType < 0.6) {
+                            // Color shift simulation - repeat char
+                            result += char + char;
+                            i++; // Skip next char
+                        } else if (glitchType < 0.8) {
+                            // Delete char
+                            continue;
+                        } else {
+                            // Swap with nearby char
+                            if (i < line.length - 1) {
+                                result += line[i + 1];
+                            } else {
+                                result += char;
+                            }
+                        }
+                    } else {
+                        result += char;
+                    }
+                }
+                result += '\n';
             }
+            
             asciiElement.textContent = result;
         }
         
+        // Occasionally spike the glitch intensity
+        setInterval(() => {
+            if (Math.random() < 0.1) {
+                glitchIntensity = 0.08 + Math.random() * 0.1;
+                setTimeout(() => {
+                    glitchIntensity = 0.02;
+                }, 200 + Math.random() * 300);
+            }
+        }, 500);
+        
         animateBanner();
-        setInterval(animateBanner, 100);
+        setInterval(animateBanner, 50);
     </script>
 </body>
 </html>
