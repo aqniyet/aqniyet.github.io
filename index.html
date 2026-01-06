@@ -62,8 +62,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 0, 0, 0.8);
+            background: transparent;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-bottom: 1px solid #0f0;
+        }
+
+        nav.in-ascii {
+            mix-blend-mode: difference;
+        }
+
+        nav.in-ascii .nav-logo,
+        nav.in-ascii .nav-links a {
+            color: #fff;
         }
 
         .nav-logo {
@@ -71,6 +87,7 @@
             font-weight: 700;
             letter-spacing: 2px;
             color: #0f0;
+            transition: all 0.3s;
         }
 
         .nav-links {
@@ -82,7 +99,7 @@
         }
 
         .nav-links a {
-            transition: color 0.2s;
+            transition: all 0.3s;
         }
 
         .nav-links a:hover {
@@ -327,17 +344,34 @@
                 padding: 15px 20px;
             }
 
+            nav.scrolled {
+                padding: 12px 20px;
+            }
+
             .nav-links {
                 gap: 20px;
                 font-size: 10px;
             }
 
             .hero {
-                padding: 80px 10px 40px;
+                padding: 0;
+            }
+
+            .ascii-banner {
+                width: 100vw;
+                height: 100vh;
+                overflow: auto;
             }
 
             .ascii-art {
-                font-size: 1px;
+                font-size: clamp(0.8px, 0.45vw, 2px);
+                transform-origin: center center;
+            }
+
+            .hero-cta {
+                bottom: 40px;
+                padding: 15px 30px;
+                font-size: 12px;
             }
 
             section {
@@ -359,6 +393,18 @@
                 gap: 15px;
                 text-align: center;
                 padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ascii-art {
+                font-size: clamp(0.5px, 0.35vw, 1.5px);
+            }
+
+            .hero-cta {
+                bottom: 30px;
+                padding: 12px 24px;
+                font-size: 10px;
             }
         }
 
@@ -517,6 +563,27 @@
             canvas.height = window.innerHeight;
         });
 
+        // Nav transformation on scroll
+        const nav = document.querySelector('nav');
+        const hero = document.querySelector('.hero');
+        
+        function updateNav() {
+            const heroBottom = hero.offsetTop + hero.offsetHeight;
+            const scrollY = window.scrollY;
+            
+            // Check if we're in the ASCII art section
+            if (scrollY < heroBottom - 100) {
+                nav.classList.add('in-ascii');
+                nav.classList.remove('scrolled');
+            } else {
+                nav.classList.remove('in-ascii');
+                nav.classList.add('scrolled');
+            }
+        }
+        
+        window.addEventListener('scroll', updateNav);
+        updateNav(); // Initial check
+
         // ASCII Banner - embedded directly
         const bannerText = `@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -656,3 +723,4 @@
     </script>
 </body>
 </html>
+
