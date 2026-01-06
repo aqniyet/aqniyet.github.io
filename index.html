@@ -355,21 +355,24 @@
 
             .hero {
                 padding: 0;
+                min-height: auto;
             }
 
             .ascii-banner {
                 width: 100vw;
-                height: 100vh;
-                overflow: auto;
+                height: auto;
+                min-height: 100vh;
+                overflow: hidden;
+                padding: 10px 0;
             }
 
             .ascii-art {
-                font-size: clamp(0.8px, 0.45vw, 2px);
+                font-size: 0.24vw;
                 transform-origin: center center;
             }
 
             .hero-cta {
-                bottom: 40px;
+                bottom: 20px;
                 padding: 15px 30px;
                 font-size: 12px;
             }
@@ -398,13 +401,19 @@
 
         @media (max-width: 480px) {
             .ascii-art {
-                font-size: clamp(0.5px, 0.35vw, 1.5px);
+                font-size: 0.18vw;
             }
 
             .hero-cta {
-                bottom: 30px;
+                bottom: 15px;
                 padding: 12px 24px;
                 font-size: 10px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .ascii-art {
+                font-size: 0.15vw;
             }
         }
 
