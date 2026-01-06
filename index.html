@@ -367,8 +367,7 @@
             }
 
             .ascii-art {
-                font-size: 3px;
-                transform: scale(0.38);
+                font-size: 4px;
                 transform-origin: center center;
             }
 
@@ -401,11 +400,6 @@
         }
 
         @media (max-width: 480px) {
-            .ascii-art {
-                font-size: 3px;
-                transform: scale(0.32);
-            }
-
             .hero-cta {
                 bottom: 20px;
                 padding: 12px 24px;
@@ -807,6 +801,35 @@
         
         animateBanner();
         setInterval(animateBanner, 50);
+
+        // Auto-scale ASCII to fit viewport width
+        function scaleAscii() {
+            const ascii = document.getElementById('ascii-banner');
+            const banner = document.querySelector('.ascii-banner');
+            
+            // Reset scale first to get true dimensions
+            ascii.style.transform = 'scale(1)';
+            
+            const asciiWidth = ascii.scrollWidth;
+            const viewportWidth = banner.clientWidth;
+            const viewportHeight = banner.clientHeight;
+            
+            // Calculate scale to fit width
+            const scaleX = viewportWidth / asciiWidth;
+            
+            // Also check height
+            const asciiHeight = ascii.scrollHeight;
+            const scaleY = viewportHeight / asciiHeight;
+            
+            // Use the smaller scale to fit both dimensions
+            const scale = Math.min(scaleX, scaleY) * 0.95; // 95% to add small margin
+            
+            ascii.style.transform = `scale(${scale})`;
+        }
+
+        // Run after first render
+        setTimeout(scaleAscii, 100);
+        window.addEventListener('resize', scaleAscii);
     </script>
 </body>
 </html>
