@@ -357,11 +357,13 @@
             .hero {
                 padding: 0;
                 min-height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
             .ascii-banner {
                 width: 100vw;
-                height: auto;
                 overflow: hidden;
                 display: flex;
                 align-items: flex-start;
@@ -375,7 +377,7 @@
             }
 
             .hero-cta {
-                position: relative !important;
+                position: static !important;
                 bottom: auto !important;
                 left: auto !important;
                 transform: none !important;
@@ -835,7 +837,8 @@
             // Adjust container height to match scaled content (for mobile)
             if (window.innerWidth <= 768) {
                 const scaledHeight = asciiHeight * scale;
-                banner.style.height = scaledHeight + 'px';
+                banner.style.height = (scaledHeight + 20) + 'px';
+                banner.style.marginBottom = '0';
             }
         }
 
