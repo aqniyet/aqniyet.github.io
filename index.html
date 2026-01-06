@@ -355,26 +355,32 @@
 
             .hero {
                 padding: 0;
+                min-height: auto;
             }
 
             .ascii-banner {
                 width: 100vw;
-                height: 100vh;
+                height: auto;
                 overflow: hidden;
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: center;
+                padding-top: 60px;
             }
 
             .ascii-art {
                 font-size: 4px;
-                transform-origin: center center;
+                transform-origin: top center;
             }
 
             .hero-cta {
-                bottom: 30px;
-                padding: 15px 30px;
-                font-size: 12px;
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin: 30px auto;
+                display: block;
+                width: fit-content;
             }
 
             section {
@@ -400,8 +406,12 @@
         }
 
         @media (max-width: 480px) {
+            .ascii-banner {
+                padding-top: 50px;
+            }
+
             .hero-cta {
-                bottom: 20px;
+                margin: 20px auto;
                 padding: 12px 24px;
                 font-size: 10px;
             }
@@ -812,17 +822,9 @@
             
             const asciiWidth = ascii.scrollWidth;
             const viewportWidth = banner.clientWidth;
-            const viewportHeight = banner.clientHeight;
             
-            // Calculate scale to fit width
-            const scaleX = viewportWidth / asciiWidth;
-            
-            // Also check height
-            const asciiHeight = ascii.scrollHeight;
-            const scaleY = viewportHeight / asciiHeight;
-            
-            // Use the smaller scale to fit both dimensions
-            const scale = Math.min(scaleX, scaleY) * 0.95; // 95% to add small margin
+            // Scale to fit width exactly
+            const scale = (viewportWidth / asciiWidth) * 0.98;
             
             ascii.style.transform = `scale(${scale})`;
         }
