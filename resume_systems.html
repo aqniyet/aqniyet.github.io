@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akniyet Tulakbayev - Head of Setup</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 12mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            font-size: 10pt;
+            line-height: 1.3;
+            color: #000;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 10mm;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #000;
+        }
+
+        .header h1 {
+            font-size: 22pt;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .header .title {
+            font-size: 11pt;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .header .contact {
+            font-size: 8.5pt;
+            line-height: 1.4;
+        }
+
+        .header .contact a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 8px;
+        }
+
+        .section p {
+            margin-bottom: 0;
+        }
+
+        .section:first-of-type {
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #000;
+            margin-bottom: 6px;
+            padding-bottom: 2px;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 8px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .experience-title {
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .experience-date {
+            font-size: 8.5pt;
+            color: #333;
+            font-style: italic;
+        }
+
+        .experience-company {
+            font-size: 9pt;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        .experience-description {
+            font-size: 9pt;
+            margin-left: 12px;
+        }
+
+        .experience-description ul {
+            list-style-type: disc;
+            margin-left: 12px;
+        }
+
+        .experience-description li {
+            margin-bottom: 2px;
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 6px;
+            page-break-inside: avoid;
+        }
+
+        .project-title {
+            font-size: 9.5pt;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .project-link {
+            font-size: 8pt;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .project-description {
+            font-size: 9pt;
+            margin-left: 12px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+        }
+
+        .skill-category {
+            page-break-inside: avoid;
+        }
+
+        .skill-category h3 {
+            font-size: 9.5pt;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            font-size: 9pt;
+        }
+
+        .skill-category li {
+            margin-bottom: 1px;
+            padding-left: 8px;
+            position: relative;
+        }
+
+        .skill-category li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Certifications */
+        .cert-item {
+            margin-bottom: 5px;
+            font-size: 9.5pt;
+        }
+
+        .cert-name {
+            font-weight: bold;
+        }
+
+        .cert-org {
+            color: #333;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+        }
+
+        /* Print button */
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+            font-weight: bold;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .print-button:hover {
+            background: #333;
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>AKNIYET TULAKBAYEV</h1>
+        <div class="title">Systems Design</div>
+        <div class="contact">
+            Almaty, Kazakhstan | 
+            <a href="mailto:aqniyet@yandex.kz">aqniyet@yandex.kz</a> | 
+            <a href="tel:+77752377700">+7 775 237 77 00</a><br>
+            <a href="https://linkedin.com/in/akniyet">linkedin.com/in/akniyet</a> | 
+            <a href="https://github.com/aqniyet">github.com/aqniyet</a> | 
+            <a href="https://aqniyet.com">aqniyet.com</a>
+        </div>
+    </div>
+
+    <!-- Professional Summary -->
+    <div class="section">
+        <div class="section-title">Professional Summary</div>
+        <p style="font-size: 9.5pt;">
+            Systems-oriented operations specialist with 7+ years of experience structuring ambiguous business
+            environments into functional operating systems. Designs operating logic, workflows, and decision
+            rules where processes are undefined or inconsistent. Owns system readiness across business,
+            operations, and technology, with a focus on stabilization, variance reduction, and handover.
+            Background in strategy consulting and operational system design across logistics, transportation,
+            and fintech-adjacent domains.
+        </p>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+        <div class="section-title">Professional Experience</div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Process Automation Lead</div>
+                <div class="experience-date">Jun 2024 — Present</div>
+            </div>
+            <div class="experience-company">Logistics Company | Almaty, Kazakhstan</div>
+            <div class="experience-description">
+                <ul>
+                    <li>Owned redesign of operational reporting and control architecture across fleet movement, billing, and supplier settlements</li>
+                    <li>Mapped end-to-end operational flows, identified failure points and undocumented practices, and formalized them into executable processes</li>
+                    <li>Defined billing logic, cost allocation rules, and supplier management workflows under incomplete and inconsistent source data</li>
+                    <li>Designed rule-based pipelines replacing manual decision-making, significantly reducing operational variance and reconciliation errors</li>
+                    <li>Acted as translation layer between operations, finance, and technical implementation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Founder / System Architect</div>
+                <div class="experience-date">Jul 2025 — Present</div>
+            </div>
+            <div class="experience-company"><a href="https://railclerk.com" style="color: #333;">railclerk.com</a> | Almaty, Kazakhstan</div>
+            <div class="experience-description">
+                <ul>
+                    <li>Designed complete operating model for railway wagon rental operations where no standardized process existed</li>
+                    <li>Defined core entities, states, decision rules, and workflows governing fleet usage, billing, tracking, and reporting</li>
+                    <li>Formalized previously ad-hoc operational practices into repeatable workflows and SOP-ready logic</li>
+                    <li>Created reusable templates and reporting structures designed for replication across CIS rail operations</li>
+                    <li>Prepared system for handover by documenting operating logic, workflows, and decision rules</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Founder / Product & Operations Design</div>
+                <div class="experience-date">2024 — Present</div>
+            </div>
+            <div class="experience-company"><a href="https://eunoia.kz" style="color: #333;">eunoia.kz</a> (in development) | Almaty, Kazakhstan</div>
+            <div class="experience-description">
+                <ul>
+                    <li>Designing payout infrastructure and operating logic for high-frequency B2B2C driver payments</li>
+                    <li>Defined operational workflows for instant settlements via Kazakhstan's Instant Payment System (SMP)</li>
+                    <li>Structured payment flows, reconciliation logic, and exception handling under regulatory and banking constraints</li>
+                    <li>Focus on operational reliability, compliance boundaries, and scalability of payment execution</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Associate Consultant</div>
+                <div class="experience-date">Feb 2024 — Aug 2024</div>
+            </div>
+            <div class="experience-company">Top-Tier Consulting Firm | Hybrid</div>
+            <div class="experience-description">
+                <ul>
+                    <li>Built monitoring database for multinational pilot initiative across multiple markets</li>
+                    <li>Designed tracking logic and reporting structures to support operational visibility and decision-making</li>
+                    <li>Supported project governance through data structuring rather than presentation-driven reporting</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Senior Analyst</div>
+                <div class="experience-date">Feb 2023 — Oct 2023</div>
+            </div>
+            <div class="experience-company">Tör Altai Nuclear Consulting | Astana, Kazakhstan</div>
+            <div class="experience-description">
+                <ul>
+                    <li>Led structured market research on primary uranium production</li>
+                    <li>Conducted demand, supply, and competitive analysis for international nuclear fuel stakeholders</li>
+                    <li>Produced analytical outputs used for strategic positioning and investment assessment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Senior Business Consultant</div>
+                <div class="experience-date">Feb 2022 — Dec 2022</div>
+            </div>
+            <div class="experience-company">Transtelecom JSC | Nur-Sultan, Kazakhstan</div>
+            <div class="experience-description">
+                <ul>
+                    <li>Developed strategic plans and investment cases for telecom product groups</li>
+                    <li>Translated corporate objectives into structured product and investment logic</li>
+                    <li>Worked at interface of strategy, financial modeling, and execution planning</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Consultant → Senior Consultant</div>
+                <div class="experience-date">Oct 2016 — Jan 2021</div>
+            </div>
+            <div class="experience-company">PwC Kazakhstan | Astana, Kazakhstan</div>
+            <div class="experience-description">
+                <ul>
+                    <li>PMO member for large-scale business transformation at national oil & gas operator</li>
+                    <li>Delivered feasibility studies and financial models for petrochemical and oil service projects</li>
+                    <li>Conducted market sizing, PESTEL analysis, and regulatory assessments for infrastructure and export initiatives</li>
+                    <li>Built analytical foundations used in investment and policy decision-making</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education & Certifications -->
+    <div class="section">
+        <div class="section-title">Education & Certifications</div>
+        
+        <div style="margin-bottom: 12px;">
+            <div style="font-weight: bold; font-size: 10.5pt;">Bachelor of Arts — Political Science & International Relations</div>
+            <div style="font-size: 9.5pt; color: #333;">Nazarbayev University | 2012 — 2016</div>
+        </div>
+
+        <div style="margin-top: 12px;">
+            <div style="font-weight: bold; font-size: 10pt; margin-bottom: 5px;">Certifications:</div>
+            <div class="cert-item">
+                <strong><span class="cert-name">Financial Modeling & Valuation Analyst (FMVA®)</span></strong> —
+                <span class="cert-org">CFI, 2024</span>
+            </div>
+            <div class="cert-item">
+                <span class="cert-name">The Modern Python 3 Bootcamp</span> —
+                <span class="cert-org">Udemy, 2024</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Skills -->
+    <div class="section">
+        <div class="section-title">Core Competencies</div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>System Design</h3>
+                <ul>
+                    <li>End-to-end operational architecture</li>
+                    <li>Entity, state, and workflow definition</li>
+                    <li>Rule-based process design</li>
+                    <li>Handover-ready system documentation</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Setup & Stabilization</h3>
+                <ul>
+                    <li>Structuring undefined operations</li>
+                    <li>SOP and operating logic creation</li>
+                    <li>Regulatory and constraint analysis</li>
+                    <li>Variance reduction and failure prevention</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Cross-Functional Execution</h3>
+                <ul>
+                    <li>Business ↔ Operations ↔ Technology translation</li>
+                    <li>PMO and program coordination</li>
+                    <li>End-to-end delivery ownership</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Operational Intelligence</h3>
+                <ul>
+                    <li>KPI and monitoring logic design</li>
+                    <li>Risk and edge-case identification</li>
+                    <li>Financial modeling and unit economics</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="section">
+        <div class="section-title">Languages</div>
+        <div style="font-size: 9.5pt;">
+            <strong>English:</strong> Full professional proficiency | 
+            <strong>Kazakh:</strong> Native proficiency | 
+            <strong>Russian:</strong> Bilingual proficiency
+        </div>
+    </div>
+</body>
+</html>
+
