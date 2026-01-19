@@ -27,7 +27,6 @@
             padding: 10mm;
         }
 
-        /* Header */
         .header {
             text-align: center;
             margin-bottom: 10px;
@@ -42,12 +41,6 @@
             margin-bottom: 5px;
         }
 
-        .header .title {
-            font-size: 11pt;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
         .header .contact {
             font-size: 8.5pt;
             line-height: 1.4;
@@ -58,17 +51,12 @@
             text-decoration: none;
         }
 
-        /* Section */
         .section {
             margin-bottom: 8px;
         }
 
         .section p {
             margin-bottom: 0;
-        }
-
-        .section:first-of-type {
-            margin-bottom: 8px;
         }
 
         .section-title {
@@ -81,7 +69,6 @@
             padding-bottom: 2px;
         }
 
-        /* Experience */
         .experience-item {
             margin-bottom: 8px;
         }
@@ -124,78 +111,11 @@
             margin-bottom: 2px;
         }
 
-        /* Projects */
-        .project-item {
-            margin-bottom: 6px;
-            page-break-inside: avoid;
-        }
-
-        .project-title {
-            font-size: 9.5pt;
-            font-weight: bold;
-            margin-bottom: 2px;
-        }
-
-        .project-link {
-            font-size: 8pt;
-            color: #333;
-            margin-bottom: 2px;
-        }
-
-        .project-description {
-            font-size: 9pt;
-            margin-left: 12px;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 6px;
-        }
-
-        .skill-category {
-            page-break-inside: avoid;
-        }
-
-        .skill-category h3 {
-            font-size: 9.5pt;
-            font-weight: bold;
-            margin-bottom: 3px;
-        }
-
-        .skill-category ul {
-            list-style: none;
-            font-size: 9pt;
-        }
-
-        .skill-category li {
-            margin-bottom: 1px;
-            padding-left: 8px;
-            position: relative;
-        }
-
-        .skill-category li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-        }
-
-        /* Certifications */
         .cert-item {
             margin-bottom: 5px;
             font-size: 9.5pt;
         }
 
-        .cert-name {
-            font-weight: bold;
-        }
-
-        .cert-org {
-            color: #333;
-        }
-
-        /* Print styles */
         @media print {
             body {
                 padding: 0;
@@ -212,7 +132,6 @@
             }
         }
 
-        /* Print button */
         .print-button {
             position: fixed;
             top: 20px;
@@ -240,9 +159,8 @@
     </style>
 </head>
 <body>
-    <button class="print-button no-print" onclick="window.print()">Печать / Сохранить PDF</button>
+    <button class="print-button no-print" onclick="window.print()">Печать / PDF</button>
 
-    <!-- Header -->
     <div class="header">
         <h1>АКНИЕТ ТУЛАКБАЕВ</h1>
         <div class="contact">
@@ -254,51 +172,47 @@
         </div>
     </div>
 
-    <!-- Professional Summary -->
     <div class="section">
         <div class="section-title">О себе</div>
         <p style="font-size: 9.5pt;">
-            Специалист по финансам и операциям с опытом более 7 лет в построении платёжной инфраструктуры,
-            финансовых систем и инвестиционной логики в финтехе, на рынках капитала и в корпоративной стратегии.
-            Умею разбираться в сложных и неструктурированных областях с минимумом вводных и выстраивать их
-            в рабочие системы. Опыт в построении логики сверки и расчётов, переводе регуляторных ограничений
-            в операционные процессы. Работал с платёжными системами, финансовым моделированием и инвестиционным
-            анализом для институциональных клиентов.
+            Более 7 лет в финансах и операционном управлении. Опыт построения платёжных систем, финансовых моделей
+            и инвестиционной аналитики в финтехе, на рынках капитала и в корпоративном секторе. Быстро погружаюсь
+            в новые предметные области и выстраиваю работающие процессы при минимуме исходных данных.
+            Сверка, взаиморасчёты, работа с регуляторными требованиями, финмоделирование, инвестиционный анализ.
         </p>
     </div>
 
-    <!-- Experience -->
     <div class="section">
         <div class="section-title">Опыт работы</div>
 
         <div class="experience-item">
             <div class="experience-header">
-                <div class="experience-title">Основатель, архитектор финансовых систем</div>
+                <div class="experience-title">Основатель / Архитектор финансовых систем</div>
                 <div class="experience-date">2024 — н.в.</div>
             </div>
-            <div class="experience-company">Eunoia.kz & RailClerk.com | Алматы, Казахстан</div>
+            <div class="experience-company">Eunoia.kz & RailClerk.com | Алматы</div>
             <div class="experience-description">
                 <ul>
-                    <li>Проектирование платёжной инфраструктуры для B2B2C-расчётов через Систему мгновенных платежей (СМП): сверка в реальном времени, обработка исключений, соответствие требованиям</li>
-                    <li>Разработка финансовой модели для аренды ж/д вагонов: биллинг, признание выручки, распределение затрат, отслеживание денежных потоков</li>
-                    <li>Построение моделей юнит-экономики и симуляций платёжных потоков с учётом банковских и регуляторных ограничений</li>
-                    <li>Подготовка шаблонов финансовой отчётности и документации для due diligence</li>
+                    <li>Разработка платёжной инфраструктуры для B2B2C-расчётов через СМП: сверка в реальном времени, обработка ошибок, соответствие требованиям регулятора</li>
+                    <li>Финансовая модель аренды ж/д вагонов: биллинг, учёт выручки, распределение затрат, движение денежных средств</li>
+                    <li>Расчёт юнит-экономики и моделирование платёжных потоков с учётом банковских и регуляторных ограничений</li>
+                    <li>Подготовка форм отчётности и документации для проверки инвесторами</li>
                 </ul>
             </div>
         </div>
 
         <div class="experience-item">
             <div class="experience-header">
-                <div class="experience-title">Руководитель операционных финансов</div>
-                <div class="experience-date">Июн 2024 — н.в.</div>
+                <div class="experience-title">Руководитель финансовых операций</div>
+                <div class="experience-date">Июнь 2024 — н.в.</div>
             </div>
-            <div class="experience-company">Логистическая компания | Алматы, Казахстан</div>
+            <div class="experience-company">Логистическая компания | Алматы</div>
             <div class="experience-description">
                 <ul>
-                    <li>Перестройка финансового контроля по флотовым операциям: автоматизация биллинга, расчёты с поставщиками, распределение затрат</li>
-                    <li>Построение правил сверки, сокративших расхождения в платежах и ускоривших закрытие месяца</li>
-                    <li>Оформление правил принятия решений в условиях неполных данных, контроль отклонений и обработка исключений</li>
-                    <li>Взаимодействие финансовых, операционных и технических команд для согласования систем с требованиями отчётности</li>
+                    <li>Перестройка финансового контроля по автопарку: автоматизация выставления счетов, расчёты с подрядчиками, учёт затрат</li>
+                    <li>Внедрение правил сверки — сокращение расхождений в платежах, ускорение закрытия периода</li>
+                    <li>Формализация правил принятия решений при неполных данных, контроль отклонений</li>
+                    <li>Координация между финансами, операциями и ИТ для настройки систем под требования учёта</li>
                 </ul>
             </div>
         </div>
@@ -308,13 +222,13 @@
                 <div class="experience-title">Консультант по стратегии и инвестициям</div>
                 <div class="experience-date">2022 — 2024</div>
             </div>
-            <div class="experience-company">Top-Tier Consulting Firm, Tör Altai Nuclear Consulting, Transtelecom JSC | Казахстан</div>
+            <div class="experience-company">Консалтинговая компания, Tör Altai Nuclear Consulting, Transtelecom | Казахстан</div>
             <div class="experience-description">
                 <ul>
-                    <li>Разработка инвестиционных кейсов и финансовых моделей для телеком-продуктов, перевод стратегии в логику распределения капитала</li>
-                    <li>Маркетинговые исследования и конкурентный анализ для международных игроков ядерного топлива</li>
-                    <li>Проектирование баз данных мониторинга и отслеживания KPI для международных пилотных проектов</li>
-                    <li>Прогнозирование спроса, оценка рынка и регуляторный анализ для инвестиций на $100M+</li>
+                    <li>Подготовка инвесткейсов и финмоделей для телеком-продуктов, перевод стратегии в логику распределения капитала</li>
+                    <li>Маркетинговые исследования и конкурентный анализ для международных игроков рынка ядерного топлива</li>
+                    <li>Построение баз данных для мониторинга KPI в международных пилотных проектах</li>
+                    <li>Прогноз спроса, оценка рынка, регуляторный анализ по сделкам от $100M</li>
                 </ul>
             </div>
         </div>
@@ -324,46 +238,39 @@
                 <div class="experience-title">Консультант → Старший консультант</div>
                 <div class="experience-date">Окт 2016 — Янв 2021</div>
             </div>
-            <div class="experience-company">PwC Казахстан | Астана, Казахстан</div>
+            <div class="experience-company">PwC Казахстан | Астана</div>
             <div class="experience-description">
                 <ul>
-                    <li>Участник PMO бизнес-трансформации национального нефтегазового оператора, координация рабочих потоков и отслеживание инвестиций</li>
-                    <li>Разработка ТЭО и DCF/LBO моделей для нефтехимических, нефтесервисных и downstream-проектов</li>
-                    <li>Оценка рынка, PESTEL-анализ и регуляторные оценки для инфраструктурных и экспортных проектов</li>
-                    <li>Аналитическая поддержка решений инвестиционных комитетов</li>
+                    <li>Участие в PMO трансформации национальной нефтегазовой компании: координация рабочих групп, контроль инвестиций</li>
+                    <li>Разработка ТЭО и финмоделей (DCF/LBO) для нефтехимии, нефтесервиса и переработки</li>
+                    <li>Оценка рынков, PESTEL-анализ, регуляторные заключения по инфраструктурным и экспортным проектам</li>
+                    <li>Аналитическая поддержка инвестиционного комитета</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Education & Certifications -->
     <div class="section">
-        <div class="section-title">Образование и сертификаты</div>
-
+        <div class="section-title">Образование</div>
         <div style="margin-bottom: 4px;">
             <span style="font-weight: bold; font-size: 10pt;">Бакалавр — Политология и международные отношения</span>
             <span style="font-size: 9pt; color: #333;"> | Назарбаев Университет | 2012 — 2016</span>
         </div>
         <div>
             <span style="font-weight: bold; font-size: 9.5pt;">Сертификаты:</span>
-            <span class="cert-item" style="font-size: 9.5pt;">
-                Financial Modeling & Valuation Analyst (FMVA®) — CFI, 2024
-            </span>
+            <span style="font-size: 9.5pt;">Financial Modeling & Valuation Analyst (FMVA®) — CFI, 2024</span>
         </div>
     </div>
 
-
-    <!-- Skills -->
     <div class="section">
-        <div class="section-title">Ключевые компетенции</div>
+        <div class="section-title">Навыки</div>
         <div style="font-size: 9pt; line-height: 1.4;">
-            <p style="margin-bottom: 4px;"><strong>Финансовые системы:</strong> проектирование платёжной инфраструктуры, логика сверки и расчётов, автоматизация биллинга, признание выручки, распределение затрат</p>
-            <p style="margin-bottom: 4px;"><strong>Инвестиции и анализ:</strong> финансовое моделирование (DCF, LBO, юнит-экономика), основы торговли акциями и опционами, интеграция с брокерскими API, due diligence</p>
-            <p style="margin-bottom: 0;"><strong>Операции:</strong> системный анализ, оформление процессов, взаимодействие финансовых и технических команд, автоматизация</p>
+            <p style="margin-bottom: 4px;"><strong>Финансовые системы:</strong> платёжная инфраструктура, сверка и взаиморасчёты, автоматизация биллинга, учёт выручки, распределение затрат</p>
+            <p style="margin-bottom: 4px;"><strong>Инвестиции и аналитика:</strong> финмоделирование (DCF, LBO, юнит-экономика), основы торговли акциями и опционами, интеграция с брокерским API, due diligence</p>
+            <p style="margin-bottom: 0;"><strong>Операции:</strong> системный анализ, постановка процессов, взаимодействие финансов и ИТ, автоматизация</p>
         </div>
     </div>
 
-    <!-- Languages -->
     <div class="section">
         <div class="section-title">Языки</div>
         <div style="font-size: 9pt;">
