@@ -1,851 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQNIYET</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AQNIYET</title>
+  <meta name="description" content="Akniyet — systems-oriented builder. Payment infrastructure, enterprise ERP, strategy.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-        ::selection {
-            background: #0f0;
-            color: #000;
-        }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'IBM Plex Mono', monospace;
-            background: #000;
-            color: #fff;
-            line-height: 1.4;
-            -webkit-font-smoothing: antialiased;
-            cursor: crosshair;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* MATRIX RAIN */
-        #matrix-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.15;
-            pointer-events: none;
-        }
-
-        /* NAV */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 20px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: transparent;
-            transition: all 0.4s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            padding: 15px 30px;
-            border-bottom: 1px solid rgba(0, 255, 0, 0.3);
-        }
-
-        nav.in-ascii {
-            mix-blend-mode: difference;
-        }
-
-        nav.in-ascii .nav-logo,
-        nav.in-ascii .nav-links a {
-            color: #fff;
-        }
-
-        .nav-logo {
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #0f0;
-            transition: all 0.3s;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a {
-            transition: all 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #0f0;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            border-bottom: 1px solid #0f0;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        /* ASCII BANNER */
-        .ascii-banner {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .ascii-art {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(2px, 0.75vw, 8px);
-            line-height: 1;
-            letter-spacing: 0;
-            white-space: pre;
-            color: #0f0;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-            display: block;
-        }
-
-        .hero-cta {
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            padding: 20px 40px;
-            border: 1px solid rgba(0, 255, 0, 0.6);
-            color: #0f0;
-            transition: all 0.3s;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-        }
-
-        .hero-cta:hover {
-            background: rgba(0, 255, 0, 0.9);
-            color: #000;
-            border-color: #0f0;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
-        }
-
-        /* SECTION */
-        section {
-            padding: 100px 30px;
-            border-bottom: 1px solid #222;
-            position: relative;
-            z-index: 1;
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        .section-label {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #0f0;
-            margin-bottom: 60px;
-        }
-
-        /* PROJECTS */
-        .project {
-            margin-bottom: 80px;
-            padding-bottom: 80px;
-            border-bottom: 1px solid #1a1a1a;
-        }
-
-        .project:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .project-name {
-            font-size: clamp(32px, 8vw, 72px);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            transition: all 0.2s;
-        }
-
-        .project-name:hover {
-            color: #0f0;
-            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-        }
-
-        .project-status {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 8px 16px;
-            border: 1px solid currentColor;
-        }
-
-        .project-status.live {
-            color: #0f0;
-            border-color: #0f0;
-        }
-
-        .project-status.wip {
-            color: #ff0;
-            border-color: #ff0;
-        }
-
-        .project-desc {
-            max-width: 600px;
-            font-size: 14px;
-            line-height: 1.9;
-            color: #888;
-            margin-bottom: 40px;
-        }
-
-        .project-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 30px;
-        }
-
-        .feature-tag {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 10px 16px;
-            background: #0a0a0a;
-            border: 1px solid #222;
-            transition: all 0.2s;
-        }
-
-        .feature-tag:hover {
-            border-color: #0f0;
-            color: #0f0;
-        }
-
-        .project-link {
-            display: inline-block;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #0f0;
-            transition: opacity 0.2s;
-        }
-
-        .project-link:hover {
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-
-        /* CONTACT */
-        .contact {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-title {
-            font-size: clamp(32px, 10vw, 100px);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: -0.03em;
-            margin-bottom: 60px;
-            color: #0f0;
-            text-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 800px;
-        }
-
-        .contact-item {
-            display: block;
-        }
-
-        .contact-label {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #444;
-            margin-bottom: 12px;
-        }
-
-        .contact-value {
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        .contact-item:hover .contact-value {
-            color: #0f0;
-        }
-
-        /* FOOTER */
-        footer {
-            padding: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #333;
-            border-top: 1px solid #1a1a1a;
-            position: relative;
-            z-index: 1;
-            background: #000;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-
-            nav.scrolled {
-                padding: 12px 20px;
-            }
-
-            .nav-links {
-                gap: 20px;
-                font-size: 10px;
-            }
-
-            .hero {
-                padding: 0;
-                min-height: auto;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .ascii-banner {
-                width: 100vw;
-                overflow: hidden;
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                padding-top: 60px;
-            }
-
-            .ascii-art {
-                font-size: 4px;
-                transform-origin: top center;
-            }
-
-            .hero-cta {
-                position: static !important;
-                bottom: auto !important;
-                left: auto !important;
-                transform: none !important;
-                margin: 50px auto 40px;
-                display: block;
-                width: fit-content;
-                background: rgba(0, 0, 0, 0.4);
-            }
-
-            section {
-                padding: 60px 20px;
-            }
-
-            .project-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            .contact-grid {
-                gap: 30px;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .ascii-banner {
-                padding-top: 50px;
-            }
-
-            .hero-cta {
-                margin: 20px auto;
-                padding: 12px 24px;
-                font-size: 10px;
-            }
-        }
-
-        /* SCANLINES */
-        .scanlines {
-            position: fixed;
-            top: 0;
-            left: 0;
-                width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1000;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.15),
-                rgba(0, 0, 0, 0.15) 1px,
-                transparent 1px,
-                transparent 2px
-            );
-            opacity: 0.5;
-        }
-    </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <canvas id="matrix-canvas"></canvas>
-    <div class="scanlines"></div>
 
-    <!-- NAV -->
-    <nav>
-        <div class="nav-logo">AQNIYET</div>
-        <div class="nav-links">
-            <a href="#work">Work</a>
-            <a href="#contact">Contact</a>
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- LOADER -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader-line">&gt; INITIALIZING...</div>
+    <div class="loader-line">&gt; LOADING MODULES...</div>
+    <div class="loader-line">&gt; SYSTEMS ONLINE...</div>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <a href="#hero" class="nav-logo">AQNIYET</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-triptych" aria-hidden="true">
+      <img src="portrait.svg" alt="" class="hero-bg hero-bg--1">
+      <img src="portrait.svg" alt="" class="hero-bg hero-bg--2">
+      <img src="portrait.svg" alt="" class="hero-bg hero-bg--3">
+      <img src="portrait.svg" alt="" class="hero-bg hero-bg--4">
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-name" data-text="AKNIYET TULAKBAYEV">AKNIYET TULAKBAYEV</h1>
+      <p class="hero-sub" data-text="I build systems that run businesses.">I build systems that run businesses.</p>
+      <div class="hero-line"></div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about">
+    <div class="section-label reveal">System Dashboard</div>
+
+    <div class="about-grid">
+      <!-- Bio -->
+      <div class="about-bio reveal">
+        Systems-oriented builder with 10+ years structuring ambiguous business
+        environments into functional operating systems. From PwC consulting to
+        founding my own products in railway logistics and fintech. Based in Almaty.
+      </div>
+
+      <!-- Placeholder for alignment -->
+      <div></div>
+    </div>
+
+    <!-- Capabilities -->
+    <div class="capabilities-grid">
+      <div class="capability reveal">
+        <div class="capability-title">System Design</div>
+        <div class="capability-desc">Translating messy business logic into clean, scalable architectures.</div>
+      </div>
+      <div class="capability reveal">
+        <div class="capability-title">Strategy</div>
+        <div class="capability-desc">Market analysis, financial modeling, operational restructuring.</div>
+      </div>
+      <div class="capability reveal">
+        <div class="capability-title">Execution</div>
+        <div class="capability-desc">Ship fast, iterate, maintain. From concept to production.</div>
+      </div>
+      <div class="capability reveal">
+        <div class="capability-title">Product</div>
+        <div class="capability-desc">End-to-end product builds — from zero to revenue, from idea to paying users.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ========== WORK ========== -->
+  <section id="work">
+    <div class="section-label reveal">Selected Work</div>
+
+    <div class="projects-list">
+      <!-- RailClerk -->
+      <div class="project-card reveal">
+        <div class="project-header">
+          <span class="project-name">RailClerk</span>
+          <span class="project-status live">Live</span>
         </div>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="ascii-banner">
-            <pre class="ascii-art" id="ascii-banner"></pre>
+        <p class="project-desc">
+          Railway companies tracked wagons in Excel chaos — broken formulas,
+          version conflicts, manual day counts that led to billing errors and
+          supplier disputes. RailClerk replaced all of it: automated movement
+          tracking, precise rental calculations, one-click billing, and a
+          single source of truth for the entire fleet.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Movement Tracking</span>
+          <span class="project-tag">Rental Billing</span>
+          <span class="project-tag">Excel Reports</span>
+          <span class="project-tag">Data Import</span>
         </div>
-        <a href="#contact" class="hero-cta">Let's talk →</a>
-    </section>
+        <a href="https://railclerk.com" target="_blank" rel="noopener" class="project-link">
+          Visit Site <span class="arrow">&rarr;</span>
+        </a>
+      </div>
 
-    <!-- WORK -->
-    <section id="work">
-        <div class="section-label">Selected Work</div>
-
-        <div class="project">
-            <div class="project-header">
-                <a href="https://railclerk.com" target="_blank" class="project-name">RailClerk</a>
-                <span class="project-status live">Live</span>
-            </div>
-            <p class="project-desc">
-                Enterprise ERP for railway wagon rental. Fleet tracking, supplier management, 
-                movement monitoring, automated billing, cost calculations. The whole thing.
-            </p>
-            <div class="project-features">
-                <span class="feature-tag">Movement Tracking</span>
-                <span class="feature-tag">Billing System</span>
-                <span class="feature-tag">Reporting</span>
-                <span class="feature-tag">Access Control</span>
-            </div>
-            <a href="https://railclerk.com" target="_blank" class="project-link">Visit Site →</a>
+      <!-- Eunoia -->
+      <div class="project-card reveal">
+        <div class="project-header">
+          <span class="project-name">Eunoia</span>
+          <span class="project-status wip">WIP</span>
         </div>
-
-        <div class="project">
-            <div class="project-header">
-                <a href="https://eunoia.kz" target="_blank" class="project-name">Eunoia</a>
-                <span class="project-status wip">WIP</span>
-            </div>
-            <p class="project-desc">
-                Instant payouts in Kazakhstan. Send money with just a phone number. 
-                10-second transfers via СМП. 11 banks. Full API automation.
-            </p>
-            <div class="project-features">
-                <span class="feature-tag">Phone-Only Payouts</span>
-                <span class="feature-tag">10s Transfers</span>
-                <span class="feature-tag">REST API</span>
-                <span class="feature-tag">Audit Trail</span>
-            </div>
-            <a href="https://eunoia.kz" target="_blank" class="project-link">Visit Site →</a>
+        <p class="project-desc">
+          Instant payouts in Kazakhstan. Send money with just a phone number.
+          10-second transfers via SMP. 11 banks. Full API automation.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Phone-Only Payouts</span>
+          <span class="project-tag">10s Transfers</span>
+          <span class="project-tag">REST API</span>
+          <span class="project-tag">Audit Trail</span>
         </div>
-    </section>
+        <a href="https://eunoia.kz" target="_blank" rel="noopener" class="project-link">
+          Visit Site <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-        <h2 class="contact-title">Got a Problem?</h2>
+  <div class="section-divider"></div>
 
-        <div class="contact-grid">
-            <a href="mailto:aqniyet@yandex.kz" class="contact-item">
-                        <div class="contact-label">Email</div>
-                <div class="contact-value">aqniyet@yandex.kz</div>
-            </a>
-            <a href="tel:+77752377700" class="contact-item">
-                        <div class="contact-label">Phone</div>
-                <div class="contact-value">+7 775 237 77 00</div>
-            </a>
-            <a href="https://www.linkedin.com/in/akniyet/" target="_blank" class="contact-item">
-                        <div class="contact-label">LinkedIn</div>
-                <div class="contact-value">/in/akniyet</div>
-            </a>
-            <a href="https://github.com/aqniyet" target="_blank" class="contact-item">
-                        <div class="contact-label">GitHub</div>
-                <div class="contact-value">/aqniyet</div>
-            </a>
-                </div>
-    </section>
+  <!-- ========== CONTACT ========== -->
+  <section id="contact">
+    <h2 class="contact-headline">GOT A PROBLEM?</h2>
 
-    <!-- FOOTER -->
-    <footer>
-        <span>© 2025</span>
-        <span>Almaty, Kazakhstan</span>
-    </footer>
+    <div class="contact-grid">
+      <a href="mailto:aqniyet@aqniyet.com" class="contact-item reveal">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">aqniyet@aqniyet.com</div>
+      </a>
+      <a href="tel:+77752377700" class="contact-item reveal">
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+7 775 237 77 00</div>
+      </a>
+      <a href="https://www.linkedin.com/in/akniyet/" target="_blank" rel="noopener" class="contact-item reveal">
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">/in/akniyet</div>
+      </a>
+      <a href="https://github.com/aqniyet" target="_blank" rel="noopener" class="contact-item reveal">
+        <div class="contact-label">GitHub</div>
+        <div class="contact-value">/aqniyet</div>
+      </a>
+    </div>
 
-    <script>
-        // Matrix Rain Effect
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
+    <!-- CTA -->
+    <a href="mailto:aqniyet@aqniyet.com" class="cta-btn" data-magnetic>LET'S TALK &rarr;</a>
+  </section>
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <span>2025</span>
+    <span>ALMATY, KAZAKHSTAN</span>
+  </footer>
 
-        const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const charArray = chars.split('');
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops = [];
+  <!-- CDN Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-        for (let i = 0; i < columns; i++) {
-            drops[i] = Math.random() * -100;
-        }
+  <!-- App -->
+  <script src="js/main.js"></script>
 
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = '#0f0';
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const char = charArray[Math.floor(Math.random() * charArray.length)];
-                ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        setInterval(drawMatrix, 50);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        // Nav transformation on scroll
-        const nav = document.querySelector('nav');
-        const hero = document.querySelector('.hero');
-        
-        function updateNav() {
-            const heroBottom = hero.offsetTop + hero.offsetHeight;
-            const scrollY = window.scrollY;
-            
-            // Check if we're in the ASCII art section
-            if (scrollY < heroBottom - 100) {
-                nav.classList.add('in-ascii');
-                nav.classList.remove('scrolled');
-            } else {
-                nav.classList.remove('in-ascii');
-                nav.classList.add('scrolled');
-            }
-        }
-        
-        window.addEventListener('scroll', updateNav);
-        updateNav(); // Initial check
-
-        // ASCII Banner - embedded directly
-        const bannerText = `@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@:                                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.                   .=@@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@@           .@@@@@@                                  @@@@@@@@@           @@@@@@@@@@@@@@@@@@@@@@@@@@@@                  .-%@@@@@@@@@@@@@@@@@@@@@ --=====-::--------::::::::::::-:.     .:::--:.---:-::.::-:--=--::::::::::::::::::::::::::. @@@@@
-@@@@@@@@@@@@                                  :@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                           :@@@@@@@@@@@@            @@@@@@@@@@@@@            @@@@@@                                  @@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@                                                                                            @@@@@
-@@@@@@@@@@@@                                  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                              @@@@@@@@@@            @@@@@@@@@@@@@            @@@@@@                                  @@@@@@@@#           @@@@@@@@@@@@@@@@@@@@@@@@@@@@                             @@@@@@@@@@@@@                                 @@@*-.         : :*                                        @@@@@
-@@@@@@@@@@@@                                  %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                @@@@@@@@            @@@@@@@@@@@@@            @@@@@@                                  @@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@                               @@@@@@@@@@@                      = #@@@@@@@@=     -       @@.. @@*.:+-.                                @@@@@
-@@@@@@@@@@@@                                  -@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                 @@@@@@@            @@@@@@@@@@@@@            @@@@@@                                  @@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@                                @@@@@@@@@@                   .@*%%@**++  :::**  +*%# #    ..@@  :=%%.                                 @@@@@
-@@@@@@@@@@@@          .            :          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@%               @@@@@@            @@@@@@@@@@@@@            @@@@@@                                  @@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@                                  @@@@@@@@                   @@#%%%##*@@@%#+   @*:=-:+#@*+#@   @:                                     @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@+           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@            @@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@#           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@              @@@@@@@@                +@@%%+:.:=--:-=+%%@:+ :+=++=+#=++.==-:.-+##+#@@@@*    :-                    @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@           +@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@%            @@@@@@@               %*%%  =****=*#+-=-.=**%=-#+#=+*=++**#*##%#****##%##=-  =.                    @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@           +@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@#           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@%            @@@@@@             *@#+. =****++**+*###%%@-%**+#*++*=*##*####**#**#*++=.   %*=@@ . .              @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@           +@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@+           @@@@@@           -+-  .+*+===*+***######+:-: .+*.-+==#+++++*#%%#%%%@%#%@@-   : --.   -            @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@           @@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@         ***. +%@%*+*#*+**##@%%*-       .  +==+:           .. -=*#%@@%-:=++ =+              @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@            @@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@        @-  -#%#+**###%%%%*==                                    .-***%= -**+::@. :.        @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@           @@@@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@       @. .=+**++*#%%%#=-.                                         .=*+*=:   ..             @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                               @@@@@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@#           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@      % .+#+#=+**%##=                                               .:+**+:%%-:=@* .@       @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                          :@@@@@@@@@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@     @ =-:##+**#+#+:.                                                .=###*.:@#= .=  .:     @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                             @@@@@@@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@#           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@    = .=+-#++##*#*:.                                                   -###%- -%*= =   #    @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                @@@@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@    @+:%=*++##*##= .                                                    =%#*##--*#%++  :    @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @****#                @@@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@    = =*=*+%**####:                                                     :**#**##+=-=#%=     @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@           -@@@@@@@@@@@            @@@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@    % #*+***##**#*                                                       =##+*+++++#%*@-*:  @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@            @@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@#           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@    *-#=**####*##-                                                        .*#*****+=.+%#    @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@            @@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@#           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@            @@@@@    %#+##****##%%:                                          .===*%%#-      .@%*****#-*  :   @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@            @@@@            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@#           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@           @@@@@@    -@*#+***+*#%.      :-- ... ..                     .-@@@@@@@@@++.:=      -@******-   @ : @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@            @@@@            @@@@@@@@@@@@@           #@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@            @@@@@@  #:#%*+#***#%@      *@@@@@@@@@@#@#*:                  :+%%#:     ..         @#*****@ @     @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@            @@@@            @@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@#           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@            %@@@@@@    =*+=#####@:     :=-::+=--#%%#..                   .                      @%****=@*      @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@:           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@.            @@@@@            @@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@             -@@@@@@@     @.:##**%@                             .   :                             -@**#**@       @@@@@
-@@@@@@@@@@@@#-%%%%%%%%@            @@%%%%%%%#:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@              +@@@@@              @@@@@@+              @@@@@@@ #%%%%%%%@@           =@%%%%%%%%+-@@@@@@@@#                                 *@@@@@                                  @@@@@@@@     :+ #+*#@@                                         *@@@%@@+@@*.           @*****@       @@@@@
-@@@@@@@@@@@@                                  .@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                  .@@@@@@@                                 @@@@@@@@                                  @@@@@@@@*                                 *@@@@@                                 @@@@@@@@@   .*@@+#%#*@-             .*@@@@@@-+    .           %%  @@#@:  ::-:..        @#*##*@       @@@@@
-@@@@@@@@@@@@                                  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                 =@@@@@@@@@                               @@@@@@@@@                                  @@@@@@@@#                                 @@@@@@                               @@@@@@@@@@@         @@#@        :##@@@%  @@@@ :+#. .                                     @#**##@       @@@@@
-@@@@@@@@@@@@                                  %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                @@@@@@@@@@@@                             @@@@@@@@@@                                  @@@@@@@@*                                 @@@@@@                             *@@@@@@@@@@@@          #%@                                                                 @%#+#@        @@@@@
-@@@@@@@@@@@@                                  =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                             @@@@@@@@@@@@@@@@@                         @@@@@@@@@@@@                                  @@@@@@@@:                                 +@@@@@                          -@@@@@@@@@@@@@@@          .-@                                                                 @#-.@@        @@@@@
-@@@@@@@@@@@@                                  %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                        *@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@@@@@@@@@@                                  @@@@@@@@*                                 %@@@@@                     @@@@@@@@@@@@@@@@@@@@@         *@=@                                                                 @*=+%         @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         -==@          .                                                     .@#*#@         @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         .@+#.                                     .                         +%@=+@         @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @*@@                      .:*             @:                       %@             @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @  @                      :=               :.                     +@*             @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@             @+                    .=                 *-                    @+@             @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@*          -@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:          *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*          :@@@@@@@@@@@@@@@@@@              @.                   -+  .          @*  :=.                  @   .            @@@@@
-@@@@@@@@@@@@@@@@@@@        :@@@@@.       @@@@@@               @@@@@@@@@@@@@@@@@              -@@@@@@@@        @@@@@@        @@@@@@@@                                           @@                                   :@@@               @@@@@@@@@@@              @@@@@@@@@@@        *@@@@@        *@@@@@@@@@@@@               *                  :   ++@@@@=.:#@+*-.   :.                =@*               @@@@@
-@@@@@@@@@@@@@@@@    @@@@@@@@@@@@@@@@@@@@@    @@@@  @@@@@@@@@@  @@@@@@@@@@@@@@@:  @@@@@@@@@@  @@@@@@    @@@@@@@@@@@@@@@@@@@@    @@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@. @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@  @@@@@@@@@@@@ .@@@@@@@@@  @@@@@@@@@@@# @@@@@@@@    @@@@@@@@@@@@@@@@@@@@@    @@@@@@@@@               :=                ..    -@#.     --*##:    :                 #               @@@@@
-@@@@@@@@@@@@@@:  @@@@@@@@@@@@@@@@@@@@@@@@@@#   @@   @@@@@@@@@@  @@@@@@@@@@@@@@  @@@@@@@@@   @@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@   +@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@  @@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@  @@@@@@   %@@@@@@@@@@@@@@@@@@@@@@@@@%   @@@@@@@                                    .*@%#-+*@@@=:+@%#%#    .             :                  @@@@@
-@@@@@@@@@@@@@  =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  :@. @@@@@@@@@@.  @@@@@@@@@@@@  @@@@@@@@@#  @@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@  @@@@@@@@@@@@@  @@@@@@@  @@@@@@@@@@@@  @@@@@  :@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@                             :  .-@@@@@@@.-*@@@@@%@@@@@@@%-...           #=                 @@@@@
-@@@@@@@@@@@@  @@@@@@@@@@@@@@.   %@@@@@@@@@@@@   @@@  %@@@@@@@@@  @@@@@@@@@@@  #@@@@@@@@@  @@@@%  @@@@@@@@@@@@@@   :@@@@@@@@@@@@@   @  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@  @@@@@@@@@@@@@  @@@@@@  %@@@@@@@@@@@@  @@@@  @@@@@@@@@@@@@@:   %@@@@@@@@@@@@   @@@@@@                              .+%%**%+:.    *+.    .*%@%%%*++:            %                 @@@@@
-@@@@@@@@@@@* @@@@@@@@@@@              @@@@@@  @@@@@@  @@@@@@@@@@  @@@@@@@@@@ @@@@@@@@@@  @@@@@  @@@@@@@@@@@             =@@@@@   @@@                 @@@@@@@@@                 @@  #@@@@@@@@                        -@@@  @@@@@@@@@@@@@@  @@@@@  @@@@@@@@@@@@@  @@@@ @@@@@@@@@@@              @@@@@%  @@@@@@@@                             #%*##+=.                 .=%#@#*+=                             @@@@@
-@@@@@@@@@@@  @@@@@@@@@   @@@@@@@@@@@@   @@   @@@@@@@@  @@@@@@@@@@  @@@@@@@*  @@@@@@@@@  @@@@@%  @@@@@@@@@  @@@@@@@@@@@@@   @@  @@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@- @@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@  @@@  @@@@@@@@@@@@@@  @@@  @@@@@@@@@@  @@@@@@@@@@@@   %@  .@@@@@@@@@                             @@#: .=-.+**@@@#-+@@@*=-  . : :*@%:       +                    @@@@@
-@@@@@@@@@@*  @@@@@@@@@  @@@@@@@@@@@@@@@%   @@@@@@@@@@%  @@@@@@@@@@  @@@@@@  @@@@@@@@@  %@@@@@  @@@@@@@@@  :@@@@@@@@@@@@@@@    @@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@= =@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@  @@.  @@@@@@@@@@@@@@  @@@  @@@@@@@@@  @@@@@@@@@@@@@@@:   @@@@@@@@@@@                    .      .=# =*++.+=.      ..      :+. +-. .=@.     +@                    @@@@@
-@@@@@@@@@@. @@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*  @@@@@@@@@  @@@@@  %@@@@@@@@@  @@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@= =@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@  @@@@@@@  @  @@@@@:  @@@@@@@  @@# .@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                              ..                           =:         @                     @@@@@
-@@@@@@@@@@. @@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  -@@@@@@@@@  @@@   @@@@@@@@+  @@@@@@@  @@@@@@@@@  %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@- -@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@   @@@@@@@   @@@@@@   @@@@@@@  @@# .@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                   =@-                                      .        #@@                    @@@@@
-@@@@@@@@@@@  @@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@  @@  @@@@@@@@@  @@@@@@@@  @@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@- -@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@    @@@@@@   @@@@@    @@@@@@@  @@@  @@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@                  @@@% .   .=*=:.   . :++#@@@@@@%#++-+-  . +#=:.  .+ @@@@*                  @@@@@
-@@@@@@@@@@@  @@@@@@@@@@@      @@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @  @@@@@@@@@  @@@@@@@@@@  @@@@@@@@@@@     *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@= @@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@  : @@@@@@@@@@@@@@    @@@@@@@  @@@  @@@@@@@@@@@      @@@@@@@@@@@@@@@@@@@@@@@@              @@@@@%+* #+-.:-#*++.     =-%*#@@@@@@@:     -@%#*=#+#*. @%@@. .+-              @@@@@
-@@@@@@@@@@@@ @@@@@@@@@@@@@@@          @@@@@@@@@@@@@@@@@@@@  @@@@@@@@@    @@@@@@@@  @@@@@@@@@@@  @@@@@@@@@@@@@@-          @@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@                        @@@@  @@@@@@@  @  @@@@@@@@@@@@  @  @@@@@@@  @@@@ -@@@@@@@@@@@@@@          @@@@@@@@@@@@@@@@           @@@@@ *##@.  .=+#*%+**- .           . +    :-+%##**#+#*+  @@@@@      ---:        @@@@@
-@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@     *@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@  @@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@=     @@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@  @@@@@@@  @-  @@@@@@@@@@  -@  @@@@@@@  @@@@   @@@@@@@@@@@@@@@@@@@@@@     =@@@@@@@@@@@         @@@=*@:.#%#@*   ::*%%##*%***=--           : :**##%**%%*%*   %@@=@@@@.              @@@@@
-@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@   :@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@  @@@@@@@  @@  @@@@@@@@@@  @@  @@@@@@@  @@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@   -@@@@@@@@@ =%@@@+@@@%==%@ -#%#@@      :*@###%**#*:-*+=..  -= -%++*#****%=.:..@@+++                    @@@@@
-@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@  #@@@@@@@@@@@@@   @@@@@@@@@@@@@@@-  @@@@@@@@@@@@@@@@+   @@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@  @@@@@@@  @@@  @@@@@@@@  +@@  @@@@@@@  @@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@ +:=..@@@%#+*%@: *%#@@@...    -#*%@*%##%%@@@@@@@@@%%%##%@%##++:-=%@@*%@@*  -   +..          @@@@@
-@@@@@@@@@@@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@# @@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@  @@@@@@@  @@@  :@@@@@@+  @@@  @@@@@@@  @@@@@@@@@     -@@@@@@@@@@@@@@@@@@@@@@   @@@@@@ -::*@@%%#*=#%@@ .##%@@@+-@%.  ..--+@%@@@%@@%@@%@%%@@@##*+*-:==%@@%%#%@%:  =     .          @@@@@
-@@@@@@@@@@@@@@@@@@@@@          @@@@@@@@@@@@@@@  @@@@@@@@@@@@@@  @@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@          =@@@@@@@@@@@@@@*  @@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@+                       @@@@  @@@@@@@  @@@@  @@@@@@  @@@@  @@@@@@@  @@@@@@@@@@@@@          @@@@@@@@@@@@@@@  @@@@@@ -=#%%%##**+#%%@@@@@@@*    @@@#:::::::-:**.+*+##@+@@=:.:::.:-+@@@#%##%%#. :#          .     @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=     @@@@@@@@@@@@  @@@@@@@@@@@@@@  @@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-     @@@@@@@@@@@  @@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@  #@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@  @@@@   @@@@  *@@@@  @@@@@@@  @@@@@@@@@@@@@@@@@@@@@+     #@@@@@@@@@@@  @@@@@ +#%######*+#%%+   -   .@   =@@@@+==-:::.:.::.. .   .:::.:--%@@#%#@#@@@*-==@ -   :  -=:.  . @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@  @@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@  @@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@= =@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@  @@@@@  @@@%  @@@@@  @@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@  @@@@@.#%%%%###*#+#%%@@ @      *@. .*@@@@=----:... .. .       .-#@@%##@%*%@#=--:#.::  .:+ : .:    @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  +@@@@@@@@@  @@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@- -@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@  @@@@@@  @@  @@@@@@  @@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@=%%######**+*%%#@@  .      #@- :%@@@@#=:..       .:-%@@@@@@@###%@#%@%=---#+---.:.:-  -: ..  @@@@@
-@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@:@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@- =@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@  @@@@@@  +@ +@@@@@@  @@@@@@@  @@@@@@@+@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@+########****%%#@@+- :.  ....*@-.:%@@@@@@@@@@@@@@@@@@@%%%%#%##@@#%@*::=+@*----:---::=:.. .: @@@@@
-@@@@@@@@@@@@@@    @@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@@@+    @@@@@@@@@@@@@@@@@- .@@@@@@@@@  @@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@- -@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@  @@@@@@@    @@@@@@@  @@@@@@@  @@@@@@    @@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@+##########*##%%@..#++=--:---:-*%= .+@@@#@@%%%%#%#%%%%%%%####@@@%%=: =*%+========-=++ .. :: @@@@@
-@@@@@@@@@@@@   @@   @@@@@@@@@@@@@@@  @@@@@@@@@@  @@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@@  @@@   @@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@= %@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@  @@@@@@@@  @@@@@@@@  @@@@@@@  @@@@   @@   @@@@@@@@@@@@@@@   @@@@@@@@@  @@@@@+#############%%@+. ##=====-===--=@+: :+%+*@@@%%#%%%#%%%#%##%@%*=-:-+#@-=+++++====+- :----- @@@@@
-@@@@@@@@@@%  @@@@@@     @@@@@@@@@   :@@@@@@@@@  @@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@   @@@@@@     @@@@@@@@@   @@@@@@@@@@  @@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@                        @@@@  @@@@@@@  @@@@@@@@  @@@@@@@@  @@@@@@@  @@@  @@@@@@     @@@@@@@@@    @@@@@@@@@  @@@@@@+########*#**#%%%-:-.:+++========--=%%=.:--:*@%%###%%%%%####%%:-===+##:=====*+=++*#.:::::.- @@@@@
-@@@@@@@@@   @@@@@@@@@@@           @@@@@@@@@@@  @@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@+  @@@@@@@@@@@@          -@@@@@@@@@@@  @@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  +@@@  @@@@@@@  @@@@@@@@@@@@@@@@@@  @@@@@@@  @   @@@@@@@@@@@           @@@@@@@@@@@*  @@@@@@=#########***#%%%@#-=+=+**++++=====---#@*==-+-%%%#%#%%%#%##%*+==++*@+=++==+*+=++**::.-..::-.@@@@@
-@@@@@@@@%  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@  @@@@@@@  @@@@@@@@@@@@@@@@@@  @@@@@@@  *  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@+######*#######%##@@+=++==**+++==-===---=@*++=##@%##%%%%%%%@#**++@*+===++*+==++*# -...:=-:-.@@@@@
-@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  +@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@%  @@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@  @@@@@@@  @@@@@@@@@@@@@@@@@@  @@@@@@@  @@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  .@@@@@@@@=#########***###%#%#@@*++*==*##**++=======*#++=*%%%#%%%%%%%#*=+##++*#%*+++++***+:..-.-::.=+-@@@@@
-@@@@@@@@@@@@   #@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@   %@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@  @@@@@@@  @@@@@@@@@@@@@@@@@@  @@@@@@@  @@@@   -@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@=########*##**#%#####%%@#**#*-###*#**++*+++**#*++#%%%%#%#####@##++++=##++++*##---:.+::::-= :@@@@@
-@@@@@@@@@@@@@@@     @@@@@@@@@@@@@@@@@    @@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@@@@     -@@@@@@@@@@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@  @@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@= @@@@  @@@@@@@  @@@@@@@@@@@@@@@@@#  @@@@@@@  @@@@@@@     @@@@@@@@@@@@@@@@@    :@@@@@@@@@@@@=#*########*#####%#####%%%#*##*=+###+++++*+****#%%#######%%%%%##**++*+*#####+++++-.=+---:++.@@@@@
-@@@@@@@@@@@@@@@@@@@                  %@@@@@@@@@@@@@@@@@@@@@@@@@@             @@@@@@@@@@@@@@@@@@@@@@@@*                  @@@@@@@@@@@@@@@@@@@@@@@@@@@             @@@@@@@@@@@@@@@@@.                                  @@@@           @@@@@@@@@@@@@@@@@%           @@@@@@@@@@@                  =@@@@@@@@@@@@@@@@.--====+====--=+++=+=++++**++=+==:-===-:.:--:==++++=+++++++++++++++*++++=--:                @@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@                                         @@@           *@@@@@@@@@@@@           %@@@@@@@@@@@@@@@                @@@@@@@@@@@@@                                         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.         @@@@@@@@@@@@@@@@@@@@@@@@          @@@@@@@@@@@@@             @@@@@@@@@@@@@@@@@@                       -@@@@@@@@@@@@@@@@#           #@@@@@@@@@@@@@@             @@@@@@@@@@@@@@@@@
-@@@@@@@@@                                         @@@           .@@@@@@@@@@@@           -@@@@@@@@@@@@@@                  @@@@@@@@@@@@                                         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@@@@@@          @@@@@@@@@                     @@@@@@@@@@@@@@                            @@@@@@@@@@@@:           :@@@@@@@@@@@@@             @@@@@@@@@@@@@@@@@@
-@@@@@@@@@                                         @@@           *@@@@@@@@@@@@           %@@@@@@@@@@@@@@                  @@@@@@@@@@@@                                         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@@@@@@@@@@@@@@@@@@@         @@@@@@@@                         @@@@@@@@@@@@                               @@@@@@@@@#           *@@@@@@@@@@@@             @@@@@@@@@@@@@@@@@@@
-@@@@@@@@@                                         @@@           *@@@@@@@@@@@@           %@@@@@@@@@@@@@                   @@@@@@@@@@@@                                         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@@@@@@@@@@@@@@@@@@%         @@@@@@                             @@@@@@@@@@                                 @@@@@@@#           #@@@@@@@@@@             @@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@                                         @@@           *@@@@@@@@@@@@           %@@@@@@@@@@@@@                    @@@@@@@@@@@                                         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@@@@@@@@@@@@@@@@@@*         @@@@.                               @@@@@@@@@                                  @@@@@@#           #@@@@@@@@@             @@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@                                         @@@           *@@@@@@@@@@@@           %@@@@@@@@@@@@@                    @@@@@@@@@@*                                         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@@@@@@@@@@@@@@@@@@.         @@@@                                 @@@@@@@@                                   @@@@@#           #@@@@@@@@             @@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@@@@@@@@@@@                      @@@@@@@@@@@@@@@@@@@@@@@@*           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@@@@@@@@@@@@@@@@@@          @@@            :@@@@@@@@@             @@@@@@@           @@@@@@@@@@@             @@@@@#           #@@@@@@@             @@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@@@@@@@@@@@          @           @@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@@           @@@@@          @@            @@@@@@@@@@@@%            @@@@@@           @@@@@@@@@@@@-            @@@@#           *@@@@@@             @@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           @@@@@@@@@@@@           @=           @@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@@           @@@@@          @            :@@@@@@@@@@@@@@           @@@@@@           @@@@@@@@@@@@@            @@@@#           #@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@@@@@@@@@:          @@@           @@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@            @@@@@         -@            @@@@@@@@@@@@@@@            @@@@@           @@@@@@@@@@@@@            @@@@#           *@@@             @@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@@@@@@@@@           @@@            @@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@            :@@@@         @@            @@@@@@@@@@@@@@@            @@@@@           @@@@@@@@@@@@@            @@@@#           #@@             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           @@@@@@@@@@@           @@@@           @@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         @@@@@             @@@@         @%           @@@@@@@@@@@@@@@@            @@@@@           @@@@@@@@@@@@@            @@@@#           @@             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@           %@@@@@@@@@           @@@@@            @@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         @@@@@             @@@@         @            @@@@@@@@@@@@@@@@:           =@@@@           @@@@@@@@@@@@@            @@@@#           @            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@                                   %@@@@@@@@#          @@@@@@#           @@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         @@@@              @@@@         @            @@@@@@@@@@@@@@@@.            @@@@           @@@@@@@@@@@@            =@@@@#                        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@                                   %@@@@@@@@           @@@@@@@           :@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         @@@@       @      @@@@         @            @@@@@@@@@@@@@@@@.            @@@@                                   @@@@@#                        =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@                                   %@@@@@@@@           @@@@@@@%           @@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@      +@       @@@         @            @@@@@@@@@@@@@@@@.            @@@@                                  @@@@@@%                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@                                   @@@@@@@@           @@@@@@@@@           @@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@+      @@       @@@         @            @@@@@@@@@@@@@@@@.            @@@@                                 @@@@@@@#                           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@                                   %@@@@@@@           @@@@@@@@@@           @@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@       @@       @@@         @            @@@@@@@@@@@@@@@@             @@@@                               @@@@@@@@@#                            @@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@@           @@@@@@@+                                -@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@       @@       @@%         @            @@@@@@@@@@@@@@@@.           .@@@@                            @@@@@@@@@@@@#               @             @@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@@@@@                                  @@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@       @@        @          @            @@@@@@@@@@@@@@@@            #@@@@                            @@@@@@@@@@@@#              @@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@@@@=                                  @@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @#       @@=       @          @+           +@@@@@@@@@@@@@@@            @@@@@           @@@@@@           +@@@@@@@@@@@#             @@@@#            -@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@@@@                                    @@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-         @       @@@@       @          @@            @@@@@@@@@@@@@@@            @@@@@           @@@@@@            @@@@@@@@@@@#            @@@@@@             @@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@@@@                                    #@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         @       @@@@       @         -@@            @@@@@@@@@@@@@@@           =@@@@@           @@@@@@@            @@@@@@@@@@%           @@@@@@@@=            @@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@@@            @@@@@@@@@@@@@*            @@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         @       @@@@                 #@@@            @@@@@@@@@@@@@            @@@@@@           @@@@@@@@            @@@@@@@@@#           #@@@@@@@@             *@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@@@           @@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                @@@@@:                @@@@@            @@@@@@@@@@@             @@@@@@           @@@@@@@@@            @@@@@@@@#           #@@@@@@@@@             @@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           #@@@            @@@@@@@@@@@@@@@             @@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                @@@@@@                @@@@@              @@@@@@@              @@@@@@@           @@@@@@@@@             @@@@@@@#           *@@@@@@@@@@             @@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           @@@@           -@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                @@@@@@                @@@@@@                                 @@@@@@@@           @@@@@@@@@@             @@@@@@#           #@@@@@@@@@@@             @@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           +@@@@@@@@@@@@           %@@            @@@@@@@@@@@@@@@@@             @@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                @@@@@@                @@@@@@@                              @@@@@@@@@@           @@@@@@@@@@@            +@@@@@#           *@@@@@@@@@@@@             @@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           *@@@@@@@@@@@@           %@@           @@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.               @@@@@@                @@@@@@@@@                           @@@@@@@@@@@           @@@@@@@@@@@@             @@@@#           *@@@@@@@@@@@@@             @@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@           =@@@@@@@@@@@@           #@            @@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@              #@@@@@@%               @@@@@@@@@@@                       @@@@@@@@@@@@@           %@@@@@@@@@@@=            @@@@+           +@@@@@@@@@@@@@@             @@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@           -@            @@@@@@@@@@@@@@@@@@@+            @@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%              @@@@@@@@               @@@@@@@@@@@@@@                 @@@@@@@@@@@@@@@@           -@@@@@@@@@@@@             .@@.            @@@@@@@@@@@@@@=             @@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`;
-
-        const asciiElement = document.getElementById('ascii-banner');
-        
-        // Glitch intensity - varies over time
-        let glitchIntensity = 0.02;
-        let glitchWave = 0;
-        
-        function animateBanner() {
-            const glitchChars = ['@', '%', '#', '*', '+', '=', '-', ':', '.', ' ', '█', '▓', '▒', '░', '/', '\\', '|', '_', '~', '^'];
-            const lines = bannerText.split('\n');
-            let result = '';
-            
-            // Wave effect - glitch intensity varies
-            glitchWave += 0.1;
-            const waveGlitch = Math.sin(glitchWave) * 0.015 + glitchIntensity;
-            
-            // Random glitch burst
-            const burstActive = Math.random() < 0.05;
-            const burstIntensity = burstActive ? 0.15 : 0;
-            
-            // Random horizontal shift for some lines
-            const shiftLine = Math.floor(Math.random() * lines.length);
-            const shiftAmount = Math.random() < 0.03 ? Math.floor(Math.random() * 10) - 5 : 0;
-            
-            for (let lineIdx = 0; lineIdx < lines.length; lineIdx++) {
-                const line = lines[lineIdx];
-                
-                // Occasionally duplicate or skip a line
-                if (Math.random() < 0.005) {
-                    result += line + '\n' + line + '\n';
-                    continue;
-                }
-                
-                // Line-specific glitch intensity
-                const lineGlitch = lineIdx === shiftLine ? 0.1 : 0;
-                const totalGlitch = waveGlitch + burstIntensity + lineGlitch;
-                
-                // Horizontal shift
-                if (lineIdx === shiftLine && shiftAmount !== 0) {
-                    if (shiftAmount > 0) {
-                        result += ' '.repeat(shiftAmount) + line.slice(0, -shiftAmount) + '\n';
-                    } else {
-                        result += line.slice(-shiftAmount) + ' '.repeat(-shiftAmount) + '\n';
-                    }
-                    continue;
-                }
-                
-                for (let i = 0; i < line.length; i++) {
-                    const char = line[i];
-                    
-                    // Skip spaces and newlines from glitching (mostly)
-                    if (char === ' ' && Math.random() > 0.01) {
-                        result += char;
-                        continue;
-                    }
-                    
-                    // Apply glitch
-                    if (Math.random() < totalGlitch) {
-                        // Different glitch types
-                        const glitchType = Math.random();
-                        if (glitchType < 0.4) {
-                            // Replace with random char
-                            result += glitchChars[Math.floor(Math.random() * glitchChars.length)];
-                        } else if (glitchType < 0.6) {
-                            // Color shift simulation - repeat char
-                            result += char + char;
-                            i++; // Skip next char
-                        } else if (glitchType < 0.8) {
-                            // Delete char
-                            continue;
-                        } else {
-                            // Swap with nearby char
-                            if (i < line.length - 1) {
-                                result += line[i + 1];
-                            } else {
-                                result += char;
-                            }
-                        }
-                    } else {
-                        result += char;
-                    }
-                }
-                result += '\n';
-            }
-            
-            asciiElement.textContent = result;
-        }
-        
-        // Occasionally spike the glitch intensity
-        setInterval(() => {
-            if (Math.random() < 0.1) {
-                glitchIntensity = 0.08 + Math.random() * 0.1;
-                setTimeout(() => {
-                    glitchIntensity = 0.02;
-                }, 200 + Math.random() * 300);
-            }
-        }, 500);
-        
-        animateBanner();
-        setInterval(animateBanner, 50);
-
-        // Auto-scale ASCII to fit viewport width
-        function scaleAscii() {
-            const ascii = document.getElementById('ascii-banner');
-            const banner = document.querySelector('.ascii-banner');
-            
-            // Reset scale first to get true dimensions
-            ascii.style.transform = 'scale(1)';
-            banner.style.height = 'auto';
-            
-            const asciiWidth = ascii.scrollWidth;
-            const asciiHeight = ascii.scrollHeight;
-            const viewportWidth = banner.clientWidth;
-            
-            // Scale to fit width exactly
-            const scale = (viewportWidth / asciiWidth) * 0.98;
-            
-            ascii.style.transform = `scale(${scale})`;
-            
-            // Adjust container height to match scaled content (for mobile)
-            if (window.innerWidth <= 768) {
-                const scaledHeight = asciiHeight * scale;
-                banner.style.height = (scaledHeight + 40) + 'px';
-                banner.style.marginBottom = '20px';
-            }
-        }
-
-        // Run after first render
-        setTimeout(scaleAscii, 100);
-        window.addEventListener('resize', scaleAscii);
-    </script>
 </body>
 </html>
-
