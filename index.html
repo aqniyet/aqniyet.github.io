@@ -4,8 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AQNIYET</title>
-  <meta name="description" content="Akniyet — systems-oriented builder. Payment infrastructure, enterprise ERP, strategy.">
+  <meta name="description" content="Akniyet Tulakbayev — systems builder. Railway logistics, enterprise operations, strategy. Based in Almaty.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Akniyet Tulakbayev — Systems Builder">
+  <meta property="og:description" content="I build systems that run businesses. Railway logistics, enterprise operations, strategy.">
+  <meta property="og:image" content="https://aqniyet.com/og-image.png">
+  <meta property="og:url" content="https://aqniyet.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Akniyet Tulakbayev — Systems Builder">
+  <meta name="twitter:description" content="I build systems that run businesses.">
+  <meta name="twitter:image" content="https://aqniyet.com/og-image.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,20 +29,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- CUSTOM CURSOR -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-
-  <!-- LOADER -->
-  <div class="loader" aria-hidden="true">
-    <div class="loader-line">&gt; INITIALIZING...</div>
-    <div class="loader-line">&gt; LOADING MODULES...</div>
-    <div class="loader-line">&gt; SYSTEMS ONLINE...</div>
-    <div class="loader-bar-track">
-      <div class="loader-bar-fill"></div>
-    </div>
-  </div>
 
   <!-- NAVIGATION -->
   <nav class="nav">
@@ -52,112 +51,148 @@
       <img src="portrait.svg" alt="" class="hero-bg hero-bg--3">
       <img src="portrait.svg" alt="" class="hero-bg hero-bg--4">
     </div>
+    <div class="hero-fade" aria-hidden="true"></div>
     <div class="hero-content">
       <h1 class="hero-name" data-text="AKNIYET TULAKBAYEV">AKNIYET TULAKBAYEV</h1>
       <p class="hero-sub" data-text="I build systems that run businesses.">I build systems that run businesses.</p>
       <div class="hero-line"></div>
     </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <span class="scroll-hint-text">Scroll</span>
+      <div class="scroll-hint-line"></div>
+    </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="section-divider section-divider--blue"></div>
 
   <!-- ========== ABOUT ========== -->
   <section id="about">
-    <div class="section-label reveal">System Dashboard</div>
+    <div class="section-label reveal">About</div>
 
-    <div class="about-grid">
-      <!-- Bio -->
-      <div class="about-bio reveal">
-        Systems-oriented builder with 10+ years structuring ambiguous business
-        environments into functional operating systems. From PwC consulting to
-        founding my own products in railway logistics and fintech. Based in Almaty.
-      </div>
-
-      <!-- Placeholder for alignment -->
-      <div></div>
+    <div class="about-statement reveal">
+      I've spent 10+ years turning broken business operations into working
+      systems — from PwC consulting floors to building my own products in
+      railway logistics. Based in Almaty, building infrastructure for
+      industries that move real things across real borders.
     </div>
 
     <!-- Capabilities -->
     <div class="capabilities-grid">
       <div class="capability reveal">
+        <div class="capability-num">01</div>
         <div class="capability-title">System Design</div>
         <div class="capability-desc">Translating messy business logic into clean, scalable architectures.</div>
       </div>
       <div class="capability reveal">
+        <div class="capability-num">02</div>
         <div class="capability-title">Strategy</div>
         <div class="capability-desc">Market analysis, financial modeling, operational restructuring.</div>
       </div>
       <div class="capability reveal">
+        <div class="capability-num">03</div>
         <div class="capability-title">Execution</div>
         <div class="capability-desc">Ship fast, iterate, maintain. From concept to production.</div>
       </div>
       <div class="capability reveal">
+        <div class="capability-num">04</div>
         <div class="capability-title">Product</div>
-        <div class="capability-desc">End-to-end product builds — from zero to revenue, from idea to paying users.</div>
+        <div class="capability-desc">End-to-end builds — from zero to revenue, idea to paying users.</div>
       </div>
     </div>
-
   </section>
 
-  <div class="section-divider"></div>
+  <div class="section-divider section-divider--magenta"></div>
 
   <!-- ========== WORK ========== -->
   <section id="work">
-    <div class="section-label reveal">Selected Work</div>
+    <div class="section-label reveal">Case Study</div>
 
-    <div class="projects-list">
-      <!-- RailClerk -->
-      <div class="project-card reveal">
-        <div class="project-header">
-          <span class="project-name">RailClerk</span>
-          <span class="project-status live">Live</span>
-        </div>
-        <p class="project-desc">
-          Railway companies tracked wagons in Excel chaos — broken formulas,
-          version conflicts, manual day counts that led to billing errors and
-          supplier disputes. RailClerk replaced all of it: automated movement
-          tracking, precise rental calculations, one-click billing, and a
-          single source of truth for the entire fleet.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">Movement Tracking</span>
-          <span class="project-tag">Rental Billing</span>
-          <span class="project-tag">Excel Reports</span>
-          <span class="project-tag">Data Import</span>
-        </div>
-        <a href="https://railclerk.com" target="_blank" rel="noopener" class="project-link">
-          Visit Site <span class="arrow">&rarr;</span>
-        </a>
+    <!-- Project Header -->
+    <div class="project-card reveal">
+      <div class="project-header">
+        <span class="project-name">RailClerk</span>
+        <span class="project-status live">Live</span>
       </div>
+      <p class="project-desc">
+        Railway logistics platform that replaced Excel chaos with a single
+        operating system for wagon fleet management across Kazakhstan and CIS.
+        One platform, one source of truth — from movement tracking to supplier billing.
+      </p>
+    </div>
 
-      <!-- Eunoia -->
-      <div class="project-card reveal">
-        <div class="project-header">
-          <span class="project-name">Eunoia</span>
-          <span class="project-status wip">WIP</span>
+    <!-- The Problem -->
+    <div class="case-block reveal">
+      <div class="case-block-label">The Problem</div>
+      <div class="case-problem-grid">
+        <div class="case-problem-item">
+          <span class="case-problem-num">01</span>
+          <span>Wagon movements tracked across dozens of conflicting Excel files</span>
         </div>
-        <p class="project-desc">
-          Instant payouts in Kazakhstan. Send money with just a phone number.
-          10-second transfers via SMP. 11 banks. Full API automation.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">Phone-Only Payouts</span>
-          <span class="project-tag">10s Transfers</span>
-          <span class="project-tag">REST API</span>
-          <span class="project-tag">Audit Trail</span>
+        <div class="case-problem-item">
+          <span class="case-problem-num">02</span>
+          <span>Manual day-counting for rental billing — errors led to supplier disputes</span>
         </div>
-        <a href="https://eunoia.kz" target="_blank" rel="noopener" class="project-link">
-          Visit Site <span class="arrow">&rarr;</span>
-        </a>
+        <div class="case-problem-item">
+          <span class="case-problem-num">03</span>
+          <span>No audit trail — confirmed costs could be silently modified</span>
+        </div>
+        <div class="case-problem-item">
+          <span class="case-problem-num">04</span>
+          <span>Zero visibility into per-ride profitability across multiple suppliers</span>
+        </div>
       </div>
+    </div>
+
+    <!-- What I Built -->
+    <div class="case-block reveal">
+      <div class="case-block-label">What I Built</div>
+      <div class="case-modules-grid">
+        <div class="case-module">
+          <div class="case-module-name">Movement Engine</div>
+          <div class="case-module-desc">Async Excel ETL pipeline. Upload daily wagon data, auto-parse columns, resolve station codes, link movements to rides.</div>
+        </div>
+        <div class="case-module">
+          <div class="case-module-name">Batch Creator</div>
+          <div class="case-module-desc">Auto-groups wagon journeys from loaded to empty. Real batches from movements + synthetic batches for transit-only scenarios.</div>
+        </div>
+        <div class="case-module">
+          <div class="case-module-name">Day Counting Engine</div>
+          <div class="case-module-desc">450+ lines of billing logic. Rental days respecting loan periods, subtracting repair windows, monthly rate breakdowns.</div>
+        </div>
+        <div class="case-module">
+          <div class="case-module-name">Cost Aggregation</div>
+          <div class="case-module-desc">Unified supplier fees across wagon rental, local transit, international transit, and auxiliary services.</div>
+        </div>
+        <div class="case-module">
+          <div class="case-module-name">Confirmation Lock</div>
+          <div class="case-module-desc">Ride confirmation creates audit snapshots, locks linked costs, logs every blocked mutation. Director-only reversal.</div>
+        </div>
+        <div class="case-module">
+          <div class="case-module-name">RBAC + Multi-Tenant</div>
+          <div class="case-module-desc">Director / Supervisor / Specialist hierarchy. Financial visibility rules filter data at query level per role.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stack + CTA -->
+    <div class="case-footer reveal">
+      <div class="project-tags">
+        <span class="project-tag">Node / Express</span>
+        <span class="project-tag">PostgreSQL</span>
+        <span class="project-tag">SvelteKit</span>
+        <span class="project-tag">TypeScript</span>
+      </div>
+      <a href="https://railclerk.com" target="_blank" rel="noopener" class="project-link">
+        Visit railclerk.com <span class="arrow">&rarr;</span>
+      </a>
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="section-divider section-divider--yellow"></div>
 
   <!-- ========== CONTACT ========== -->
   <section id="contact">
-    <h2 class="contact-headline">GOT A PROBLEM?</h2>
+    <h2 class="contact-headline" data-text="LET'S BUILD SOMETHING.">LET'S BUILD SOMETHING.</h2>
 
     <div class="contact-grid">
       <a href="mailto:aqniyet@aqniyet.com" class="contact-item reveal">
@@ -178,8 +213,7 @@
       </a>
     </div>
 
-    <!-- CTA -->
-    <a href="mailto:aqniyet@aqniyet.com" class="cta-btn" data-magnetic>LET'S TALK &rarr;</a>
+    <a href="mailto:aqniyet@aqniyet.com" class="cta-btn">LET'S TALK &rarr;</a>
   </section>
 
   <!-- ========== FOOTER ========== -->
