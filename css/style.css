@@ -151,46 +151,6 @@ h1, h2, h3, h4 {
   overflow: hidden;
 }
 
-/* Portrait triptych — BOLD, not ghosted */
-.hero-triptych {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  pointer-events: none;
-  user-select: none;
-  overflow: hidden;
-}
-
-.hero-bg {
-  height: 100%;
-  width: 25%;
-  flex-shrink: 0;
-  object-fit: cover;
-  object-position: center top;
-  opacity: 0;
-}
-
-.hero-bg--1 { filter: hue-rotate(0deg) saturate(1.6) contrast(1.1); }
-.hero-bg--2 { filter: hue-rotate(80deg) saturate(1.6) contrast(1.1); }
-.hero-bg--3 { filter: hue-rotate(180deg) saturate(1.6) contrast(1.1); }
-.hero-bg--4 { filter: hue-rotate(270deg) saturate(1.6) contrast(1.1); }
-
-/* Left gradient fade so text stays readable */
-.hero-fade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    var(--c-bg) 0%,
-    var(--c-bg) 35%,
-    rgba(255, 253, 245, 0.6) 55%,
-    rgba(255, 253, 245, 0) 75%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
 
 .hero-content {
   position: relative;
@@ -296,7 +256,7 @@ section {
   transform: scaleX(0);
 }
 
-.section-divider--blue { background: var(--c-blue); }
+.section-divider--blue { background: var(--c-yellow); }
 .section-divider--magenta { background: var(--c-magenta); }
 .section-divider--yellow { background: var(--c-yellow); }
 
@@ -304,16 +264,22 @@ section {
    ABOUT
    ============================================ */
 #about {
-  background: var(--c-white);
+  background: var(--c-blue);
+  color: var(--c-white);
+}
+
+#about .section-label {
+  background: var(--c-yellow);
+  color: var(--c-black);
 }
 
 .about-statement {
   font-size: clamp(18px, 2vw, 26px);
   line-height: 1.65;
-  color: var(--c-fg);
+  color: rgba(255, 253, 245, 0.9);
   max-width: 700px;
   margin-bottom: 56px;
-  border-left: 4px solid var(--c-blue);
+  border-left: 4px solid var(--c-yellow);
   padding-left: 24px;
 }
 
@@ -337,7 +303,7 @@ section {
 }
 
 .capability:nth-child(1) { background: var(--c-yellow); color: var(--c-black); }
-.capability:nth-child(2) { background: var(--c-blue); color: var(--c-white); }
+.capability:nth-child(2) { background: var(--c-white); color: var(--c-black); }
 .capability:nth-child(3) { background: var(--c-magenta); color: var(--c-white); }
 .capability:nth-child(4) { background: var(--c-green); color: var(--c-black); }
 
@@ -381,7 +347,7 @@ section {
 }
 
 #work .section-label {
-  background: var(--c-magenta);
+  background: var(--c-blue);
   color: var(--c-white);
 }
 
@@ -642,7 +608,7 @@ section {
    CONTACT
    ============================================ */
 #contact {
-  background: var(--c-blue);
+  background: var(--c-magenta);
   color: var(--c-white);
 }
 
@@ -654,7 +620,7 @@ section {
   line-height: 0.95;
   margin-bottom: 48px;
   color: var(--c-white);
-  text-shadow: 4px 4px 0 var(--c-magenta);
+  text-shadow: 4px 4px 0 var(--c-black);
 }
 
 .contact-headline .char {
@@ -690,7 +656,7 @@ section {
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 253, 245, 0.5);
   margin-bottom: 8px;
 }
 
@@ -714,7 +680,7 @@ section {
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 18px 44px;
-  border: 3px solid var(--c-white);
+  border: 3px solid var(--c-black);
   color: var(--c-black);
   background: var(--c-yellow);
   margin-top: 40px;
@@ -740,7 +706,7 @@ section {
   letter-spacing: 2px;
   text-transform: uppercase;
   background: var(--c-black);
-  border-top: 3px solid var(--c-magenta);
+  border-top: 3px solid var(--c-green);
 }
 
 .footer span { opacity: 0.4; }
@@ -799,21 +765,9 @@ section {
     padding-bottom: 60px;
   }
 
-  .hero-triptych { flex-wrap: wrap; }
-  .hero-bg { width: 50%; height: 50%; }
-
   .hero-name {
     font-size: clamp(36px, 12vw, 70px);
     text-shadow: 4px 4px 0 var(--c-blue), -1px -1px 0 var(--c-magenta);
-  }
-
-  .hero-fade {
-    background: linear-gradient(
-      to bottom,
-      var(--c-bg) 0%,
-      rgba(255, 253, 245, 0.7) 40%,
-      rgba(255, 253, 245, 0.3) 100%
-    );
   }
 
   .scroll-hint { display: none; }

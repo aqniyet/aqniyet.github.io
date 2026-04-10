@@ -116,8 +116,6 @@
     const heroSub = document.querySelector('.hero-sub');
     const heroLine = document.querySelector('.hero-line');
     const scrollHint = document.querySelector('.scroll-hint');
-    const portraits = document.querySelectorAll('.hero-bg');
-
     const tl = gsap.timeline({ delay: 0.2 });
 
     // Scramble hero name
@@ -130,15 +128,6 @@
       });
     }
 
-    // Reveal portraits — bold opacity
-    if (portraits.length) {
-      tl.fromTo(portraits,
-        { opacity: 0, y: 60 },
-        { opacity: 0.55, y: 0, duration: 1.4, ease: 'power2.out', stagger: 0.15 },
-        '-=0.6'
-      );
-    }
-
     // Scramble subtitle
     if (heroSub) {
       const finalSub = heroSub.dataset.text || heroSub.textContent;
@@ -146,7 +135,7 @@
       tl.add(() => {
         heroSub.style.opacity = '1';
         scrambleText(heroSub, finalSub, { duration: 800 });
-      }, '-=0.8');
+      }, '+=0.3');
     }
 
     // Line draw
